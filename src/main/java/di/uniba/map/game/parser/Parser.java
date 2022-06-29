@@ -1,7 +1,6 @@
 package di.uniba.map.game.parser;
 
 import di.uniba.map.game.engine.GameDescription;
-import di.uniba.map.game.parser.ParserOutput;
 import di.uniba.map.game.type.Command;
 import di.uniba.map.game.type.Item;
 import di.uniba.map.game.type.Npc;
