@@ -10,8 +10,11 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- *
- * @author unipi
+ * classe per la finestra di informazioni sugli sviluppatori
+ * 
+ * @author Piersilvio Spicoli
+ * @author Giulio Russo
+ * @author Francesco Pio Scoglietti
  */
 public class ChiSiamo extends javax.swing.JFrame {
     
@@ -106,6 +109,12 @@ public class ChiSiamo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /** 
+     * evento sul ritorno al menu principale
+     * 
+     * @param evt
+     */
     //FIXME - genera eccezione
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
@@ -115,6 +124,13 @@ public class ChiSiamo extends javax.swing.JFrame {
         }catch(Exception e){}
     }//GEN-LAST:event_jButton1ActionPerformed
     
+    
+    /** 
+     * è un metodo che mostra il contenuto del file "chiSiamo.txt"
+     * e lo nmostra nel jTextPane1
+     *
+     * @throws IOException
+     */
     private void showChiSiamo() throws IOException{
         try{
             //the file path
@@ -125,8 +141,7 @@ public class ChiSiamo extends javax.swing.JFrame {
                     jTextPane1.read(fr,null);
                 }
             }
-        } catch(IOException ex){
-        }
+        } catch(IOException ex){ System.out.println("lettura fallita del file!");}
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
