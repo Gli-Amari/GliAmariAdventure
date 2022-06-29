@@ -1,6 +1,5 @@
 package di.uniba.map.game.type;
 
-import di.uniba.map.game.type.CommandType;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

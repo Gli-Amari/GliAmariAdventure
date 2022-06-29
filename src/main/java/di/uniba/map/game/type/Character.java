@@ -1,7 +1,5 @@
 package di.uniba.map.game.type;
 
-import di.uniba.map.game.type.Item;
-
 public class Character {
     protected int hp;
 

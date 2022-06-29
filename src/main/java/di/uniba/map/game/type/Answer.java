@@ -1,8 +1,5 @@
 package di.uniba.map.game.type;
 
-import di.uniba.map.game.type.Talk;
-import di.uniba.map.game.type.Triggers;
-
 public class Answer {
     private String answer = new String();
 
