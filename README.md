@@ -1,1 +1,1 @@
-# GliAmariAdventure
+# GliAmariAdventure ![Java CI with Maven](https://github.com/Gli-Amari/GliAmariAdventure/workflows/Java%20CI%20with%20Maven/badge.svg) ![Maven Package](https://github.com/giu-napoletano29/adventure-text/workflows/Maven%20Package/badge.svg)
