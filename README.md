@@ -15,6 +15,7 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |-- .github
 |    |-- workflows
 |    |      |-- maven.yml
+|    |      |-- maven-publish.yml
 |-- doc
 |    |-- file
 |    |      |-- ChiSiamo.txt
