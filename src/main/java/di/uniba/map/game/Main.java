@@ -12,8 +12,13 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.*;
 
 /**
- *
- * @author unipi
+ * Classe Main per l'avvio dell'applicazione.
+ * 
+ * @author Piersilvio
+ * @author Giulio Russo
+ * @author Francesco Pio Scoglietti
+ * 
+ * @version 1.0
  */
 public class Main extends JFrame {
     
@@ -23,8 +28,8 @@ public class Main extends JFrame {
     public Main() {
         
         initComponents();
-        ImageIcon image = new ImageIcon(".//img//Copertina.jpg");//creamo lo spazio per inserire l'immagine
-        setIconImage(image.getImage());//cambiamo lo sfondo standar di java con il nostro logo
+        ImageIcon image = new ImageIcon(".//img//Copertina.jpg");
+        setIconImage(image.getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -205,6 +210,12 @@ public class Main extends JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /** 
+     * evento sul bottone "Chi Siamo..."
+     * 
+     * @param evt
+     */
     private void chiSiamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chiSiamoActionPerformed
         try{
             chisiamo = new ChiSiamo();
@@ -213,10 +224,22 @@ public class Main extends JFrame {
         }catch(IOException e){}
     }//GEN-LAST:event_chiSiamoActionPerformed
 
+    
+    /** 
+     * evento sul bottone "Esci"
+     * 
+     * @param evt
+     */
     private void esciGiocoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esciGiocoActionPerformed
         System.exit(0);
     }//GEN-LAST:event_esciGiocoActionPerformed
 
+    
+    /** 
+     * evento sul bottone "Come Giocare..."
+     * 
+     * @param evt
+     */
     private void helpComandiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpComandiActionPerformed
         try{
             helpcomandi = new HelpComandi();
@@ -225,6 +248,12 @@ public class Main extends JFrame {
         }catch(IOException e){}
     }//GEN-LAST:event_helpComandiActionPerformed
 
+    
+    /** 
+     * evento sul bottone "Nuova partita..."
+     * 
+     * @param evt
+     */
     private void nuovaPartitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuovaPartitaActionPerformed
         try{
             setVisible(false);
@@ -234,6 +263,14 @@ public class Main extends JFrame {
         }catch(IllegalAccessException | NoSuchMethodException | InvocationTargetException e){}
     }//GEN-LAST:event_nuovaPartitaActionPerformed
 
+    
+    /** 
+     * metodo statico per la creazione del Frame di avvio.
+     * è stato impostato il look and feel di default a FlatLaf Dark.
+     * per info sui look and feel vedi: http://www.java-tips.org/java-se-tips-100019/javax.swing.plaf.metal.MetalLookAndFeel/
+     * 
+     * @param args[]
+     */
     public static void main(String args[]) {
         
         try{
