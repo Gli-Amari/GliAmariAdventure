@@ -23,7 +23,7 @@ public class Main extends JFrame {
     public Main() {
         
         initComponents();
-        ImageIcon image = new ImageIcon("img//Copertina.jpg");//creamo lo spazio per inserire l'immagine
+        ImageIcon image = new ImageIcon(".//img//Copertina.jpg");//creamo lo spazio per inserire l'immagine
         setIconImage(image.getImage());//cambiamo lo sfondo standar di java con il nostro logo
     }
 
