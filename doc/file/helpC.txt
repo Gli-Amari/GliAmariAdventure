@@ -1,0 +1,16 @@
+
+Comando    --------- Descrizione
+
+Nord       --------- Consente di spostarsi a nord
+Sud        --------- Consente di spostarsi a sud
+Est        --------- Consente di spostarsi a est
+Ovest      --------- Consente di spostarsi a ovest
+Nord       --------- Consente di spostarsi a nord
+End        --------- Consente di terminare il gioco da console
+Raccogli   --------- Consente di raccogliere un oggetto
+Apri       --------- Consente di aprire un oggetto inanimato con cui e' possibile interagire
+Parla      --------- Consente di interagire con un personaggio
+Equipaggia --------- Consente di equipaggiare degli oggetti o potenziamenti
+Attacca    --------- Consente di attaccare un nemico
+Usa        --------- Consente di utilizzare un oggetto
+Butta      --------- Consente di buttare un oggetto che il protagonista non ritiene piu' utile
