@@ -10,8 +10,11 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- *
- * @author unipi
+ * Classe per la finestra di informazioni sui comandi presenti in gioco
+ * 
+ * @author Piersilvio Spicoli
+ * @author Giulio Russo
+ * @author Francesco Pio Scoglietti
  */
 public class HelpComandi extends javax.swing.JFrame {
     
@@ -104,6 +107,12 @@ public class HelpComandi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /** 
+     * evento per il ritorno al menu principale
+     * 
+     * @param evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
             main = new Main();
@@ -118,6 +127,13 @@ public class HelpComandi extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
+    
+    /** 
+     * è un metodo che mostra il contenuto del file "HelpC.txt"
+     * e lo nmostra nel jTextPane1
+     * 
+     * @throws IOException
+     */
     // End of variables declaration//GEN-END:variables
 
     private void showHelpC() throws IOException{
