@@ -24,6 +24,7 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |    |      |-- mSoftware.png
 |    |      |-- mPackages.png
 |    |-- Report.md
+|    |-- GitHubFlow.md
 |–– img
 |    |–– Copertina.jpg
 |–– lib
@@ -46,7 +47,7 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 
 di seguito spieghiamo le varie directory:
 1. `.github/workflows/ingsw2122.yml` dettaglia le direttive per assicurare la continuous integration attraverso l’uso di GitHub Actions;
-2. `doc/file` contiene i file utilizzati durante il funzionamento del gioco, la documentazione del progetto e diagrammi ideati durante la fase progettuale
+2. `doc` contiene i file utilizzati durante il funzionamento del gioco, la documentazione del progetto, i diagrammi ideati durante la fase progettuale e il reminder del github flow per lavorare in remoto al progetto
 3. `img` contiene l'immagine di copertina del videogioco
 4. `lib/flatlaf-2.2.jar` contiene l'impostazione del _look and feel_, caricata come dipendenza nel file `pom.xml` del progetto
 5. `src` è la cartella principale del progetto, in cui scrivere tutto il codice dell’applicazione. In `main/` ci saranno i file sorgente e `test/` conterrà gli eventuali test di unità previsti.
