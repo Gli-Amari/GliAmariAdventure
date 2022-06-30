@@ -9,6 +9,7 @@ import di.uniba.map.game.type.Room;
 public class Utils {
     
     public void move(ParserOutput cmd, GameDescription game) {
+
         boolean attack = false;
         if(cmd.getCommand().getType() != null){
             if(cmd.getCommand().getType() == CommandType.NORD){
@@ -22,7 +23,8 @@ public class Utils {
             }else if(cmd.getCommand().getType() == CommandType.INVENTORY){
                 if(game.getInventory().getList().size() > 0){
                     for (Item o : game.getInventory().getList()) {
-                        System.out.println(o.getName() + ": " + o.getDescription());
+                        System.out.println("\nIl tuo Inventario:");
+                        System.out.println("_>" + o.getName() + ": " + o.getDescription());
                     }
                 }else{
                     System.out.println("Non ci sono oggetti nel tuo inventario!");
@@ -189,7 +191,7 @@ public class Utils {
                         cmd.getNpc().setHp((int) Math.round(cmd.getNpc().getHp() - (game.getPlayer().getWeaponEquip().getPower() - (game.getPlayer().getWeaponEquip().getPower() * (cmd.getNpc().getArmor()/200.000)))));
                         cmd.getNpc().setAttacking(true);
                         cmd.getNpc().setSpeakable(false);
-                        System.out.println(cmd.getNpc().getName() + " HP: " + cmd.getNpc().getHp());
+                        System.out.println(cmd.getNpc().getName() + " hp_> " + cmd.getNpc().getHp());
                     }else if(cmd.getNpc().getGod() == true){
                         System.out.println(cmd.getNpc().getName() + ": Non perdere tempo con me. Sono invincibile.");
                     }
@@ -230,16 +232,16 @@ public class Utils {
     }
 
     public void printRoom(GameDescription game){
-        System.out.println(game.getCurrentRoom().getName());
+        System.out.println("\n" + game.getCurrentRoom().getName());
         System.out.println("-----------------------------------------------------------------------");
         System.out.println(game.getCurrentRoom().getDescription());
     }
 
     public void printPlayerStats(GameDescription game){
         if(game.getPlayer().getWeaponEquip() != null){
-            System.out.println("Hp: " + game.getPlayer().getHp() + " armatura: " + game.getPlayer().getArmor() + " Equip: " + game.getPlayer().getWeaponEquip().getName());
+            System.out.println("\nHp_> " + game.getPlayer().getHp() + " armatura_> " + game.getPlayer().getArmor() + " Equip_> " + game.getPlayer().getWeaponEquip().getName());
         }else{
-            System.out.println("Hp: " + game.getPlayer().getHp() + " armatura: " + game.getPlayer().getArmor());
+            System.out.println("\nHp_> " + game.getPlayer().getHp() + " armatura_> " + game.getPlayer().getArmor());
         }
     }
 
