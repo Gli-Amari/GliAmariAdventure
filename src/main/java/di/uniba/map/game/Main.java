@@ -5,6 +5,7 @@ import di.uniba.map.game.engine.Engine;
 import di.uniba.map.game.menu.*;
 import di.uniba.map.game.story.Story;
 import java.io.IOException;
+import java.io.InterruptedIOException;
 import java.lang.reflect.InvocationTargetException;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
@@ -25,7 +26,7 @@ public class Main extends JFrame {
     private ChiSiamo chisiamo;
     private HelpComandi helpcomandi;
 
-    public Main() {
+    public Main() throws InterruptedIOException {
 
         (new Thread(new ThreadMusic())).start();
         initComponents();
@@ -283,7 +284,11 @@ public class Main extends JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Main().setVisible(true);
+            try {
+                new Main().setVisible(true);
+            } catch (InterruptedIOException e) {
+                e.printStackTrace();
+            }
         });
     }
 
