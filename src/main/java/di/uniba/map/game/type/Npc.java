@@ -26,11 +26,12 @@ public class Npc extends Character{
                 boolean error = true;
 
                 while (error) {
-                    System.out.println(name + ": " + temp.getSpeech());
+                    System.out.println("\n" + name + ": " + temp.getSpeech());
                     for (int j = 0; j < temp.getAns().size(); j++) {
                         System.out.println(j + 1 + ": " + temp.getAns().get(j).getAnswer());
                     }
                     try {
+                        System.out.println("Cosa vuoi dire?");
                         answer = Integer.parseInt(scanner.nextLine());
                         System.out.println("Tu: " + temp.getAns().get(answer - 1).getAnswer());
                         if (temp.getAns().get(answer - 1).getTriggerReference() != null) {
