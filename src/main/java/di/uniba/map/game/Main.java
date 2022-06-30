@@ -25,10 +25,16 @@ public class Main extends JFrame {
     
     private ChiSiamo chisiamo;
     private HelpComandi helpcomandi;
+    private Thread t = new Thread(new ThreadMusic());
+    private static boolean flagMusic = false;
 
     public Main() throws InterruptedIOException {
+        
+        if(!flagMusic){ 
+            flagMusic = true;
+            t.start(); 
+        }
 
-        (new Thread(new ThreadMusic())).start();
         initComponents();
         ImageIcon image = new ImageIcon("Img//Logo.png");
         setIconImage(image.getImage());
