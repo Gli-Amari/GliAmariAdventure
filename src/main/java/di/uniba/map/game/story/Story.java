@@ -88,16 +88,16 @@ public class Story extends GameDescription{
         entrylevel.setLook("All'interno della tua stanza, potrai vestirti e uscire dalla stanza.");
 
         Room entry_corridoio = new Room(1, "Corridoio", "Uscita dalla tua camera ");
-        entry_corridoio.setLook("Vediamo cosa c'è in giro e troviamo qualcosa di interessante in questa minchia di casa.");
+        entry_corridoio.setLook("Vediamo cosa c'è in giro e troviamo qualcosa di interessante\nin questa minchia di casa.");
 
         Room corridoio_est = new Room(2, "Corridoio", "Corridoio a est");
         corridoio_est.setLook("Ti trovi nell'atrio di casa tua. Da qui è possibile abbandonare la casa.");
 
         Room atrio_ovest  = new Room(3, "Atrio", "Atrio ovest");
-        atrio_ovest.setLook("Questa è la cucina di casa Amari. Davanti i tuoi occhi, trovi una tavola imbandita per la colazione.\n   Sulla tua sinistra trovi una macchinetta del caffè pronta all'uso. \n Alla tua destra trovi un Pier selvatico che guarda i biscotti sul tavolo.  " );
+        atrio_ovest.setLook("Questa è la cucina di casa Amari. Davanti i tuoi occhi, trovi una tavola\nimbandita per la colazione. Sulla tua sinistra trovi una macchinetta\ndel caffè pronta all'uso.\nAlla tua destra trovi un Pier selvatico che guarda i biscotti sul tavolo." );
 
         Room corridoio_nord = new Room(4, "Corridoio", "Corridoio a nord");
-        corridoio_nord.setLook("Qui trovi la camera del vecchio Frank!\n  Entrando trovi Frank intento a guardare il solito documentario sul fantasmagorico Boemo Zeman, EX-allenatore del Foggia.\n " );
+        corridoio_nord.setLook("Qui trovi la camera del vecchio Frank!\nEntrando trovi Frank intento a guardare il solito documentario\nsul fantasmagorico Boemo Zeman, EX-allenatore del Foggia." );
 
         Room corridoio_ovest = new Room(5, "Corridoio", "Corridoio a ovest");
         corridoio_ovest.setLook(" Adesso, trovi la stanza del pericolos Giulio Spaccatutto! (NO! non è ispirato a Ralph!). \n Entrando in camera sua, lo trovi imperterrito davanti al suo televisore mentre guarda una replica di Formula 1. \n Preso dalla rabbia per gli errori fatti dalla sua scuderia preferita, tira un pugno sul muro. ");
@@ -249,7 +249,7 @@ public class Story extends GameDescription{
         Npc pier = new Npc(100, "pier", "Ecco Pier, avvolto nei suoi pensieri.");
         pier.setSpeakable(true);
         pier.setEnemy(false);
-        //pierDialog(pier);
+        pierDialog(pier);
         getNpcList().add(pier);
         
         Npc giulio = new Npc(100, "giulio", "Giulio è on fire, ha voglia di spaccare qualcosa.");
@@ -329,6 +329,7 @@ public class Story extends GameDescription{
     }
 
     private static void commonDialog(Talk talk1, Npc npc) {
+
         Talk talk2 = new Talk();
         Answer answer = new Answer();
         answer.setAnswer("Chi sei?");
@@ -343,13 +344,33 @@ public class Story extends GameDescription{
 
         answer = new Answer();
         answer.setAnswer("Fine");
-        //answer.setTriggerReference(() -> System.out.println("Prova delle lambda expression"));
         talk1.getAns().add(answer);
+
     }
 
-    private void e_guardDialog(Npc e_guard, Item key_b) {
+    private void pierDialog(Npc pier) {
+
+        /*Talk talk1 = new Talk();
+        pier.setTalk(talk1);
+
+        Talk talk2 = new Talk();
+        Answer answer = new Answer();
+        talk1.setSpeech("Ehi le' ciao! Sono Pier, il tuo strano coinquilino e compagno di classe.");
+        answer.setAnswer("Ciao Pier! oggi mi sono svegliato con il durello. Cosa stai mangiando?");
+        answer.setWarp(talk2);
+        talk1.getAns().add(answer);
+
+        answer = new Answer();
+        talk2.setSpeech("Sto mangiando dei biscotti le! e mi sto chiedendo ancora una volta perche'\nhanno una forma strana...");
+        Talk talk3 = new Talk();
+        answer.setAnswer("Vabbe' ho capito. Ti lascio riflettere sul senso del vita.");
+        answer.setWarp(talk3);
+        talk2.getAns().add(answer);
+
+        commonDialog(talk1, pier);*/
+
         Talk talk1 = new Talk();
-        e_guard.setTalk(talk1);
+        pier.setTalk(talk1);
         Talk talk2 = new Talk();
         Answer answer = new Answer();
         talk1.setSpeech("Salve!");
@@ -383,7 +404,7 @@ public class Story extends GameDescription{
         answer.setWarp(talk4);
         talk3.getAns().add(answer);
 
-        Answer a = new Answer();
+        /*Answer a = new Answer();
         talk4.setSpeech("In ogni caso prendi questa, l'ho trovata da queste parti e potrebbe tornarti utile");
         a.setAnswer("Ok, grazie!");
         Answer finalAnswer = answer;
@@ -392,13 +413,14 @@ public class Story extends GameDescription{
             getPlayer().getInventory().add(key_b);
             finalAnswer.setWarp(talk2);
         });
-        talk4.getAns().add(a);
+        talk4.getAns().add(a);*/
 
         answer = new Answer();
         answer.setAnswer("Ho capito.");
         answer.setWarp(talk1);
         talk2.getAns().add(answer);
-        commonDialog(talk1, e_guard);
+        commonDialog(talk1, pier);
+
     }
 
     private void gate_guardDialog(Npc gate_guard, Item letter, Room b_room) {
