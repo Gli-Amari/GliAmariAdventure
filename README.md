@@ -1,7 +1,7 @@
 # GliAmariAdventure ![Java CI with Maven](https://github.com/Gli-Amari/GliAmariAdventure/workflows/Java%20CI%20with%20Maven/badge.svg) ![Maven Package](https://github.com/Gli-Amari/GliAmariAdventure/workflows/Maven%20Package/badge.svg)
 
 ### Trama del gioco
-continuare...
+Bari, Lello si risveglia a Casa Amari consapevole del fatto che affronterà un’altra noiosissima giornata universitaria insieme al suo gruppo composto da Frank, Pier e Giulio. Il primo è un tipo molto riflessivo, responsabile ma con carisma e pesonalità. Pier è molto curioso tant’è che è in grado di porsi domande su qualsiasi cosa gli accada nella vita mentre Giulio, soprannominato spaccatutto, è dotato di forza e inteliggenza. Il connubbio perfetto. Tuttavia ogni tanto è necessario che spacchi qualcosa. Questo gruppo molto affiatato rimarrà coinvolto in una guerra imminente a causa di una minaccia aliena e verrà spedito al fronte. Insieme cercheranno di sconfiggere la minaccia affrontando numerose intemperie.
 
 ### Informazioni del progetto
 *Esame*: "Metodi Avanzati di Programmazione" 
