@@ -43,6 +43,7 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |-- .gitignore
 |-- LICENSE
 |-- pom.xml
+|-- settings.xml
 |-- README.md
 ```
 
@@ -54,3 +55,4 @@ di seguito spieghiamo le varie directory:
 5. `src` è la cartella principale del progetto, in cui scrivere tutto il codice dell’applicazione. In `main/` ci saranno i file sorgente e `test/` conterrà gli eventuali test di unità previsti.
 6. `target` contiene il file `.jar` eseguibile da terminale
 7. `.gitignore` specifica tutti i file che devono essere esclusi dal sistema di controllo versione.
+8. `settings.xml` specifica la dipendenza per la creazione del package maven sul progetto
