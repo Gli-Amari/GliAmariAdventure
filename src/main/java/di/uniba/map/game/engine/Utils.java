@@ -24,7 +24,7 @@ public class Utils {
                 if(game.getInventory().getList().size() > 0){
                     for (Item o : game.getInventory().getList()) {
                         System.out.println("\nIl tuo Inventario:");
-                        System.out.println("_>" + o.getName() + ": " + o.getDescription());
+                        System.out.println("_> " + o.getName() + ": " + o.getDescription());
                     }
                 }else{
                     System.out.println("Non ci sono oggetti nel tuo inventario!");
