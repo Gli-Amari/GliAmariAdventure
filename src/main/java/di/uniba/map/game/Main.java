@@ -23,13 +23,14 @@ import javax.swing.*;
 public class Main extends JFrame {
     
     private ChiSiamo chisiamo;
-    private HelpComandi helpcomandi; 
-    
+    private HelpComandi helpcomandi;
+
     public Main() {
-        
+
         initComponents();
-        ImageIcon image = new ImageIcon(".//img//Copertina.jpg");
+        ImageIcon image = new ImageIcon("Img//Logo.png");
         setIconImage(image.getImage());
+
     }
 
     @SuppressWarnings("unchecked")
@@ -153,7 +154,7 @@ public class Main extends JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("1.0");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\unipi\\Desktop\\progetti\\adventure-text-master\\adventure-text-master\\img\\Copertina.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("Img//Copertina.jpg")); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -269,7 +270,7 @@ public class Main extends JFrame {
      * è stato impostato il look and feel di default a FlatLaf Dark.
      * per info sui look and feel vedi: http://www.java-tips.org/java-se-tips-100019/javax.swing.plaf.metal.MetalLookAndFeel/
      * 
-     * @param args[]
+     * @param args passa una stringa
      */
     public static void main(String args[]) {
         
