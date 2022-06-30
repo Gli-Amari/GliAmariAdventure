@@ -18,6 +18,9 @@ public class ThreadMusic implements Runnable{
     
     private static final String musicpath = "./resource/itwasagoodday.wav";
 
+    /**
+     * metodo per la gestione concorrente della musica in gioco.
+     */
     public void run(){
         
         try{
