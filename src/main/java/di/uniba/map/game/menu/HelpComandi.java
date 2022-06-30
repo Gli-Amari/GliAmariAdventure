@@ -113,15 +113,14 @@ public class HelpComandi extends javax.swing.JFrame {
      * 
      * @param evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         try{
             main = new Main();
             main.setVisible(true);
             setVisible(false);
         }catch(Exception e){}
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

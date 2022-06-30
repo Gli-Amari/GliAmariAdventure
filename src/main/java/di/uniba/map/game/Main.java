@@ -25,10 +25,12 @@ public class Main extends JFrame {
     
     private ChiSiamo chisiamo;
     private HelpComandi helpcomandi;
+    private Thread t = new Thread(new ThreadMusic());
 
     public Main() throws InterruptedIOException {
 
-        (new Thread(new ThreadMusic())).start();
+        t.start();
+        
         initComponents();
         ImageIcon image = new ImageIcon("Img//Logo.png");
         setIconImage(image.getImage());
