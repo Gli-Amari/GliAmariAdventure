@@ -27,6 +27,7 @@ public class Main extends JFrame {
 
     public Main() {
 
+        (new Thread(new ThreadMusic())).start();
         initComponents();
         ImageIcon image = new ImageIcon("Img//Logo.png");
         setIconImage(image.getImage());
