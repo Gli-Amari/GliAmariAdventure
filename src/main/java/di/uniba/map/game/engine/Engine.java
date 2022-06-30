@@ -34,8 +34,11 @@ public class Engine {
     public void run() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         u.printRoom(game);
         try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("\ncosa vuoi fare: ");
             while(scanner.hasNextLine()){
-                ParserOutput command = cmd.parseCmd(scanner.nextLine(), game);
+                String c = scanner.nextLine();
+                System.out.println();
+                ParserOutput command = cmd.parseCmd(c, game);
                 if(command.getCommand() != null && command.getCommand().getType() == CommandType.END){
                     System.out.println("Forse una decisione poco saggia, ma è pur sempre una decisione!");
                     break;
@@ -46,7 +49,7 @@ public class Engine {
                     System.out.println("Game Over... ");
                     break;
                 }
-
+                System.out.print("\ncosa vuoi fare: ");
             }
         }
     }
