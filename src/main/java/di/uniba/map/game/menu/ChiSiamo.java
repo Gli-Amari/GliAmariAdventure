@@ -115,7 +115,6 @@ public class ChiSiamo extends javax.swing.JFrame {
      * 
      * @param evt
      */
-    //FIXME - genera eccezione
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
             main = new Main();
