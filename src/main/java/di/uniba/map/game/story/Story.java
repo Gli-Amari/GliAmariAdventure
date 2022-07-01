@@ -350,56 +350,37 @@ public class Story extends GameDescription{
 
     private void pierDialog(Npc pier) {
 
-        /*Talk talk1 = new Talk();
-        pier.setTalk(talk1);
-
-        Talk talk2 = new Talk();
-        Answer answer = new Answer();
-        talk1.setSpeech("Ehi le' ciao! Sono Pier, il tuo strano coinquilino e compagno di classe.");
-        answer.setAnswer("Ciao Pier! oggi mi sono svegliato con il durello. Cosa stai mangiando?");
-        answer.setWarp(talk2);
-        talk1.getAns().add(answer);
-
-        answer = new Answer();
-        talk2.setSpeech("Sto mangiando dei biscotti le! e mi sto chiedendo ancora una volta perche'\nhanno una forma strana...");
-        Talk talk3 = new Talk();
-        answer.setAnswer("Vabbe' ho capito. Ti lascio riflettere sul senso del vita.");
-        answer.setWarp(talk3);
-        talk2.getAns().add(answer);
-
-        commonDialog(talk1, pier);*/
-
         Talk talk1 = new Talk();
         pier.setTalk(talk1);
         Talk talk2 = new Talk();
         Answer answer = new Answer();
-        talk1.setSpeech("Salve!");
-        answer.setAnswer("Dove mi trovo?");
+        talk1.setSpeech("Ciao Lello, sei pronto per un'altra noiosissima giornata??\nGuardavo questi strani biscotti, e mi chiedevo perche' fossero cosi' ovali.");
+        answer.setAnswer("Ehi Pier. Sono pronto, quando vuoi possiamo andare.");
         answer.setWarp(talk2);
         talk1.getAns().add(answer);
 
         answer = new Answer();
-        talk2.setSpeech("Ti trovi a Campo Vecchio! E' l'ultimo accampamento sopravvissuto qui.");
+        talk2.setSpeech("Quale sarà la nostra prima lezione stamattina?");
         Talk talk3 = new Talk();
-        answer.setAnswer("Cosa è successo?");
+        answer.setAnswer("Appena arriveremo la prima lezione sara MAP. Che rogna!");
         answer.setWarp(talk3);
         talk2.getAns().add(answer);
 
         answer = new Answer();
-        talk3.setSpeech("E' passato ormai tanto tempo da quando siamo chiusi qui dentro. I mostri della zona hanno fatto il resto. Guardati sempre le spalle anche da quelli come te.");
-        answer.setAnswer("Mmm..");
+        talk3.setSpeech("Perfetto, avremo modo di approfondire tutti gli argomenti che ci serviranno per il progetto");
+        answer.setAnswer("Va bene. Quando vuoi andiamo... ");
         answer.setWarp(talk2);
         talk3.getAns().add(answer);
 
         talk3 = new Talk();
         answer = new Answer();
-        answer.setAnswer("Come esco da qui?");
+        answer.setAnswer("...Hai preso la mascherina??");
         answer.setWarp(talk3);
         talk2.getAns().add(answer);
 
         answer = new Answer();
-        talk3.setSpeech("Solo il Barone decide chi può uscire, e non credo la tua permanenza durerà così poco...");
-        answer.setAnswer("Va bene");
+        talk3.setSpeech("Caspiterina! Mi stavo dimenticato di prenderla. Questa cosa mi ha scocciato...");
+        answer.setAnswer("Ok, che la giornata abbia inizio!");
         Talk talk4 = new Talk();
         answer.setWarp(talk4);
         talk3.getAns().add(answer);
@@ -409,7 +390,7 @@ public class Story extends GameDescription{
         a.setAnswer("Ok, grazie!");
         Answer finalAnswer = answer;
         a.setTriggerReference(() -> {
-            System.out.println(e_guard.getName() + " ti ha dato un " + key_b.getName() + "!");
+            System.out.println(pier.getName() + " ti ha dato un " + key_b.getName() + "!");
             getPlayer().getInventory().add(key_b);
             finalAnswer.setWarp(talk2);
         });
