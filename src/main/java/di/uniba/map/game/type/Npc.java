@@ -1,20 +1,20 @@
 package di.uniba.map.game.type;
 
 import java.util.Scanner;
-
+/**
+ * @author Francesco Pio Scoglietti
+ * All'interno di questa classe vengono definite le interazioni con gli altri NPC
+ */
 public class Npc extends Character{
 
     private boolean isEnemy = false;
-
     private boolean isGod = false;
-
     private boolean isAttacking = false;
-
     private boolean isSpeakable = false;
-
     private Talk talk;
 
-    public Npc(int hp, String name, String description) {
+    public Npc(int hp, String name, String description) 
+    {
         super(hp, name, description);
     }
 
@@ -51,33 +51,93 @@ public class Npc extends Character{
         }
     }
 
-    public boolean getAttacking(){return this.isAttacking;};
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getAttacking()
+    {
+        return this.isAttacking;
+    };
 
-    public void setAttacking(boolean attacking){
+    
+    /** 
+     * @param attacking
+     */
+    public void setAttacking(boolean attacking)
+    {
         this.isAttacking = attacking;
     }
 
-    public void setSpeakable(boolean speakable) {
+    
+    /** 
+     * @param speakable
+     */
+    public void setSpeakable(boolean speakable) 
+    {
         isSpeakable = speakable;
     }
 
-    public boolean getSpeakable(){
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getSpeakable()
+    {
         return isSpeakable;
     }
 
-    public void setEnemy(boolean enemy) {
+    
+    /** 
+     * @param enemy
+     */
+    public void setEnemy(boolean enemy) 
+    {
         isEnemy = enemy;
     }
 
-    public boolean getEnemy(){return this.isEnemy;}
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getEnemy()
+    {
+        return this.isEnemy;
+    }
 
-    public void setTalk(Talk talk){
+    
+    /** 
+     * @param talk
+     */
+    public void setTalk(Talk talk)
+    {
         this.talk = talk;
     }
 
-    public Talk getTalk() {return this.talk;}
+    
+    /** 
+     * @return Talk
+     */
+    public Talk getTalk() 
+    {
+        return this.talk;
+    }
 
-    public boolean getGod(){ return isGod;}
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getGod()
+    { 
+        return isGod;
+    }
 
-    public void setGod(boolean god){ isGod = god;}
+    
+    /** 
+     * @param god
+     */
+    public void setGod(boolean god)
+    { 
+        isGod = god;
+    }
 }
