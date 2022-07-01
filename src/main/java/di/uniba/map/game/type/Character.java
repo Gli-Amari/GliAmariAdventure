@@ -1,5 +1,10 @@
 package di.uniba.map.game.type;
 
+/**
+ * @author Giulio Russo
+ * Definisce i personaggi dell'avventura.
+ */
+
 public class Character {
     protected int hp;
 
@@ -18,33 +23,94 @@ public class Character {
     }
 
 
+    /** 
+     * @return String
+     */
+    
     public String getName() {
         return name;
     }
 
+    /** 
+     * @param name
+     */
+    
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getHp(){ return this.hp;}
+    
+    /** 
+     * @return int
+     */
+    
+    public int getHp()
+    {
+        return this.hp;
+    }
 
+    
+    /** 
+     * @param hp
+     */
+    
     public void setHp(int hp){
         this.hp = hp;
     }
 
-    public int getArmor(){ return this.armor;}
+    
+     /** 
+     * @return int
+     */
+    
+    public int getArmor()
+    { 
+        return this.armor;
+    }
 
+    
+    /** 
+     * @param armor
+     */
+    
     public void setArmor(int armor){
         this.armor = armor;
     }
 
-    public Item getWeaponEquip() { return weaponEquip;}
+    /** 
+     * @return Item
+     */
+    
+    public Item getWeaponEquip() 
+    {
+        return weaponEquip;
+    }
 
+     /** 
+     * @param weapon
+     */
+    
     public void setWeaponEquip(Item weapon){
         this.weaponEquip = weapon;
     }
 
-    public String getDescription() {return description;}
+    /** 
+     * @return String
+     */
+    
+    public String getDescription() 
+    {
+        return description;
+    }
 
-    public void setDescription(String description) {this.description = description;}
+      
+    /** 
+     * @param description
+     */
+    
+    
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
 }
