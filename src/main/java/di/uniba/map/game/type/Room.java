@@ -25,8 +25,6 @@ public class Room {
 
     private Room west = null;
 
-    private Triggers.triggerInterface triggerReference = null;
-
     private final List<Item> items = new ArrayList<>();
 
     private final List<Npc> npc = new ArrayList<>();
@@ -100,9 +98,4 @@ public class Room {
 
     public void setExplored(boolean exp){this.explored = exp;}
 
-    public void setTriggerReference(Triggers.triggerInterface T){this.triggerReference = T;}
-
-    public Triggers.triggerInterface getTriggerReference(){
-        return this.triggerReference;
-    }
 }

@@ -1,0 +1,6 @@
+PIER: “Perchè questi biscotti hanno una forma ovale?”;
+LELLO: “Non lo so non ho la forza pratica per rispondere a queste domande di prima mattina”;
+PIER: “A che ora abbiamo lezione?”;
+LELLO: “Sempre alle 9:15”;
+PIER: "Con chi abbiamo la prima lezione?";
+LELLO: "Abbiamo MAP, con Basile.";

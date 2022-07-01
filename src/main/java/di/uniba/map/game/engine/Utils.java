@@ -102,7 +102,7 @@ public class Utils {
             else if(cmd.getCommand().getType() == CommandType.TALK){
                 if(cmd.getNpc() != null && game.getCurrentRoom().getNpcs().contains(cmd.getNpc())){
                     if(cmd.getNpc().getSpeakable()){
-                        cmd.getNpc().talking();
+                        cmd.getNpc().talking(game.getCurrentRoom().getId());
                     }else{
                         System.out.println(cmd.getNpc().getName() + ": Non mi disturbare.");
                     }
@@ -249,9 +249,8 @@ public class Utils {
         if(room != null){
             game.setCurrentRoom(room);
             printRoom(game);
-            if(room.getTriggerReference() != null && room.getExplored() == false){
+            if(room.getExplored() == false){
                 room.setExplored(true);
-                room.getTriggerReference().trigger();
             }
         }else{
             System.out.println("Ehi non c'è niente qui."); 

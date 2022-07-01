@@ -249,49 +249,41 @@ public class Story extends GameDescription{
         Npc pier = new Npc(100, "pier", "Ecco Pier, avvolto nei suoi pensieri.");
         pier.setSpeakable(true);
         pier.setEnemy(false);
-        pierDialog(pier);
         getNpcList().add(pier);
         
         Npc giulio = new Npc(100, "giulio", "Giulio è on fire, ha voglia di spaccare qualcosa.");
         giulio.setSpeakable(true);
         giulio.setEnemy(false);
-        //giulioDialog(giulio);
         getNpcList().add(giulio);
         
         Npc frank = new Npc(100, "frank", "Frank riflette....come sempre.");
         frank.setSpeakable(true);
         frank.setEnemy(false);
-        //frankDialog(frank);
         getNpcList().add(frank);
         
         Npc pippo = new Npc(100, "pippo", "Pippo è molto allegro, è un grande programmatore!");
         pippo.setSpeakable(true);
         pippo.setEnemy(false);
-        //pippoDialog(pippo);
         getNpcList().add(pippo);
         
         Npc lanubile = new Npc(100, "prof_lanubile", "Ecco il capo prof. lanubile e il suo braccio destro.... Ciccio.");
         lanubile.setSpeakable(true);
         lanubile.setEnemy(false);
-        //lanubileDialog(lanubile);
         getNpcList().add(lanubile);
         
         Npc ufficiale = new Npc(100, "ufficiale_in_servizio", "Ufficiale in comando....meglio seguire i suoi ordini.");
         ufficiale.setSpeakable(true);
         ufficiale.setEnemy(false);
-        //ufficialeDialog(ufficiale);
         getNpcList().add(ufficiale);
         
         Npc galatone = new Npc(100, "prof_galatone", "Ecco l'ingegner Galatone, l'esperto di esplosivi.");
         galatone.setSpeakable(true);
         galatone.setEnemy(false);
-        //galatoneDialog(galatone);
         getNpcList().add(galatone);
         
         Npc soldato = new Npc(100, "soldato", "Bisogna aiutare questo soldato in difficoltà.");
         soldato.setSpeakable(true);
         soldato.setEnemy(false);
-        //soldatoDialog(soldato);
         getNpcList().add(soldato);
            
         //Npc nemici
@@ -325,223 +317,6 @@ public class Story extends GameDescription{
 
         //Starting room
         setCurrentRoom(entrylevel);
-
-    }
-
-    private static void commonDialog(Talk talk1, Npc npc) {
-
-        Talk talk2 = new Talk();
-        Answer answer = new Answer();
-        answer.setAnswer("Chi sei?");
-        answer.setWarp(talk2);
-        talk1.getAns().add(answer);
-
-        answer = new Answer();
-        talk2.setSpeech(npc.getDescription());
-        answer.setAnswer("Ho capito!");
-        answer.setWarp(talk1);
-        talk2.getAns().add(answer);
-
-        answer = new Answer();
-        answer.setAnswer("Fine");
-        talk1.getAns().add(answer);
-
-    }
-
-    private void pierDialog(Npc pier) {
-
-        Talk talk1 = new Talk();
-        pier.setTalk(talk1);
-        Talk talk2 = new Talk();
-        Answer answer = new Answer();
-        talk1.setSpeech("Ciao Lello, sei pronto per un'altra noiosissima giornata??\nGuardavo questi strani biscotti, e mi chiedevo perche' fossero cosi' ovali.");
-        answer.setAnswer("Ehi Pier. Sono pronto, quando vuoi possiamo andare.");
-        answer.setWarp(talk2);
-        talk1.getAns().add(answer);
-
-        answer = new Answer();
-        talk2.setSpeech("Quale sarà la nostra prima lezione stamattina?");
-        Talk talk3 = new Talk();
-        answer.setAnswer("Appena arriveremo la prima lezione sara MAP. Che rogna!");
-        answer.setWarp(talk3);
-        talk2.getAns().add(answer);
-
-        answer = new Answer();
-        talk3.setSpeech("Perfetto, avremo modo di approfondire tutti gli argomenti che ci serviranno per il progetto");
-        answer.setAnswer("Va bene. Quando vuoi andiamo... ");
-        answer.setWarp(talk2);
-        talk3.getAns().add(answer);
-
-        talk3 = new Talk();
-        answer = new Answer();
-        answer.setAnswer("...Hai preso la mascherina??");
-        answer.setWarp(talk3);
-        talk2.getAns().add(answer);
-
-        answer = new Answer();
-        talk3.setSpeech("Caspiterina! Mi stavo dimenticato di prenderla. Questa cosa mi ha scocciato...");
-        answer.setAnswer("Ok, che la giornata abbia inizio!");
-        Talk talk4 = new Talk();
-        answer.setWarp(talk4);
-        talk3.getAns().add(answer);
-
-        /*Answer a = new Answer();
-        talk4.setSpeech("In ogni caso prendi questa, l'ho trovata da queste parti e potrebbe tornarti utile");
-        a.setAnswer("Ok, grazie!");
-        Answer finalAnswer = answer;
-        a.setTriggerReference(() -> {
-            System.out.println(pier.getName() + " ti ha dato un " + key_b.getName() + "!");
-            getPlayer().getInventory().add(key_b);
-            finalAnswer.setWarp(talk2);
-        });
-        talk4.getAns().add(a);*/
-
-        answer = new Answer();
-        answer.setAnswer("Ho capito.");
-        answer.setWarp(talk1);
-        talk2.getAns().add(answer);
-        commonDialog(talk1, pier);
-
-    }
-
-    private void gate_guardDialog(Npc gate_guard, Item letter, Room b_room) {
-        Talk talk1 = new Talk();
-        gate_guard.setTalk(talk1);
-        Talk talk2 = new Talk();
-        Answer answerP = new Answer();
-        talk1.setSpeech("Salve!");
-        answerP.setAnswer("Posso entrare?");
-        answerP.setWarp(talk2);
-        talk1.getAns().add(answerP);
-
-            Answer answer = new Answer();
-            talk2.setSpeech("Assolutamente no ragazzo. Solo le guarde sono autorizzate ad entrare.");
-            Talk talk3 = new Talk();
-            answer.setAnswer("Non c'è proprio niente che io possa fare?");
-            answer.setWarp(talk3);
-            talk2.getAns().add(answer);
-
-                answer = new Answer();
-                talk3.setSpeech("Bhe ci sarebbe una cosa che potresti fare. C'è una cassa da qualche parte nel bosco contenente una .. ehm.. lettera. \nLa cassa è chiusa ma qualcuno in zona saprà aiutarti. Recuperala per me e ti farò entrare senza fare domande.");
-                answer.setAnswer("Va bene, lo farò!");
-                Talk hidden_talk = new Talk();
-                Answer hidden_answer = new Answer();
-                answer.setTriggerReference(() -> {
-                    talk1.getAns().remove(answerP);
-                    talk1.getAns().add(hidden_answer);});
-                answer.setWarp(talk1);
-                talk3.getAns().add(answer);
-
-                hidden_answer.setAnswer("Ho la tua lettera!");
-                hidden_answer.setTriggerReference(() -> {
-                    Answer h_answer = new Answer();
-                    if(getPlayer().getInventory().getList().contains(letter)){
-                        hidden_talk.setSpeech("Hai la lettera! Puoi passare e.. buona fortuna.");
-                        h_answer.setAnswer("Grazie!");
-                        gate_guard.setSpeakable(false);
-                        b_room.setLock(false);
-                    }else{
-                        hidden_talk.setSpeech("Non hai la lettera");
-                        h_answer.setAnswer("Grr..");
-                        h_answer.setWarp(talk1);
-                    }
-                    hidden_talk.getAns().clear();
-                    hidden_talk.getAns().add(h_answer);
-                });
-                hidden_answer.setWarp(hidden_talk);
-
-
-            answer = new Answer();
-            answer.setAnswer("Mmm..");
-            answer.setWarp(talk1);
-            talk2.getAns().add(answer);
-
-        talk2 = new Talk();
-        answer = new Answer();
-        answer.setAnswer("Chi è il Barone?");
-        answer.setWarp(talk2);
-        talk1.getAns().add(answer);
-
-            answer = new Answer();
-            talk2.setSpeech("Non è un tipo facile. Non sta simpatico a molti ma è lui che decide le cose qui..");
-            answer.setAnswer("Chiaro.");
-            answer.setWarp(talk1);
-            talk2.getAns().add(answer);
-
-        commonDialog(talk1, gate_guard);
-    }
-
-    private void fabbroDialog(Npc fabbro, Room room, Npc b1, Npc b2, Item key) {
-        Talk talk1 = new Talk();
-        fabbro.setTalk(talk1);
-        Talk talk2 = new Talk();
-        Answer answer = new Answer();
-        talk1.setSpeech("Ehi tu vieni qua!");
-        answer.setAnswer("Cosa c'è?");
-        answer.setWarp(talk2);
-        talk1.getAns().add(answer);
-
-        answer = new Answer();
-        talk2.setSpeech("Potresti darmi una mano con questi due qui?");
-        Talk talk3 = new Talk();
-        answer.setAnswer("Perché dovrei?");
-        answer.setWarp(talk3);
-        talk2.getAns().add(answer);
-
-        answer = new Answer();
-        talk3.setSpeech("Aiutami e ti aiuterò qualsiasi cosa tu abbia bisogno!");
-        answer.setAnswer("Mhm..ok");
-        Talk talk4 = new Talk();
-        Talk talk5 = new Talk();
-        answer.setTriggerReference(() -> {
-            fabbro.setTalk(talk5);
-        });
-        talk3.getAns().add(answer);
-
-        answer = new Answer();
-        talk5.setSpeech("...");
-        answer.setAnswer("A proposito di quella questione...");
-        answer.setTriggerReference(() -> {
-            Answer a = new Answer();
-            talk1.getAns().clear();
-            if(room.getNpcs().contains(b1) || room.getNpcs().contains(b2)){
-                talk1.setSpeech("Ehi ci sono ancora questi due a darmi fastidio!");
-                a.setAnswer("Provvederò!");
-            }else{
-                talk1.setSpeech("Ti ringrazio per l'aiuto. Chiedimi quello che vuoi.");
-                a.setAnswer("Ho bisogno di una chiave per aprire una cassa");
-                a.setWarp(talk4);
-                talk1.getAns().add(a);
-                a = new Answer();
-                a.setAnswer("No grazie.");
-            }
-            talk1.getAns().add(a);
-        });
-        answer.setWarp(talk1 );
-        talk5.getAns().add(answer);
-
-        answer = new Answer();
-        talk4.setSpeech("Ne ho proprio una che fa al caso tuo, dovrebbe andar bene!");
-        answer.setAnswer("Ok, dammela!");
-        answer.setTriggerReference(() -> {
-            System.out.println(fabbro.getName() + " ti ha dato una chiave!");
-            getPlayer().getInventory().add(key);
-            fabbro.setSpeakable(false);
-        });
-        talk4.getAns().add(answer);
-    }
-
-    private static void bullyDialog(Npc npc, String str) {
-        Talk talk1 = new Talk();
-        npc.setTalk(talk1);
-        Answer answer = new Answer();
-        talk1.setSpeech(str);
-        answer.setAnswer("Grr..");
-        answer.setTriggerReference(() -> {
-            npc.setSpeakable(false);
-            npc.setAttacking(true);
-        });
-        talk1.getAns().add(answer);
 
     }
 

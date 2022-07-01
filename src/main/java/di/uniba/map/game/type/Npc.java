@@ -1,57 +1,48 @@
 package di.uniba.map.game.type;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Npc extends Character{
 
     private boolean isEnemy = false;
-
     private boolean isGod = false;
-
     private boolean isAttacking = false;
-
     private boolean isSpeakable = false;
-
-    private Talk talk;
+    private static final String pathStanza3 = ".\\resource\\dialog\\stanza3Pier.txt";
 
     public Npc(int hp, String name, String description) {
         super(hp, name, description);
     }
 
-    public void talking(){
-        if(talk != null) {
-            try (Scanner scanner = new Scanner(System.in)) {
-                Talk temp = talk;
-                int answer;
-                boolean error = true;
+    public void talking(int idStanza){
+        
+        if(idStanza == 3){
+            File fileStanza3 = new File(pathStanza3);
+            readDialog(fileStanza3);
+        }
 
-                while (error) {
-                    System.out.println("\n" + name + ": " + temp.getSpeech());
-                    for (int j = 0; j < temp.getAns().size(); j++) {
-                        System.out.println(j + 1 + ": " + temp.getAns().get(j).getAnswer());
-                    }
-                    try {
-                        System.out.println("Cosa vuoi dire?");
-                        answer = Integer.parseInt(scanner.nextLine());
-                        System.out.println("Tu: " + temp.getAns().get(answer - 1).getAnswer());
-                        if (temp.getAns().get(answer - 1).getTriggerReference() != null) {
-                            temp.getAns().get(answer - 1).getTriggerReference().trigger();
-                        }
-                        if (temp.getAns().get(answer - 1).getWarp() == null) {
-                            System.out.println(name + ": " + "Allora è tutto.");
-                            error = false;
-                        } else {
-                            temp = temp.getAns().get(answer - 1).getWarp();
-                        }
-                    } catch (NumberFormatException e) {
-                        System.out.println(name + ": " + "Dammi una risposta sensata.");
-                    }
-                }
+    }
+
+    private void readDialog(File file){
+        try{
+            Scanner leggi = new Scanner(file);
+            while (leggi.hasNextLine()) {
+                String data = leggi.nextLine();
+                System.out.println(data);
             }
+            leggi.close();
+        } catch(IOException ex){
+            System.out.println("Si è verificato un errore");
+            ex.printStackTrace();
         }
     }
 
-    public boolean getAttacking(){return this.isAttacking;};
+    public boolean getAttacking(){
+        return this.isAttacking;
+    }
 
     public void setAttacking(boolean attacking){
         this.isAttacking = attacking;
@@ -69,15 +60,15 @@ public class Npc extends Character{
         isEnemy = enemy;
     }
 
-    public boolean getEnemy(){return this.isEnemy;}
-
-    public void setTalk(Talk talk){
-        this.talk = talk;
+    public boolean getEnemy(){
+        return this.isEnemy;
     }
 
-    public Talk getTalk() {return this.talk;}
+    public boolean getGod(){ 
+        return isGod;
+    }
 
-    public boolean getGod(){ return isGod;}
-
-    public void setGod(boolean god){ isGod = god;}
+    public void setGod(boolean god){ 
+        isGod = god;
+    }
 }

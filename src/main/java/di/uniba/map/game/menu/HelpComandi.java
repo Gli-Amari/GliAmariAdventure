@@ -133,11 +133,8 @@ public class HelpComandi extends javax.swing.JFrame {
      * 
      * @throws IOException
      */
-    // End of variables declaration//GEN-END:variables
-
     private void showHelpC() throws IOException{
         try{
-            //the file path
             String path = "./doc/file/helpC.txt";
             File file = new File(path);
             try (FileReader fr = new FileReader(file)) {
@@ -146,6 +143,8 @@ public class HelpComandi extends javax.swing.JFrame {
                 }
             }
         } catch(IOException ex){
+            System.out.println("Si è verificato un errore");
+            ex.printStackTrace();
         }
     }
 }
