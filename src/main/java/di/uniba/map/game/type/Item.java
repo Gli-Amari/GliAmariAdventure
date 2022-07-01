@@ -2,41 +2,28 @@ package di.uniba.map.game.type;
 
 import java.util.*;
 
-public class Item {
+/**
+ * @author Francesco Pio Scoglietti
+ * Definizione composizione oggetti di gioco
+ */
+public class Item { 
+
     private final int id;
-
     private String name;
-
     private String description;
-
-    //private Set<String> alias;
-
     private List<Item> list = new ArrayList<>();
-
     private boolean openable = false;
-
     private Item openWith = null;
-
     private boolean pickupable = true;
-
     private boolean weapon = false;
-
     private int power = 0;
-
     private boolean healer = false;
-
     private int heal = 0;
-
     private boolean armor = false;
-
     private int protection = 0;
-
     private boolean pushable = false;
-
     private boolean container = false;
-
     private boolean open = false;
-
     private boolean push = false;
 
     public Item(int id, String name, String description) {
@@ -45,114 +32,256 @@ public class Item {
         this.description = description;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getId() {
         return id;
     }
-    //weapon set
-
+    
+    /** 
+     * @param weapon
+     * @return boolean
+     */
+   
     public boolean isWeapon(){return weapon;}
 
+    
+    /** 
+     * @param weapon
+     */
     public void setWeapon(boolean weapon){
         this.weapon = weapon;
     }
 
     public int getPower(){ return power;};
 
+    
+    /** 
+     * @param power
+     */
     public void setPower(int power){
         this.power = power;
     }
 
-    //end weapon
-
-    //armor set
+    
+    /** 
+     * @param armor
+     * @return boolean
+     */
 
     public boolean isArmor(){return armor;}
 
+    
+    /** 
+     * @param armor
+     */
     public void setArmor(boolean armor){
         this.armor = armor;
     }
 
     public int getProtection(){ return protection;};
 
+    
+    /** 
+     * @param protection
+     */
     public void setProtection(int protection){
         this.protection = protection;
     }
 
-    //end armor
+    
+    /** 
+     * @param getName(
+     */
+    public void setIsContainer(boolean cont) 
+    { 
+        this.container = cont;
+    }
 
-    //Impostazione Oggetto che può contenere oggetti
-    public void setIsContainer(boolean cont) { this.container = cont;}
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getIsContainer() 
+    { 
+        return this.container;
+    }
 
-    public boolean getIsContainer() { return this.container;}
+    
+    /** 
+     * @return List<Item>
+     */
+    public List<Item> getItemList() 
+    { 
+        return this.list;
+    }
 
-    public List<Item> getItemList() { return this.list;}
-
-    //Fine
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getDescription() {
         return description;
     }
 
+    
+    /** 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    
+    /** 
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     public boolean isOpenable() {
         return openable;
     }
 
+    
+    /** 
+     * @param openable
+     */
     public void setOpenable(boolean openable) {
         this.openable = openable;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     public boolean isPickupable() {
         return pickupable;
     }
 
+    
+    /** 
+     * @param pickupable
+     */
     public void setPickupable(boolean pickupable) {
         this.pickupable = pickupable;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     public boolean isPushable() {
         return pushable;
     }
 
+    
+    /** 
+     * @param pushable
+     */
     public void setPushable(boolean pushable) {
         this.pushable = pushable;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     public boolean isOpen() {
         return open;
     }
 
+    
+    /** 
+     * @param open
+     */
     public void setOpen(boolean open) {
         this.open = open;
     }
 
+    
+    /** 
+     * @return boolean
+     */
     public boolean isPush() {
         return push;
     }
 
-    public void setPush(boolean push) {
+    
+    /** 
+     * @param push
+     */
+    public void setPush(boolean push) 
+    {
         this.push = push;
     }
 
-    public void setHealer(boolean healer){this.healer = healer;}
+    
+    /** 
+     * @param healer
+     */
+    public void setHealer(boolean healer)
+    {   
+        this.healer = healer;
+    }
 
-    public boolean getHealer(){return this.healer;}
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getHealer()
+    {
+        return this.healer;
+    }
 
-    public void setHeal(int heal){this.heal = heal;}
+    
+    /** 
+     * @param heal
+     */
+    public void setHeal(int heal)
+    {
+        this.heal = heal;
+    }
 
-    public int getHeal(){return this.heal;}
+    
+    /** 
+     * @return int
+     */
+    public int getHeal()
+    {
+        return this.heal;
+    }
 
-    public void setOpenWith(Item item){this.openWith = item;}
+    
+    /** 
+     * @param item
+     */
+    public void setOpenWith(Item item)
+    {
+        this.openWith = item;
+    }
 
-    public Item getOpenWith(){return this.openWith;}
+    
+    /** 
+     * @return Item
+     */
+    public Item getOpenWith()
+    {
+        return this.openWith;
+    }
 }
