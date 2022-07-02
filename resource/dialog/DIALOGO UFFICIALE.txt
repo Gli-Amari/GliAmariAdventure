@@ -1,0 +1,3 @@
+UFFICIALE: "Siamo sotto attacco. Scoglietti, Spicoli e Russo andate a difendere i confini. Per poter salvare il mondo è necessario neutralizzare la nave nemica. Sarà compito tuo."
+LELLO: "Ma sono solo, non ci riuscirò mai."
+UFFICIALE: "Allora fa si che il tuo sacrificio sia utile a salvare tutti quanti noi." 

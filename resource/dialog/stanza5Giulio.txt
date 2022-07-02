@@ -1,0 +1,7 @@
+GIULIO “SPACCATUTTO”: “Che ne pensi del buco così grande che c’è sul muro”;
+LELLO: “Come mai hai cominciato a spaccare tutto?”;
+GIULIO “SPACCATUTTO”: Box ferrari…….. vabbè dai non capiresti;
+LELLO: "Dove sarà il prossimo GP? Possiamo stare tranquilli?";
+GIULIO: "Silverstone, è molto imprevedibile.";
+LELLO: "Va bene, in ogni caso quando sei pronto per andare fammi sapere.";
+GIULIO: "OK, a dopo.";
