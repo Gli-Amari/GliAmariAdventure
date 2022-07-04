@@ -4,98 +4,199 @@ package di.uniba.map.game.type;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Francesco Pio Scoglietti
+ * In questa classe vengono definite le caratteristiche delle stanze
+ */
 public class Room {
+
     private final int id;
-
     private String name;
-
     private String description;
-
     private String look= "Vuoto";
-
     private boolean locked = false;
-
     private boolean explored = false;
-
     private Room south = null;
-
     private Room north = null;
-
     private Room east = null;
-
     private Room west = null;
-
     private final List<Item> items = new ArrayList<>();
-
     private final List<Npc> npc = new ArrayList<>();
 
-    public int getId(){
+    
+    /** 
+     * @return int
+     */
+    public int getId()
+    {
         return id;
     }
 
-    public Room(int id, String name, String description) {
+    public Room(int id, String name, String description) 
+    {
         this.id = id;
         this.name = name;
         this.description = description;
     }
-    public String getName(){ return name;}
+    
+    /** 
+     * @return String
+     */
+    public String getName()
+    { 
+        return name;
+    }
 
-    public String getDescription() { return description;}
+    
+    /** 
+     * @return String
+     */
+    public String getDescription() 
+    { 
+        return description;
+    }
 
-    public Room getSouth() {
+    
+    /** 
+     * @return Room
+     */
+    public Room getSouth() 
+    {
         return south;
     }
 
-    public void setSouth(Room south) {
+    
+    /** 
+     * @param south
+     */
+    public void setSouth(Room south) 
+    {
         this.south = south;
     }
 
-    public Room getNorth() {
+    
+    /** 
+     * @return Room
+     */
+    public Room getNorth() 
+    {
         return north;
     }
 
-    public void setNorth(Room north) {
+    
+    /** 
+     * @param north
+     */
+    public void setNorth(Room north) 
+    {
         this.north = north;
     }
 
-    public Room getEast() {
+    
+    /** 
+     * @return Room
+     */
+    public Room getEast() 
+    {
         return east;
     }
 
-    public void setEast(Room east) {
+    
+    /** 
+     * @param east
+     */
+    public void setEast(Room east) 
+    {
         this.east = east;
     }
 
-    public Room getWest() {
+    
+    /** 
+     * @return Room
+     */
+    public Room getWest() 
+    {
         return west;
     }
 
-    public void setWest(Room west) {
+    
+    /** 
+     * @param west
+     */
+    public void setWest(Room west) 
+    {
         this.west = west;
     }
 
-    public List<Item> getItems() {
+    
+    /** 
+     * @return List<Item>
+     */
+    public List<Item> getItems() 
+    {
         return items;
     }
 
-    public List<Npc> getNpcs() {
+    
+    /** 
+     * @return List<Npc>
+     */
+    public List<Npc> getNpcs() 
+    {
         return npc;
     }
 
-    public String getLook() {
+    
+    /** 
+     * @return String
+     */
+    public String getLook() 
+    {
         return look;
     }
 
-    public void setLook(String look) {
+    
+    /** 
+     * @param look
+     */
+    public void setLook(String look) 
+    {
         this.look = look;
     }
 
-    public boolean getLock(){return locked;}
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getLock()
+    {
+        return locked;
+    }
 
-    public void setLock(boolean lock){this.locked = lock;}
+    
+    /** 
+     * @param lock
+     */
+    public void setLock(boolean lock)
+    {
+        this.locked = lock;
+    }
 
-    public boolean getExplored(){return this.explored;}
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getExplored()
+    {
+        return this.explored;
+    }
 
-    public void setExplored(boolean exp){this.explored = exp;}
-
+    
+    /** 
+     * @param exp
+     */
+    public void setExplored(boolean exp)
+    {
+        this.explored = exp;
+    }
 }

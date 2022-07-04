@@ -6,6 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * @author Francesco Pio Scoglietti
+ * All'interno di questa classe vengono definite le interazioni con gli altri NPC
+ */
 public class Npc extends Character{
 
     private boolean isEnemy = false;
@@ -21,7 +25,8 @@ public class Npc extends Character{
     private static final String pathStanza15 = ".\\resource\\dialog\\stanza15Galatone.txt";
     private static final String pathStanza19 = ".\\resource\\dialog\\stanza12Soldato.txt";
 
-    public Npc(int hp, String name, String description) {
+    public Npc(int hp, String name, String description) 
+    {
         super(hp, name, description);
     }
 
@@ -82,36 +87,73 @@ public class Npc extends Character{
             System.err.println("ERRORE  DI I/0");
         }
     }
-
-    public boolean getAttacking(){
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getAttacking()
+    {
         return this.isAttacking;
-    }
+    };
 
-    public void setAttacking(boolean attacking){
+    
+    /** 
+     * @param attacking
+     */
+    public void setAttacking(boolean attacking)
+    {
         this.isAttacking = attacking;
     }
 
-    public void setSpeakable(boolean speakable) {
+    
+    /** 
+     * @param speakable
+     */
+    public void setSpeakable(boolean speakable) 
+    {
         isSpeakable = speakable;
     }
 
-    public boolean getSpeakable(){
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getSpeakable()
+    {
         return isSpeakable;
     }
 
-    public void setEnemy(boolean enemy) {
+    
+    /** 
+     * @param enemy
+     */
+    public void setEnemy(boolean enemy) 
+    {
         isEnemy = enemy;
     }
-
-    public boolean getEnemy(){
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getEnemy()
+    {
         return this.isEnemy;
     }
-
-    public boolean getGod(){ 
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getGod()
+    { 
         return isGod;
     }
 
-    public void setGod(boolean god){ 
+    
+    /** 
+     * @param god
+     */
+    public void setGod(boolean god)
+    { 
         isGod = god;
     }
 }
