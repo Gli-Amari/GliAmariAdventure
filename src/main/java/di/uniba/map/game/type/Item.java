@@ -11,6 +11,7 @@ public class Item {
     private final int id;
     private String name;
     private String description;
+
     private List<Item> list = new ArrayList<>();
     private boolean openable = false;
     private Item openWith = null;
@@ -26,6 +27,10 @@ public class Item {
     private boolean open = false;
     private boolean push = false;
 
+    private boolean explosive = false;
+
+    private int nExplosive;
+
     public Item(int id, String name, String description) {
         this.id = id;
         this.name = name;
@@ -33,6 +38,25 @@ public class Item {
     }
 
     
+    public void setExplosive(boolean explosive){
+        this.explosive = explosive;
+    }
+
+    
+    public boolean getExplosive(){
+        return explosive;
+    }
+
+    ////
+    public void setnExplosive(int nExplosive){
+        this.nExplosive = nExplosive;
+    }
+
+    public int getnExplosive(){
+        return nExplosive;
+    }
+    ////
+
     /** 
      * @return int
      */

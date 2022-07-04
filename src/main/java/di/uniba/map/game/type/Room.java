@@ -9,6 +9,7 @@ import java.util.List;
  * In questa classe vengono definite le caratteristiche delle stanze
  */
 public class Room {
+
     private final int id;
     private String name;
     private String description;
@@ -19,7 +20,6 @@ public class Room {
     private Room north = null;
     private Room east = null;
     private Room west = null;
-    private Triggers.triggerInterface triggerReference = null;
     private final List<Item> items = new ArrayList<>();
     private final List<Npc> npc = new ArrayList<>();
 
@@ -198,23 +198,5 @@ public class Room {
     public void setExplored(boolean exp)
     {
         this.explored = exp;
-    }
-
-    
-    /** 
-     * @param T
-     */
-    public void setTriggerReference(Triggers.triggerInterface T)
-    {
-        this.triggerReference = T;
-    }
-
-    
-    /** 
-     * @return triggerInterface
-     */
-    public Triggers.triggerInterface getTriggerReference()
-    {
-        return this.triggerReference;
     }
 }

@@ -1,0 +1,7 @@
+LELLO: "Cosa stai guardando?";
+FRANK: “Questo documentario parla di Zeman, la sua idea di calcio nella Serie A degli anni 90’ fu rivoluzionaria.”
+LELLO: “Gli attaccanti segnavano?”
+FRANK: “Il trio delle meraviglie Baiano-Signori-Rambaudi era una macchina da goal”
+LELLO: “Sicuramente….ricordi fantastici”
+FRANK: "Vero, tuttavia fa parte del passato, è stato annunciato il nuovo allenatore"
+LELLO: "Va bene, sono curioso di vederlo all'opera."
