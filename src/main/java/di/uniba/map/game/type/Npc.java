@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Npc extends Character{
 
@@ -18,6 +17,9 @@ public class Npc extends Character{
     private static final String pathStanza5 = ".\\resource\\dialog\\stanza5Giulio.txt";
     private static final String pathStanza10 = ".\\resource\\dialog\\stanza10Lanubile.txt";
     private static final String pathStanza11 = ".\\resource\\dialog\\stanza11Pippo.txt";
+    private static final String pathStanza12 = ".\\resource\\dialog\\stanza12Ufficiale.txt";
+    private static final String pathStanza15 = ".\\resource\\dialog\\stanza15Galatone.txt";
+    private static final String pathStanza19 = ".\\resource\\dialog\\stanza12Soldato.txt";
 
     public Npc(int hp, String name, String description) {
         super(hp, name, description);
@@ -48,21 +50,22 @@ public class Npc extends Character{
                 fileStanza = new File(pathStanza11);
                 readDialog(fileStanza);
             break;
+            case 12:
+                fileStanza = new File(pathStanza12);
+                readDialog(fileStanza);
+            break;
+            case 15:
+                fileStanza = new File(pathStanza15);
+                readDialog(fileStanza);
+            break;
+            case 19:
+                fileStanza = new File(pathStanza19);
+                readDialog(fileStanza);
+            break;
         }
     }
 
     private void readDialog(File file){
-        /*try{
-            Scanner leggi = new Scanner(file);
-            while (leggi.hasNextLine()) {
-                String data = leggi.nextLine();
-                System.out.println(data);
-            }
-            leggi.close();
-        } catch(IOException ex){
-            System.out.println("Si è verificato un errore");
-            ex.printStackTrace();
-        }*/
         try{
             BufferedReader buffer= new BufferedReader(new FileReader(file));
             String singleLine;
