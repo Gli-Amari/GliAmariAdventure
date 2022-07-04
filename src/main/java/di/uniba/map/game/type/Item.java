@@ -9,8 +9,6 @@ public class Item {
 
     private String description;
 
-    //private Set<String> alias;
-
     private List<Item> list = new ArrayList<>();
 
     private boolean openable = false;
@@ -39,16 +37,40 @@ public class Item {
 
     private boolean push = false;
 
+    private boolean explosive = false;
+
+    private int nExplosive;
+
     public Item(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
+    
+    public void setExplosive(boolean explosive){
+        this.explosive = explosive;
+    }
+
+    
+    public boolean getExplosive(){
+        return explosive;
+    }
+
+    ////
+    public void setnExplosive(int nExplosive){
+        this.nExplosive = nExplosive;
+    }
+
+    public int getnExplosive(){
+        return nExplosive;
+    }
+    ////
+
+
     public int getId() {
         return id;
     }
-    //weapon set
 
     public boolean isWeapon(){return weapon;}
 

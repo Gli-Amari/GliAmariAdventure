@@ -193,6 +193,7 @@ public class Story extends GameDescription{
         dibest.setSouth(Campus_est );
         dibovest.setSouth(Campus_est);
         Start_level.setNorth(Entry_trincea);
+        Entry_trincea.setSouth(Start_level);
         Entry_trincea.setWest(trincea_addestramento);
         Entry_trincea.setNorth(trincea_empty);
         trincea_empty.setSouth(Entry_trincea);
@@ -207,6 +208,9 @@ public class Story extends GameDescription{
         Intermezzo_est.setNorth(end_trincea);
         Campus_est.setWest(dibovest);
         Campus_est.setEast(dibest);
+
+        //temp
+        Campus_est.setNorth(Start_level);
 
         //oggetti
         Item vestiti = new Item(1, "vestiti", "puoi indossare i vestiti prima di uscire dalla sua stanza.");
@@ -237,7 +241,7 @@ public class Story extends GameDescription{
         razioneK.setHeal(40);
         getItemList().add(razioneK);
 
-        Item cassa = new Item(8, "Cassa", "Potrà contenere sicuramente qualcosa...");
+        Item cassa = new Item(8, "cassa", "Potrà contenere sicuramente qualcosa...");
         cassa.setPickupable(false);
         cassa.setOpenable(true);
         cassa.setIsContainer(true);
@@ -299,6 +303,7 @@ public class Story extends GameDescription{
         entrylevel.getItems().add(vestiti);
         dibest.getItems().add(caffe);
         Start_level.getItems().add(cassa);
+        trincea_addestramento.getItems().add(granata);
         Ospedale_nord.getItems().add(razioneK);
 
         //NPC insert
@@ -320,6 +325,7 @@ public class Story extends GameDescription{
 
     }
 
+    @Override
     public boolean isWin(GameDescription game){
         boolean win = false;
         int idFinalStanza = game.getCurrentRoom().getId();
@@ -331,6 +337,7 @@ public class Story extends GameDescription{
         return win;
     }
 
+    @Override
     public boolean isLose(){
         boolean lose = false;
         if(getPlayer().getHp() <= 0){
