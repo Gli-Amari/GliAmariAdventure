@@ -3,6 +3,7 @@ package di.uniba.map.game.engine;
 import di.uniba.map.game.parser.Parser;
 import di.uniba.map.game.parser.ParserOutput;
 import di.uniba.map.game.type.CommandType;
+import di.uniba.map.game.story.Db;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
@@ -12,10 +13,16 @@ public class Engine {
     private final GameDescription game;
     private final Parser cmd;
     private final Utils u = new Utils();
+    private final Db db = new Db();
+    private boolean flagDb = false;
 
     public Engine(Object obj) {
         this.game = (GameDescription) obj;
         try {
+            if(!flagDb){
+                db.population_tables();
+                flagDb = true;
+            }
             this.game.init();
         } catch (Exception ex) {
             System.err.println(ex);
@@ -58,5 +65,4 @@ public class Engine {
         engine.begin();
         engine.run();
     }
-
 }

@@ -23,7 +23,6 @@ public class Room {
     private final List<Item> items = new ArrayList<>();
     private final List<Npc> npc = new ArrayList<>();
 
-    
     /** 
      * @return int
      */

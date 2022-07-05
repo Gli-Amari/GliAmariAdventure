@@ -32,7 +32,7 @@ public class Main extends JFrame {
         
         if(!flagMusic){ 
             flagMusic = true;
-            //t.start(); 
+            t.start(); 
         }
 
         initComponents();
