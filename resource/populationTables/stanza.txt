@@ -1,0 +1,43 @@
+0	La tua misera stanza!			Risveglio, sei appena entrato a far parte di casa Amari! Ti aspetta una giornata impegnativa. Inizia l'avventura.	All'interno della tua stanza, potrai vestirti e uscire dalla stanza.
+
+1	Corridoio				Uscita dalla tua camera													Vediamo cosa c'è in giro e troviamo qualcosa di interessante in questa minchia di casa.
+
+2	Corridoio				Corridoio a est														Ti trovi nell'atrio di casa tua. Da qui è possibile abbandonare la casa.	
+
+3	Atrio					Atrio ovest														Questa è la cucina di casa Amari. Davanti i tuoi occhi, trovi una tavola imbandita per la colazione. Sulla tua sinistra trovi una macchinetta\ndel caffè pronta all'uso. Alla tua destra trovi un Pier selvatico che guarda i biscotti sul tavolo
+
+4	Corridoio				Corridoio a Nord													Qui trovi la camera del vecchio Frank! Entrando trovi Frank intento a guardare il solito documentario sul fantasmagorico Boemo Zeman, EX-allenatore del Foggia
+
+5	Corridoio				Corridoio a ovest													Adesso, trovi la stanza del pericolos Giulio Spaccatutto! (NO! non è ispirato a Ralph!). Entrando in camera sua, lo trovi imperterrito davanti al suo televisore mentre guarda una replica di Formula 1. Preso dalla rabbia per gli errori fatti dalla sua scuderia preferita, tira un pugno sul muro.
+
+6	Campus					Ingresso campus														Ti trovi all'ingresso del tuo campus universitario. E' un'area molto vasta, cerca il tuo dipartimento
+
+7	Campus 					Campus a ovest														Ti trovi al Politecnico di Bari: regno dei fuori corso!. Trovi un ragazzo molto bislacco e snello, molto selvaggio che saluta tristemente la sua dolce metà Cinzia
+
+8	Campus					Campus a nord														Davanti a te trovi la casa del nemico: il dipartimento di matematica. E' un dipartimento molto triste: all'interno ci trovi il dio dell'inferno e il dio del paradiso, rispettivamente la Germinario e il mitico Pugliese!. Quante te ne ha fatte passare la Germinario per quel maledetto esame di analisi 1. D'altro canto, Pugliese ti ha dato una grandissima soddisfazione credendo più che mai in te						
+
+9	Campus					Campus a est														Ti trovi nel famoso palazzo di vetro dell'Onu, o meglio noto come dipartimento di informatica. All'ingresso trovi un membro di un associazione studentesca che ti chiede se hai votato
+
+10	DIB					Dib a est 														Ti trovi di fronte l'oggetto più sacro del dipartimento di informatica, la macchinetta del caffè pronta per essere usata. Al suo finaco trovi il prof. labubile con il suo cane baffuto Ciccio a bersi il caffè. Ride a crepapelle  
+
+11	DIB					Dib a ovest														Ti trovi dentro l'aula A. Dove trovi tutti gli amici ciobbà e Pippo che sembra arrabbiato. Sicuramente avrà corretto tanti progetti orribili come il nostro. Comprensibile come cosa
+
+12      Ufficio comandante 			Ti trovi all'interno dell'ufficio del tuo comandante, ti sta spiegando la tattica di guerra				Ti trovi all'interno dell'ufficio del comandante. Hai dinanzi a te una cassa. Magari potrebbe esser utile scoprire cose vi è all'interno. Inoltre dietro di te è presente una porta.          
+
+13	Ingresso trincea			Ti trovi all'interno della trincea											Sei nel mezzo di un campo di battaglia, intorno a te solo morte e distruzione. Sei in compagnia degli amari
+
+14	Vicolo cieco				Ti trovi nel mezzo di un vicolo cieco senza la possibilità di proseguire						Ti trovi nel mezzo di un vicolo senza la possibilità di proseguire 
+
+15	Campo di addestramento			Questo è un campo di addestramento											Ti trovi in un campo di addestramento, e dinanzi vedi il sergente mimmo Glatone insieme ad un gruppo di soldati. Il sergente ha il compito di far esercitare i soldati a lanciare le granate
+
+16	Ingresso del campo di addestramento	Ti trovi al di fuori del campo di addestramento										Hai appena completato il tuo addestramento. Esci dal campo e ti rendi conto che questo è sotto attacco da un'orda di alieni. DEVI DIFENDERLO A TUTTU I COSTI!
+
+17	Ospedale da campo			Ti ritrovi all'interno dell'ospedale da campo allestito per i feriti di guerra						All'interno del campo noti tutti i soldati feriti. In mezzo al caos, sembra spuntare una razione K. Potrebbe tornarti utile
+
+18	Ospedale 				Ospedale a Nord														Ti ritrovi nell'ala nord dell'ospedale e noti la presenza di un gruppo di alieni, che girano nei corridoi
+
+19	Intermezzo				Zona morta														Ti ritrovi in una zona di guerra appena bombardata. Sono tutti morti, ma riesci a udire il lamento di un soldato alleato
+	
+20	Intermezzo				Intermezzo a est													Continuando la tua missione, arrivi in una zona molto tranquilla, sembra quasi intatta. Mentre controlli in giro, ti ritrovi  in un bombardamento. Riesci però a salvarti. Al tuo risveglio un tuo compagno ti aiuta a rialzarti e ti offre una razione K
+
+21	Trincea					Fine della trincea													Subito dopo il bombardamento, è tutto distrutto. Sei solo. Ma devi portare a termine la missione. Mentre continui a camminare per la tua strada un alieno sopravvisuto ti attacca di sorpresa e c'è un solo modo per liberati di lui                                                     
