@@ -16,7 +16,7 @@ import javax.sound.sampled.Clip;
  */
 public class ThreadMusic implements Runnable{
     
-    private static final String musicpath = "./resource/itwasagoodday.wav";
+    private static final String musicpath = "./resource/StrangerThings_Season1_Opening-IntroHD.wav";
 
     /**
      * metodo per la gestione concorrente della musica in gioco.
