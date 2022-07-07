@@ -1,4 +1,0 @@
-LANUBILE: “Come procede il vostro sviluppo agile?”
-LELLO: “Si lavora bene, stiamo facendo passi in avanti giorno dopo giorno”.
-LANUBILE: "Avete visto i nuovi adesivi di github appena arrivati? Prendetene se volete"
-LELLO: "No grazie, ne abbiamo già molti a casa."
