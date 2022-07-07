@@ -7,12 +7,11 @@ package di.uniba.map.game.type;
 public class Player extends Character{
 
     private Inventory inventory = new Inventory();
-
     protected Item clothesEquip;
 
-    public Player(int hp, String name, String description) 
+    public Player(int hp, String name) 
     {
-        super(hp, name, description);
+        super(hp, name);
     }
 
     
