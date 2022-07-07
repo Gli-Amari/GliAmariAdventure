@@ -1,7 +1,5 @@
-GIULIO “SPACCATUTTO”: “Che ne pensi del buco così grande che c’è sul muro”;
-LELLO: “Come mai hai cominciato a spaccare tutto?”;
-GIULIO “SPACCATUTTO”: Box ferrari…….. vabbè dai non capiresti;
-LELLO: "Dove sarà il prossimo GP? Possiamo stare tranquilli?";
-GIULIO: "Silverstone, è molto imprevedibile.";
-LELLO: "Va bene, in ogni caso quando sei pronto per andare fammi sapere.";
-GIULIO: "OK, a dopo.";
+LELLO: Ti vedo molto carico, sei pronto per partire?
+GIULIO: Si non vedo l'ora di spaccare in due qualche alieno. Gli farò esplodere in cervello in stile Mars Attacks.
+LELLO: Non penso ci sia bisogno di aggiungere altro... sai già come caricarti da solo.
+GIULIO: E tu come ti senti?
+LELLO: Sincero?...Mi sto cagando sotto!
