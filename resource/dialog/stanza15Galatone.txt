@@ -2,5 +2,4 @@ MIMMO GALATONE: "Soldato, se vogliamo vincere contro tutti questi alieni sarà n
 LELLO: "Ingegnè, la mia preparazione a riguardo scarseggia moltissimo, avrò bisogno di un suo aiuto".
 MIMMO GALATONE: "Non ti preoccupare, prendine una in mano, stacca la spoletta e lanciala."
 LELLO: "Va bene, provo subito"
-*LELLO lancia la granata con successo*
-MIMMO GALATONE: "Bravo soldato, ora che ne hai capito il funzionamento, prendi una scorta di granate. Serviranno!"
+MIMMO GALATONE: "Bravo soldato, ora che ne hai capito il funzionamento, prendi una scorta di granate. Serviranno!. Ah visto che ci sei, prendi anche quelle cure mediche che vedi li sul quel tavolo."
