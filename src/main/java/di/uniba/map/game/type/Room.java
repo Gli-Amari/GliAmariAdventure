@@ -1,8 +1,11 @@
 package di.uniba.map.game.type;
 
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import di.uniba.map.game.databases.Db;
 
 /**
  * @author Francesco Pio Scoglietti
@@ -10,10 +13,16 @@ import java.util.List;
  */
 public class Room {
 
+    /**
+     * query
+     */
+    public static final String SELECTNAME = "SELECT name FROM room WHERE id = ?";
+    public static final String SELECTDESCRIPTION = "SELECT desc FROM room WHERE id = ?";
+    public static final String SELECTDESCRIPTIONRETURN = "SELECT descReturn FROM room WHERE id = ?";
+    public static final String SELECTLOOK = "SELECT look FROM room WHERE id = ?";
+
     private final int id;
-    private String name;
-    private String description;
-    private String look= "Vuoto";
+    private boolean firstTimeHere = true;
     private boolean locked = false;
     private boolean explored = false;
     private Room south = null;
@@ -31,18 +40,18 @@ public class Room {
         return id;
     }
 
-    public Room(int id, String name, String description) 
+    public Room(int id) 
     {
         this.id = id;
-        this.name = name;
-        this.description = description;
     }
     
     /** 
      * @return String
      */
-    public String getName()
+    public String getName(Db db)
     { 
+        String name = getInformationRoom(db, SELECTNAME);
+
         return name;
     }
 
@@ -50,8 +59,15 @@ public class Room {
     /** 
      * @return String
      */
-    public String getDescription() 
+    public String getDescription(Db db) 
     { 
+        String description = " ";
+        if(getFirstTimeHere()){
+            description = getInformationRoom(db,SELECTDESCRIPTION);
+        }else{
+            description = getInformationRoom(db,SELECTDESCRIPTIONRETURN);
+        }
+
         return description;
     }
 
@@ -149,18 +165,16 @@ public class Room {
     /** 
      * @return String
      */
-    public String getLook() 
+    public String getLook(Db db) 
     {
-        return look;
-    }
+        String look= "";
+        if (getFirstTimeHere()){
+            look = getInformationRoom(db,SELECTLOOK);
+        }else{
+            look = getInformationRoom(db,SELECTDESCRIPTIONRETURN);
+        }
 
-    
-    /** 
-     * @param look
-     */
-    public void setLook(String look) 
-    {
-        this.look = look;
+        return look;
     }
 
     
@@ -197,5 +211,42 @@ public class Room {
     public void setExplored(boolean exp)
     {
         this.explored = exp;
+    }
+
+    
+    /** 
+     * @param db
+     * @param select
+     * @return String
+     */
+    public String getInformationRoom(Db db, String select){
+        String resultSelect = " ";
+        try{
+            ResultSet rs = db.readFromDb(select, getId());
+            while(rs.next()){
+                resultSelect= rs.getString(1);
+            }
+            rs.close();
+        }catch(SQLException ex){
+            System.err.println(ex.getSQLState() + ":" + ex.getMessage());
+        }
+        
+        return resultSelect;
+    }
+
+    
+    /** 
+     * @return boolean
+     */
+    public boolean getFirstTimeHere(){
+        return firstTimeHere;
+    }
+
+    
+    /** 
+     * @param firstTimeHere
+     */
+    public void setFirstTimeHere(Boolean firstTimeHere){
+        this.firstTimeHere= firstTimeHere;
     }
 }

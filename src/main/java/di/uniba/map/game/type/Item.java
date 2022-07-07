@@ -1,6 +1,10 @@
 package di.uniba.map.game.type;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
+
+import di.uniba.map.game.databases.Db;
 
 /**
  * @author Francesco Pio Scoglietti
@@ -8,10 +12,13 @@ import java.util.*;
  */
 public class Item { 
 
-    private final int id;
-    private String name;
-    private String description;
+    /**
+     * query
+     */
+    public static final String SELECTNAME="SELECT name FROM item WHERE id = ?";
+    public static final String SELECTDESCRIPTION ="SELECT desc FROM item WHERE id = ?";
 
+    private final int id;
     private List<Item> list = new ArrayList<>();
     private boolean openable = false;
     private Item openWith = null;
@@ -31,27 +38,40 @@ public class Item {
 
     private int nExplosive;
 
-    public Item(int id, String name, String description) {
+    public Item(int id) {
         this.id = id;
-        this.name = name;
-        this.description = description;
     }
 
     
+    /** 
+     * @param explosive
+     */
     public void setExplosive(boolean explosive){
         this.explosive = explosive;
     }
 
     
+    
+    /** 
+     * @return boolean
+     */
     public boolean getExplosive(){
         return explosive;
     }
 
+    
+    /** 
+     * @param nExplosive
+     */
     ////
     public void setnExplosive(int nExplosive){
         this.nExplosive = nExplosive;
     }
 
+    
+    /** 
+     * @return int
+     */
     public int getnExplosive(){
         return nExplosive;
     }
@@ -146,7 +166,9 @@ public class Item {
     /** 
      * @return String
      */
-    public String getName() {
+    public String getName(Db db) {
+        String name = getInformationAdvObject(db,SELECTNAME);
+
         return name;
     }
 
@@ -154,26 +176,33 @@ public class Item {
     /** 
      * @return String
      */
-    public String getDescription() {
+    public String getDescription(Db db) {
+        String description = getInformationAdvObject(db,SELECTDESCRIPTION);
+
         return description;
     }
 
     
     /** 
-     * @param name
+     * @param db
+     * @param select
+     * @return String
      */
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String getInformationAdvObject(Db db, String select){
+        String resultSelect= new String();
+        try{
+            ResultSet rs = db.readFromDb(select,getId());
+            while(rs.next()){
+                resultSelect= rs.getString(1);
+            }
+            rs.close();
+        }catch(SQLException ex){
+            System.err.println(ex.getSQLState() + ":" + ex.getMessage());
+        }
 
+        return resultSelect;
+    }
     
-    /** 
-     * @param description
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     
     /** 
      * @return boolean
