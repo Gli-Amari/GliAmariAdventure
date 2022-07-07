@@ -16,6 +16,8 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |    |-- workflows
 |    |      |-- maven.yml
 |    |      |-- maven-publish.yml
+|-- .vscode
+|    |-- settings.json
 |-- doc
 |    |-- file
 |    |      |-- ChiSiamo.txt
@@ -28,8 +30,26 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |    |-- GitHubFlow.md
 |–– img
 |    |–– Copertina.jpg
+|    |-- Logo.png
 |–– lib
 |    |–– flatlaf-2.2.jar
+|--resource
+|    |-- database
+|    |      |-- dbAmari.mv.db
+|    |      |-- dbAmari.trace.db
+|    |-- dialog
+|    |      |-- stanza15Galatone.txt
+|    |      |-- stanza12Ufficiale.txt
+|    |      |-- stanza11Pippo.txt
+|    |      |-- stanza10Lanubile.txt
+|    |      |-- stanza5Giulio.txt
+|    |      |-- stanza4Frank.txt
+|    |      |-- stanza3Pier.txt
+|    |-- riferimenti tabelle
+|    |      |-- npc.txt
+|    |      |-- oggetti.txt
+|    |      |-- stanza.txt
+|    |-- StrangerThings_Season1_Opening-IntroHD.wav
 |–– src
 |    |–– main
 |    |–– test
@@ -56,3 +76,6 @@ di seguito spieghiamo le varie directory:
 6. `target` contiene il file `.jar` eseguibile da terminale
 7. `.gitignore` specifica tutti i file che devono essere esclusi dal sistema di controllo versione.
 8. `settings.xml` specifica la dipendenza per la creazione del package maven sul progetto
+9. `resource/database` contiene i file binari su cui il jdbc di H2 lavora 
+10. `resource/dialog` contiene tutti i dialoghi presenti in gioco
+11. `resource/riferiemnti tabelle` contiene tutti i riferimenti alle tabelle presenti nel gioco
