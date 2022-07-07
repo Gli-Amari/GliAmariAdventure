@@ -1,5 +1,6 @@
 package di.uniba.map.game.parser;
 
+import di.uniba.map.game.databases.Db;
 import di.uniba.map.game.engine.GameDescription;
 import di.uniba.map.game.type.Command;
 import di.uniba.map.game.type.Item;
@@ -7,7 +8,7 @@ import di.uniba.map.game.type.Npc;
 
 public class Parser {
 
-    public ParserOutput parseCmd(String command, GameDescription game){
+    public ParserOutput parseCmd(String command, GameDescription game, Db db){
 
         ParserOutput cmd;
         Command token = new Command(null, null);
@@ -28,12 +29,12 @@ public class Parser {
         }
         for(int i = 0; i<game.getItemList().size(); i++){
             try{
-                if(key[1].equals(game.getItemList().get(i).getName())){
+                if(key[1].equals(game.getItemList().get(i).getName(db))){
                     item = game.getItemList().get(i);
                     if(item.getIsContainer()){
                         for(int j = 0; j<game.getItemList().size(); j++) {
                             try {
-                                if(key[2].equals(game.getItemList().get(j).getName())){
+                                if(key[2].equals(game.getItemList().get(j).getName(db))){
                                     containerItem = game.getItemList().get(j);
                                     break;
                                 }
