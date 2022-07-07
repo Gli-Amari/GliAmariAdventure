@@ -2,25 +2,11 @@ package di.uniba.map.game.story;
 
 import di.uniba.map.game.type.*;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import di.uniba.map.game.engine.GameDescription;
 
 public class Story extends GameDescription{
-
-    Db db = new Db();
-
-    /**
-     *  query di interrogazione
-     */
-    private static String SELECT_ALL_stanza = "SELECT * FROM Stanza WHERE id = ?";
-    private static String SELECT_ALL_oggetti = "SELECT * FROM oggetti WHERE id = ?";
-    private static String SELECT_ALL_npc = "SELECT * FROM npc WHERE id = ?";
-
-    ResultSet rs_stanza = null;
-    ResultSet rs_oggetti = null;
-    ResultSet rs_npc = null;
 
     @Override
     public void init() throws SQLException{
@@ -101,9 +87,8 @@ public class Story extends GameDescription{
         getCommands().add(throww);
 
         //Rooms
-        rs_stanza = db.executeQueryInStory(SELECT_ALL_stanza, 0);
-        Room entrylevel = new Room(rs_stanza.getInt(1), rs_stanza.getString(2), rs_stanza.getString(3));
-        entrylevel.setLook(rs_stanza.getString(4));
+        Room entrylevel = new Room(0, "La tua misera stanza!", "Risveglio, sei appena entrato a far parte di casa Amari!\nTi aspetta una giornata impegnativa. Inizia l'avventura.");
+        entrylevel.setLook("All'interno della tua stanza, potrai vestirti e uscire dalla stanza.");
 
         Room entry_corridoio = new Room(1, "Corridoio", "Uscita dalla tua camera ");
         entry_corridoio.setLook("Vediamo cosa c'è in giro e troviamo qualcosa di interessante\nin questa minchia di casa.");
