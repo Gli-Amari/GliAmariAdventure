@@ -1,6 +1,7 @@
-PIER: Perche' questi biscotti hanno una forma ovale?
-LELLO: Non lo so non ho la forza pratica per rispondere a queste domande di prima mattina
-PIER: A che ora abbiamo lezione?
-LELLO: Sempre alle 9:15
-PIER: Con chi abbiamo la prima lezione?
-LELLO: Abbiamo MAP, con Basile.
+PIER: Ci siamo, stiamo per partire. Sicuramente sarà arrivata anche a te la cartolina per arruolarsi. La minaccia aliena è ormai imminente.
+LELLO: Si è arrivata anche a me, partirò anch'io. Sono molto preoccupato, non so come andrà a finire.
+PIER: Forza e coraggio che la guerra è solo di passaggio.
+LELLO: Lo so ma la paura di non tornare a casa è molta.
+PIER:  Abbi fede, ce la faremo. 
+LELLO: Porterai qualcosa con te?
+PIER: Si, un elmetto di guerra con il simbolo della pace.
