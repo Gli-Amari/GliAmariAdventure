@@ -28,8 +28,8 @@ public class Db {
      * query di popolazione delle tabelle
      */
     public static final String INSERT1 = "INSERT INTO room VALUES (?, ?, ?, ?, ?)";
-    public static final String INSERT2 = "INSERT INTO item VALUES (?, ?, ?, ?, ?)";
-    public static final String INSERT3 = "INSERT INTO npc VALUES (?, ?, ?, ?, ?)";
+    public static final String INSERT2 = "INSERT INTO item VALUES (?, ?, ?)";
+    public static final String INSERT3 = "INSERT INTO npc VALUES (?, ?, ?, ?)";
 
     private static Connection c;
     private Properties p;
@@ -46,7 +46,6 @@ public class Db {
 
     }
 
-
     /** 
      * metodo per impostare le proprietà d'accesso al db
      * @return Properties
@@ -59,16 +58,6 @@ public class Db {
         return p;
     }
 
-    
-    /** 
-     * @throws SQLException
-     */
-    public void closeConnection() throws SQLException{
-        getConnection().close();
-
-    } 
-
-
     /** 
      * metodo per creare la connessione al db
      * @param p
@@ -79,6 +68,12 @@ public class Db {
         return DriverManager.getConnection("jdbc:h2:./resource/db/amari", p);
     }
 
+    /** 
+     * @throws SQLException
+     */
+    public void closeConnection() throws SQLException{
+        getConnection().close();
+    } 
 
     /** 
      * metodo per creare e leggere i dati presenti nelle tabelle
@@ -95,7 +90,6 @@ public class Db {
         return rs;
     }
 
-    
     /** 
      * metodo che controlla se l'id è presente o meno nella tabella. In caso in cui non esistesse
      * viene effettuato l'ineserimento in tabella
@@ -112,7 +106,6 @@ public class Db {
         }
     }
 
-    
     /** 
      * @param id
      * @param insert
@@ -121,37 +114,36 @@ public class Db {
      */
     public void insertStringIntoTheTable(int id, String insert, String[] array) throws SQLException{
 
-        PreparedStatement pstm = getConnection().prepareStatement(insert);
+        PreparedStatement ps = getConnection().prepareStatement(insert);
 
         if(array.length == 4) { //per le stanze
-            pstm.setInt(1, id);
-            pstm.setString(2, array[0]);
-            pstm.setString(3, array[1]);
-            pstm.setString(4, array[2]);
-            pstm.setString(5,array[3]);
+            ps.setInt(1, id);
+            ps.setString(2, array[0]);
+            ps.setString(3, array[1]);
+            ps.setString(4, array[2]);
+            ps.setString(5,array[3]);
 
-            pstm.executeUpdate();
+            ps.executeUpdate();
         } else if(array.length == 2){ //per gli oggetti
-            pstm.setInt(1, id);
-            pstm.setString(2, array[0]);
-            pstm.setString(3, array[1]);
+            ps.setInt(1, id);
+            ps.setString(2, array[0]);
+            ps.setString(3, array[1]);
 
-            pstm.executeUpdate();
+            ps.executeUpdate();
         } else if(array.length == 3){ //per gli npc
-            pstm.setInt(1, id);
-            pstm.setInt(2, Integer.parseInt(array[0]));
-            pstm.setString(3, array[1]);
-            pstm.setString(4, array[2]);
+            ps.setInt(1, id);
+            ps.setInt(2, Integer.parseInt(array[0]));
+            ps.setString(3, array[1]);
+            ps.setString(4, array[2]);
             
-            pstm.executeUpdate();
+            ps.executeUpdate();
         } else{
             System.out.println("Errore su insertStringIntoTheTable" + id);
         }
 
-        pstm.close();
+        ps.close();
     }
 
-    
     /**
      *  metodo che crea la tabella
      * @param table 
@@ -172,7 +164,6 @@ public class Db {
         return c;
     }
 
-    
     /** 
      * @throws SQLException
      */
@@ -183,7 +174,6 @@ public class Db {
         populationTable();
     }
      
-    
     /** 
      * @throws SQLException
      */
@@ -211,14 +201,14 @@ public class Db {
         String[] room7 = {"Intermezzo", "Zona morta", "Ti ritrovi in una zona di guerra appena bombardata.\nSono tutti morti, ma riesci a udire il lamento di un soldato alleato."};
         init(SELECT1,7,INSERT1,room7);
 
-        String[] romm8 = {"Intermezzo", "Intermezzo a est", "Continuando la tua missione, arrivi in una zona molto tranquilla, sembra quasi intatta.\nMentre controlli in giro, noti delle persone che sembrano venirti incontro.\nMan mano che si avvicinano c'e' qualcosa che non va.\nNon sono delle persone, ma un orda di zombie alieni."};
-        init(SELECT1,8,INSERT1,romm8);
+        String[] room8 = {"Intermezzo", "Intermezzo a est", "Continuando la tua missione, arrivi in una zona molto tranquilla, sembra quasi intatta.\nMentre controlli in giro, noti delle persone che sembrano venirti incontro.\nMan mano che si avvicinano c'e' qualcosa che non va.\nNon sono delle persone, ma un orda di zombie alieni."};
+        init(SELECT1,8,INSERT1,room8);
 
-        String[] romm9 = {"Trincea", "Fine della trincea", "Dopo un'estenuante camminata, decidi di fermarti un attimo.\nTi guardi attorno e noti solo morte e distruzione.\nContinuando, ti salta addosso un alieno. Devi ucciderlo e portare a termine la tua missione."};
-        init(SELECT1,9,INSERT1,romm9);
+        String[] room9 = {"Trincea", "Fine della trincea", "Dopo un'estenuante camminata, decidi di fermarti un attimo.\nTi guardi attorno e noti solo morte e distruzione.\nContinuando, ti salta addosso un alieno. Devi ucciderlo e portare a termine la tua missione."};
+        init(SELECT1,9,INSERT1,room9);
 
-        String[] romm10 = {"In Amber Clad", "Riesci a salire all'interno dell'In Amber Clad, la nave principale responsabile della minaccia aliena.\nAppena entrato noterai in lontananza il nucleo della nave.\nTi avvicini lentamente con la pistola in mano e più ti avvicini e più noti che il tuo corpo comincia a smaterializzarsi.\nSei ormai dinanzi al nucleo di te rimane poco e nulla cominci a sparare una raffica di colpi e il nucleo esplode.\nSai di aver sacrificato la tua vita ma tutto ciò per un bene superiore.\nNello stesso momento gli altri amari che stanno combattendo si fermano per guardare in lontananza la nave esplodere, sanno che il loro amico non c'è più ma sono consapevoli del fatto che non è stato un sacrificio vano.\nDopo aver eliminato gli ultimi soldati alieni rimasti a ritmo di Fortunate Son si incamminano sulla via del ritorno.", ""};
-        init(SELECT1,10,INSERT1,romm10);
+        String[] room10 = {"In Amber Clad", "Riesci a salire all'interno dell'In Amber Clad, la nave principale responsabile della minaccia aliena.\nAppena entrato noterai in lontananza il nucleo della nave.\nTi avvicini lentamente con la pistola in mano e più ti avvicini e più noti che il tuo corpo comincia a smaterializzarsi.\nSei ormai dinanzi al nucleo di te rimane poco e nulla cominci a sparare una raffica di colpi e il nucleo esplode.\nSai di aver sacrificato la tua vita ma tutto ciò per un bene superiore.\nNello stesso momento gli altri amari che stanno combattendo si fermano per guardare in lontananza la nave esplodere, sanno che il loro amico non c'è più ma sono consapevoli del fatto che non è stato un sacrificio vano.\nDopo aver eliminato gli ultimi soldati alieni rimasti a ritmo di Fortunate Son si incamminano sulla via del ritorno.", ""};
+        init(SELECT1,10,INSERT1,room10);
 
         //aggiunto gli oggetti
         String[] item1 = {"caffe", "Combustibile per un programmatore"};
