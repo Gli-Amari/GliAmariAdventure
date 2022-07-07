@@ -123,7 +123,7 @@ public class Db {
 
         PreparedStatement pstm = getConnection().prepareStatement(insert);
 
-        if(array.length==4) { //per le stanze
+        if(array.length == 4) { //per le stanze
             pstm.setInt(1, id);
             pstm.setString(2, array[0]);
             pstm.setString(3, array[1]);
@@ -131,17 +131,17 @@ public class Db {
             pstm.setString(5,array[3]);
 
             pstm.executeUpdate();
-        } else if(array.length==2){ //per gli oggetti
-            pstm.setInt(1,id);
-            pstm.setString(2,array[0]);
-            pstm.setString(3,array[1]);
+        } else if(array.length == 2){ //per gli oggetti
+            pstm.setInt(1, id);
+            pstm.setString(2, array[0]);
+            pstm.setString(3, array[1]);
 
             pstm.executeUpdate();
-        } else if(array.length==3){ //per gli npc
-            pstm.setInt(1,id);
-            pstm.setInt(2,Integer.parseInt(array[0]));
-            pstm.setString(3,array[1]);
-            pstm.setString(4,array[2]);
+        } else if(array.length == 3){ //per gli npc
+            pstm.setInt(1, id);
+            pstm.setInt(2, Integer.parseInt(array[0]));
+            pstm.setString(3, array[1]);
+            pstm.setString(4, array[2]);
             
             pstm.executeUpdate();
         } else{

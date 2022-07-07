@@ -27,9 +27,32 @@ public class ParserOutput {
         this.npc = npc;
     }
 
-    public Command getCommand() { return command;}
-    public Item getItem() { return item;}
-    public Item getContainerItem() { return containerItem;}
-    public Npc getNpc() { return npc;}
+    /** 
+     * @return Command
+     */
+    public Command getCommand() { 
+        return command;
+    }
+    
+    /** 
+     * @return Item
+     */
+    public Item getItem() { 
+        return item;
+    }
+    
+    /** 
+     * @return Item
+     */
+    public Item getContainerItem() { 
+        return containerItem;
+    }
+    
+    /** 
+     * @return Npc
+     */
+    public Npc getNpc() { 
+        return npc;
+    }
     
 }

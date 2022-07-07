@@ -8,6 +8,13 @@ import di.uniba.map.game.type.Npc;
 
 public class Parser {
 
+    
+    /** 
+     * @param command
+     * @param game
+     * @param db
+     * @return ParserOutput
+     */
     public ParserOutput parseCmd(String command, GameDescription game, Db db){
 
         ParserOutput cmd;

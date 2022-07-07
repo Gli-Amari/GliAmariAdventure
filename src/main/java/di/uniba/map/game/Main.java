@@ -40,7 +40,6 @@ public class Main extends JFrame {
         initComponents();
         ImageIcon image = new ImageIcon("Img//Logo.png");
         setIconImage(image.getImage());
-
     }
 
     @SuppressWarnings("unchecked")
