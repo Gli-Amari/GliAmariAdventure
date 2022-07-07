@@ -6,20 +6,21 @@ package di.uniba.map.game.type;
  */
 
 public class Character {
+
+    protected int id;
     protected int hp;
-
     protected int armor = 0;
-
     protected String name;
-
     protected String description;
-
     protected Item weaponEquip;
 
-    public Character(int hp, String name, String description) {
-        this.hp = hp;
+    public Character(int hp, String name){
         this.name = name;
-        this.description = description;
+        this.hp = hp;
+    }
+    
+    public Character(int id){
+        this.id = id;
     }
 
 

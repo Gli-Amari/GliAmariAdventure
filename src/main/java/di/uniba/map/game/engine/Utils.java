@@ -1,6 +1,7 @@
 package di.uniba.map.game.engine;
 
 import di.uniba.map.game.type.Item;
+import di.uniba.map.game.databases.Db;
 import di.uniba.map.game.parser.ParserOutput;
 import di.uniba.map.game.type.CommandType;
 import di.uniba.map.game.type.Npc;
@@ -8,23 +9,23 @@ import di.uniba.map.game.type.Room;
 
 public class Utils {
     
-    public void move(ParserOutput cmd, GameDescription game) {
+    public void move(Db db, ParserOutput cmd, GameDescription game) {
 
         boolean attack = false;
         if(cmd.getCommand().getType() != null){
             if(cmd.getCommand().getType() == CommandType.NORD){
-                checkRoom(game, game.getCurrentRoom().getNorth());
+                checkRoom(game, game.getCurrentRoom().getNorth(), db);
             } else if(cmd.getCommand().getType() == CommandType.SOUTH){
-                checkRoom(game, game.getCurrentRoom().getSouth());
+                checkRoom(game, game.getCurrentRoom().getSouth(), db);
             }else if(cmd.getCommand().getType() == CommandType.EAST){
-                checkRoom(game, game.getCurrentRoom().getEast());
+                checkRoom(game, game.getCurrentRoom().getEast(), db);
             }else if(cmd.getCommand().getType() == CommandType.WEST) {
-                checkRoom(game, game.getCurrentRoom().getWest());
+                checkRoom(game, game.getCurrentRoom().getWest(), db);
             }else if(cmd.getCommand().getType() == CommandType.INVENTORY){
                 if(game.getInventory().getList().size() > 0){
                     for (Item o : game.getInventory().getList()) {
                         System.out.println("\nIl tuo Inventario:");
-                        System.out.println("_> " + o.getName() + ": " + o.getDescription());
+                        System.out.println("_> " + o.getName(db) + ": " + o.getDescription(db));
                     }
                 }else{
                     System.out.println("Non ci sono oggetti nel tuo inventario!");
@@ -37,7 +38,7 @@ public class Utils {
                             game.getInventory().add(cmd.getContainerItem());
                             cmd.getItem().getItemList().remove(cmd.getContainerItem());
                         }else{
-                            System.out.println("Non puoi prendere qualcosa se " + cmd.getItem().getName() + " è chiuso!");
+                            System.out.println("Non puoi prendere qualcosa se " + cmd.getItem().getName(db) + " è chiuso!");
                         }
                     }
                     else{
@@ -45,7 +46,7 @@ public class Utils {
                             game.getInventory().add(cmd.getItem());
                             game.getCurrentRoom().getItems().remove(cmd.getItem());
                         }else{
-                            System.out.println("Ehi non puoi mica raccogliere " + cmd.getItem().getName());
+                            System.out.println("Ehi non puoi mica raccogliere " + cmd.getItem().getName(db));
                         }
                     }
                     attack = true;
@@ -58,7 +59,7 @@ public class Utils {
                 if(cmd.getItem() != null && game.getInventory().getList().contains(cmd.getItem())){
                     game.getInventory().getList().remove(cmd.getItem());
                     game.getCurrentRoom().getItems().add(cmd.getItem());
-                    System.out.println(cmd.getItem().getName() + " è stato lasciato!");
+                    System.out.println(cmd.getItem().getName(db) + " è stato lasciato!");
                 }else{
                     System.out.println("L'oggetto non è in inventario!");
                 }
@@ -70,7 +71,7 @@ public class Utils {
                         System.out.println("Guardando dentro..");
                         if(cmd.getItem().getItemList().size() > 0){
                             for (Item o : cmd.getItem().getItemList()) {
-                                System.out.println(o.getName() + ": " + o.getDescription());
+                                System.out.println(o.getName(db) + ": " + o.getDescription(db));
                             }
                             cmd.getItem().setOpen(true);
                         }else{
@@ -80,16 +81,16 @@ public class Utils {
                         if(game.getPlayer().getInventory().getList().contains(cmd.getContainerItem())){
                             if(cmd.getItem().getOpenWith() == cmd.getContainerItem()){
                                 cmd.getItem().setOpenable(true);
-                                System.out.println(cmd.getItem().getName() + " è stato aperto!");
+                                System.out.println(cmd.getItem().getName(db) + " è stato aperto!");
                             }else{
-                                System.out.println("Non si può aprire " + cmd.getItem().getName() + " con " + cmd.getContainerItem().getName());
+                                System.out.println("Non si può aprire " + cmd.getItem().getName(db) + " con " + cmd.getContainerItem().getName(db));
                             }
                         }else{
-                            System.out.println(cmd.getContainerItem().getName() + " non è in inventario!");
+                            System.out.println(cmd.getContainerItem().getName(db) + " non è in inventario!");
                         }
                     }
                     else{
-                        System.out.println("Non riesco ad aprire " + cmd.getItem().getName());
+                        System.out.println("Non riesco ad aprire " + cmd.getItem().getName(db));
                     }
                     attack = true;
                 }else{
@@ -97,7 +98,7 @@ public class Utils {
                 }
             }
             else if(cmd.getCommand().getType() == CommandType.LOOK_AT){
-                System.out.println(game.getCurrentRoom().getLook());
+                System.out.println(game.getCurrentRoom().getLook(db));
             }
             else if(cmd.getCommand().getType() == CommandType.TALK){
                 if(cmd.getNpc() != null && game.getCurrentRoom().getNpcs().contains(cmd.getNpc())){
@@ -116,7 +117,7 @@ public class Utils {
                 if(game.getCurrentRoom().getItems().size() != 0 || game.getCurrentRoom().getNpcs().size() != 0){
                     System.out.println("Trovato qualcosa!");
                     for(int i = 0; i<game.getCurrentRoom().getItems().size(); i++){
-                        System.out.print(game.getCurrentRoom().getItems().get(i).getName() + ", ");
+                        System.out.print(game.getCurrentRoom().getItems().get(i).getName(db) + ", ");
                     }
                     for(int i = 0; i<game.getCurrentRoom().getNpcs().size(); i++){
                         if(i == 0){
@@ -183,7 +184,7 @@ public class Utils {
 
             }
             else if(cmd.getCommand().getType() == CommandType.STATS){
-                printPlayerStats(game);
+                printPlayerStats(game, db);
             }
             else if(cmd.getCommand().getType() == CommandType.ATTACK){
                 if(cmd.getNpc() != null && game.getCurrentRoom().getNpcs().contains(cmd.getNpc())){
@@ -207,7 +208,7 @@ public class Utils {
                 for(int i = 0; i<game.getCurrentRoom().getNpcs().size(); i++){
                     if(game.getCurrentRoom().getNpcs().get(i).getAttacking()){
                         npcResponse(game.getCurrentRoom().getNpcs().get(i), game);
-                        printPlayerStats(game);
+                        printPlayerStats(game, db);
                     }
                 }
             }
@@ -231,24 +232,24 @@ public class Utils {
         }
     }
 
-    public void printRoom(GameDescription game){
-        System.out.println("\n" + game.getCurrentRoom().getName());
+    public void printRoom(GameDescription game, Db db){
+        System.out.println("\n" + game.getCurrentRoom().getName(db));
         System.out.println("-----------------------------------------------------------------------");
-        System.out.println(game.getCurrentRoom().getDescription());
+        System.out.println(game.getCurrentRoom().getDescription(db));
     }
 
-    public void printPlayerStats(GameDescription game){
+    public void printPlayerStats(GameDescription game, Db db){
         if(game.getPlayer().getWeaponEquip() != null){
-            System.out.println("\nHp_> " + game.getPlayer().getHp() + " armatura_> " + game.getPlayer().getArmor() + " Equip_> " + game.getPlayer().getWeaponEquip().getName());
+            System.out.println("\nHp_> " + game.getPlayer().getHp() + " armatura_> " + game.getPlayer().getArmor() + " Equip_> " + game.getPlayer().getWeaponEquip().getName(db));
         }else{
             System.out.println("\nHp_> " + game.getPlayer().getHp() + " armatura_> " + game.getPlayer().getArmor());
         }
     }
 
-    private void checkRoom(GameDescription game, Room room){
+    private void checkRoom(GameDescription game, Room room, Db db){
         if(room != null){
             game.setCurrentRoom(room);
-            printRoom(game);
+            printRoom(game, db);
             if(room.getExplored() == false){
                 room.setExplored(true);
             }

@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import di.uniba.map.game.databases.Db;
 
 /**
  * @author Francesco Pio Scoglietti
@@ -12,22 +16,57 @@ import java.io.IOException;
  */
 public class Npc extends Character{
 
+    /**
+     * query
+     */
+    public static final String SELECTNAME = "SELECT name FROM npc WHERE id = ?";
+    public static final String SELECTDESCRIPTION = "SELECT desc FROM npc WHERE id = ?";
+    public static final String SELECTHP = "SELECT hp FROM npc WHERE id = ?";
+
+    private int id;
     private boolean isEnemy = false;
     private boolean isGod = false;
     private boolean isAttacking = false;
     private boolean isSpeakable = false;
-    private static final String pathStanza3 = ".\\resource\\dialog\\stanza3Pier.txt";
-    private static final String pathStanza4 = ".\\resource\\dialog\\stanza4Frank.txt";
-    private static final String pathStanza5 = ".\\resource\\dialog\\stanza5Giulio.txt";
-    private static final String pathStanza10 = ".\\resource\\dialog\\stanza10Lanubile.txt";
-    private static final String pathStanza11 = ".\\resource\\dialog\\stanza11Pippo.txt";
-    private static final String pathStanza12 = ".\\resource\\dialog\\stanza12Ufficiale.txt";
-    private static final String pathStanza15 = ".\\resource\\dialog\\stanza15Galatone.txt";
-    private static final String pathStanza19 = ".\\resource\\dialog\\stanza12Soldato.txt";
+    private static final String pathStanza1 = ".\\resource\\dialog\\stanza1PierFankGiu.txt";
+    private static final String pathStanza2 = ".\\resource\\dialog\\stanza2Commandante.txt";
+    private static final String pathStanza5 = ".\\resource\\dialog\\stanza5Galatone.txt";
+    private static final String pathStanza7 = ".\\resource\\dialog\\stanza12Soldato.txt";
 
-    public Npc(int hp, String name, String description) 
-    {
-        super(hp, name, description);
+
+    public Npc(int id){
+        super(id);
+    }
+
+    public int getId(){
+        return this.id;
+    }
+
+    public String getName(Db db){ 
+        return getInformationRoom(db, SELECTNAME);
+    }
+
+    public String getDescription(Db db){
+       return getInformationRoom(db,SELECTDESCRIPTION);
+    }
+
+    public int getHp(Db db){
+       return Integer.parseInt(getInformationRoom(db,SELECTHP));
+    }
+
+    public String getInformationRoom(Db db, String select){
+        String resultSelect= "";
+        try{
+            ResultSet rs = db.readFromDb(select, getId());
+            while(rs.next()){
+                resultSelect= rs.getString(1);
+            }
+            rs.close();
+        }catch(SQLException ex){
+            System.err.println(ex.getSQLState() + ":" + ex.getMessage());
+        }
+        
+        return resultSelect;
     }
 
     public void talking(int idStanza){
@@ -35,36 +74,20 @@ public class Npc extends Character{
         File fileStanza;
 
         switch(idStanza){
-            case 3:
-                fileStanza = new File(pathStanza3);
+            case 1:
+                fileStanza = new File(pathStanza1);
                 readDialog(fileStanza);
             break;
-            case 4:
-                fileStanza = new File(pathStanza4);
+            case 2:
+                fileStanza = new File(pathStanza2);
                 readDialog(fileStanza);
             break;
             case 5:
                 fileStanza = new File(pathStanza5);
                 readDialog(fileStanza);
             break;
-            case 10:
-                fileStanza = new File(pathStanza10);
-                readDialog(fileStanza);
-            break;
-            case 11:
-                fileStanza = new File(pathStanza11);
-                readDialog(fileStanza);
-            break;
-            case 12:
-                fileStanza = new File(pathStanza12);
-                readDialog(fileStanza);
-            break;
-            case 15:
-                fileStanza = new File(pathStanza15);
-                readDialog(fileStanza);
-            break;
-            case 19:
-                fileStanza = new File(pathStanza19);
+            case 7:
+                fileStanza = new File(pathStanza7);
                 readDialog(fileStanza);
             break;
         }

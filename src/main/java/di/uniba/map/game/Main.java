@@ -7,6 +7,8 @@ import di.uniba.map.game.story.Story;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
+
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -76,7 +78,12 @@ public class Main extends JFrame {
         nuovaPartita.setText("Gioca...");
         nuovaPartita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nuovaPartitaActionPerformed(evt);
+                try {
+                    nuovaPartitaActionPerformed(evt);
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -262,8 +269,9 @@ public class Main extends JFrame {
      * evento sul bottone "Nuova partita..."
      * 
      * @param evt
+     * @throws SQLException
      */
-    private void nuovaPartitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuovaPartitaActionPerformed
+    private void nuovaPartitaActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_nuovaPartitaActionPerformed
         try{
             setVisible(false);
             Engine engine = new Engine(new Story());
