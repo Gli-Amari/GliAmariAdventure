@@ -1,4 +1,0 @@
-PIPPO: “Siete in ritardo e visto che non posso iniziare la lezione senza un caffè, correte a prenderlo”.
-PIER: “Va bene prof, andiamo subito!”
-PIPPO: "Prestate massima attenzione. Dalle notizie diffuse questa mattina, pare che una minaccia aliena stia per attaccarci."
-FRANK: "Va bene, faremo attenzione."
