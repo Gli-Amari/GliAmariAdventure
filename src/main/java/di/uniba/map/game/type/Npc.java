@@ -59,7 +59,7 @@ public class Npc extends Character{
         try{
             ResultSet rs = db.readFromDb(select, getId());
             while(rs.next()){
-                resultSelect= rs.getString(1);
+                resultSelect = rs.getString(1);
             }
             rs.close();
         }catch(SQLException ex){

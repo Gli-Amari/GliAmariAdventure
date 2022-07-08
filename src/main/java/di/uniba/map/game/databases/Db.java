@@ -13,7 +13,7 @@ public class Db {
     /**
      * query di creazione
      */
-    public static final String CREATE_ROOM = "CREATE TABLE IF NOT EXISTS room (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(100), look VARCHAR(1000), descReturn VARCHAR(1000))";
+    public static final String CREATE_ROOM = "CREATE TABLE IF NOT EXISTS room (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(100), look VARCHAR(1000))";
     public static final String CREATE_ITEM = "CREATE TABLE IF NOT EXISTS item (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(100))";
     public static final String CREATE_NPC = "CREATE TABLE IF NOT EXISTS npc (id int PRIMARY KEY, hp int, name VARCHAR(100), desc VARCHAR(100))";
 
@@ -27,7 +27,7 @@ public class Db {
     /**
      * query di popolazione delle tabelle
      */
-    public static final String INSERT1 = "INSERT INTO room VALUES (?, ?, ?, ?, ?)";
+    public static final String INSERT1 = "INSERT INTO room VALUES (?, ?, ?, ?)";
     public static final String INSERT2 = "INSERT INTO item VALUES (?, ?, ?)";
     public static final String INSERT3 = "INSERT INTO npc VALUES (?, ?, ?, ?)";
 
@@ -116,12 +116,11 @@ public class Db {
 
         PreparedStatement ps = getConnection().prepareStatement(insert);
 
-        if(array.length == 4) { //per le stanze
+        if(array.length == 3) { //per le stanze
             ps.setInt(1, id);
             ps.setString(2, array[0]);
             ps.setString(3, array[1]);
             ps.setString(4, array[2]);
-            ps.setString(5,array[3]);
 
             ps.executeUpdate();
         } else if(array.length == 2){ //per gli oggetti
@@ -180,10 +179,10 @@ public class Db {
     public void populationTable() throws SQLException{
 
         //aggiungere le stanze qui!
-        String[] room1 = {"Intro", "Benvenuto a casa amari", "Ti trovi nell'altrio di casa con Gli Amari, Frank, Giulio e Pier.\nSta per iniziare una solita giornata noiosa."};
+        String[] room1 = {"Intro", "Benvenuto a casa amari", "Ti trovi nell'altrio di casa con Gli Amari, Frank, Giulio e Pier.\n" + "Sta per iniziare una solita giornata noiosa."};
         init(SELECT1,1,INSERT1,room1);
 
-        String[] room2 = {"Ufficio comandante", "Ti trovi all'interno dell'ufficio del tuo comandante, ti sta spiegando la tattica di guerra", "Ti trovi all'interno dell'ufficio del comandante.\nHai dinanzi a te una cassa.\nMagari potrebbe esser utile scoprire cose vi è all'interno. Inoltre dietro di te è presente una porta."};
+        String[] room2 = {"Ufficio comandante", "Ti trovi all'interno dell'ufficio del tuo comandante, ti sta spiegando la tattica di guerra", "Ti trovi all'interno dell'ufficio del comandante.\n" + "Hai dinanzi a te una cassa.\n" + "Magari potrebbe esser utile scoprire cose vi è all'interno. Inoltre dietro di te è presente una porta."};
         init(SELECT1,2,INSERT1,room2);
 
         String[] room3 = {"Ingresso Trincea", "Ti trovi all'interno della trincea", "Sei nel mezzo di un campo di battaglia, intorno a te solo morte e distruzione."};
@@ -207,8 +206,8 @@ public class Db {
         String[] room9 = {"Trincea", "Fine della trincea", "Dopo un'estenuante camminata, decidi di fermarti un attimo.\nTi guardi attorno e noti solo morte e distruzione.\nContinuando, ti salta addosso un alieno. Devi ucciderlo e portare a termine la tua missione."};
         init(SELECT1,9,INSERT1,room9);
 
-        String[] room10 = {"In Amber Clad", "Riesci a salire all'interno dell'In Amber Clad, la nave principale responsabile della minaccia aliena.\nAppena entrato noterai in lontananza il nucleo della nave.\nTi avvicini lentamente con la pistola in mano e più ti avvicini e più noti che il tuo corpo comincia a smaterializzarsi.\nSei ormai dinanzi al nucleo di te rimane poco e nulla cominci a sparare una raffica di colpi e il nucleo esplode.\nSai di aver sacrificato la tua vita ma tutto ciò per un bene superiore.\nNello stesso momento gli altri amari che stanno combattendo si fermano per guardare in lontananza la nave esplodere, sanno che il loro amico non c'è più ma sono consapevoli del fatto che non è stato un sacrificio vano.\nDopo aver eliminato gli ultimi soldati alieni rimasti a ritmo di Fortunate Son si incamminano sulla via del ritorno.", ""};
-        init(SELECT1,10,INSERT1,room10);
+        //String[] room10 = {"In Amber Clad", "Riesci a salire all'interno dell'In Amber Clad, la nave principale responsabile della minaccia aliena.\n" + "Appena entrato noterai in lontananza il nucleo della nave.\n" + "Ti avvicini lentamente con la pistola in mano e più ti avvicini e più noti che il tuo corpo comincia a smaterializzarsi.\n" + "Sei ormai dinanzi al nucleo di te rimane poco e nulla cominci a sparare una raffica di colpi e il nucleo esplode.\n" + "Sai di aver sacrificato la tua vita ma tutto ciò per un bene superiore.\n" + "Nello stesso momento gli altri amari che stanno combattendo si fermano per guardare in lontananza la nave esplodere, sanno che il loro amico non c'è più ma sono consapevoli del fatto che non è stato un sacrificio vano.\n" + "Dopo aver eliminato gli ultimi soldati alieni rimasti a ritmo di Fortunate Son si incamminano sulla via del ritorno."};
+        //init(SELECT1,10,INSERT1,room10);
 
         //aggiunto gli oggetti
         String[] item1 = {"caffe", "Combustibile per un programmatore"};
@@ -230,7 +229,7 @@ public class Db {
         init(SELECT2, 6, INSERT2, item6);
 
         //aggiunto gli npc
-        String[] npc1 = {"100", "Amari", "Ecco Pier,Frnk e Giulio!"};
+        String[] npc1 = {"100", "Amari", "Ecco Pier,Frank e Giulio!"};
         init(SELECT3, 1, INSERT3, npc1);
 
         String[] npc2 = {"100", "ufficiale_in_servizio", "Ufficiale in comando....meglio seguire i suoi ordini."};
