@@ -34,7 +34,7 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |–– lib
 |    |–– flatlaf-2.2.jar
 |--resource
-|    |-- database
+|    |-- databases
 |    |      |-- dbAmari.mv.db
 |    |      |-- dbAmari.trace.db
 |    |-- dialog
@@ -45,10 +45,6 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |    |      |-- stanza5Giulio.txt
 |    |      |-- stanza4Frank.txt
 |    |      |-- stanza3Pier.txt
-|    |-- riferimenti tabelle
-|    |      |-- npc.txt
-|    |      |-- oggetti.txt
-|    |      |-- stanza.txt
 |    |-- StrangerThings_Season1_Opening-IntroHD.wav
 |–– src
 |    |–– main
@@ -78,4 +74,3 @@ di seguito spieghiamo le varie directory:
 8. `settings.xml` specifica la dipendenza per la creazione del package maven sul progetto
 9. `resource/database` contiene i file binari su cui il jdbc di H2 lavora 
 10. `resource/dialog` contiene tutti i dialoghi presenti in gioco
-11. `resource/riferiemnti tabelle` contiene tutti i riferimenti alle tabelle presenti nel gioco
