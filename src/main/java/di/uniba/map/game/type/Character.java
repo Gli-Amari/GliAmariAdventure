@@ -4,7 +4,6 @@ package di.uniba.map.game.type;
  * @author Giulio Russo
  * Definisce i personaggi dell'avventura.
  */
-
 public class Character {
 
     protected int id;
@@ -13,16 +12,17 @@ public class Character {
     protected String name;
     protected String description;
     protected Item weaponEquip;
-
-    public Character(int hp, String name){
-        this.name = name;
-        this.hp = hp;
-    }
     
+
     public Character(int id){
         this.id = id;
     }
 
+    public Character(int hp, String name, String description){
+        this.hp = hp;
+        this.name = name;
+        this.description = description;
+    }
 
     /** 
      * @return String
@@ -31,6 +31,7 @@ public class Character {
     public String getName() {
         return name;
     }
+
 
     /** 
      * @param name

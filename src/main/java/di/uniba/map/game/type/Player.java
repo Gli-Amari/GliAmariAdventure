@@ -9,11 +9,10 @@ public class Player extends Character{
     private Inventory inventory = new Inventory();
     protected Item clothesEquip;
 
-    public Player(int hp, String name) 
-    {
-        super(hp, name);
+    public Player(int hp, String name, String description){
+        super(hp, name, description);
     }
-
+    
     
     /** 
      * @return Inventory

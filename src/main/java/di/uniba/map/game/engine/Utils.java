@@ -7,9 +7,10 @@ import di.uniba.map.game.type.CommandType;
 import di.uniba.map.game.type.Npc;
 import di.uniba.map.game.type.Room;
 
-//espressioni regolari per il combattimento
-import java.util.Scanner;
-import java.util.regex.Pattern;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+
 
 public class Utils {
     
@@ -27,31 +28,33 @@ public class Utils {
                 checkRoom(game, game.getCurrentRoom().getWest(), db);
             }else if(cmd.getCommand().getType() == CommandType.INVENTORY){
                 if(game.getInventory().getList().size() > 0){
-                    for (Item o : game.getInventory().getList()) {
-                        System.out.println("\nIl tuo Inventario:");
-                        System.out.println("_> " + o.getName(db) + ": " + o.getDescription(db));
+                    System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                    System.out.println("+                                                                +");
+                    System.out.println("+                            Inventario                          +");
+                    System.out.println("+                                                                +");
+                    Iterator<Item> it = game.getInventory().getList().iterator();
+                    while (it.hasNext()) {
+                        try {
+                            Item oggetto = it.next();
+                            System.out.println("+ " + oggetto.getName(db) + " : " + oggetto.getDescription(db) + " +");
+                        } catch (NoSuchElementException ex) {
+                            System.out.println("errore");
+                        }
                     }
+                    System.out.println("+                                                                +");
+                    System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
                 }else{
                     System.out.println("Non ci sono oggetti nel tuo inventario!");
                 }
             }
             else if(cmd.getCommand().getType() == CommandType.PICK_UP){
                 if(cmd.getItem() != null && game.getCurrentRoom().getItems().contains(cmd.getItem())){
-                    if(cmd.getItem().getIsContainer() && cmd.getContainerItem() != null){
-                        if(cmd.getItem().isOpen()){
-                            game.getInventory().add(cmd.getContainerItem());
-                            cmd.getItem().getItemList().remove(cmd.getContainerItem());
-                        }else{
-                            System.out.println("Non puoi prendere qualcosa se " + cmd.getItem().getName(db) + " è chiuso!");
-                        }
-                    }
-                    else{
-                        if(cmd.getItem().isPickupable()){
-                            game.getInventory().add(cmd.getItem());
-                            game.getCurrentRoom().getItems().remove(cmd.getItem());
-                        }else{
-                            System.out.println("Ehi non puoi mica raccogliere " + cmd.getItem().getName(db));
-                        }
+                    if(cmd.getItem().isPickupable()){
+                        game.getInventory().add(cmd.getItem());
+                        System.out.println("Hai raccolto " + cmd.getItem().getName(db) + "!");
+                        game.getCurrentRoom().getItems().remove(cmd.getItem());
+                    }else{
+                        System.out.println("Ehi non puoi mica raccogliere " + cmd.getItem().getName(db));
                     }
                     attack = true;
                 }
@@ -67,41 +70,7 @@ public class Utils {
                 }else{
                     System.out.println("L'oggetto non è in inventario!");
                 }
-
-            }
-            else if(cmd.getCommand().getType() == CommandType.OPEN){
-                if(cmd.getItem() != null && game.getCurrentRoom().getItems().contains(cmd.getItem())){
-                    if(cmd.getItem().isOpenable()){
-                        System.out.println("Guardando dentro..");
-                        if(cmd.getItem().getItemList().size() > 0){
-                            for (Item o : cmd.getItem().getItemList()) {
-                                System.out.println(o.getName(db) + ": " + o.getDescription(db));
-                            }
-                            cmd.getItem().setOpen(true);
-                        }else{
-                            System.out.println("E' vuoto!");
-                        }
-                    }else if(cmd.getItem().getIsContainer() && cmd.getContainerItem() != null){
-                        if(game.getPlayer().getInventory().getList().contains(cmd.getContainerItem())){
-                            if(cmd.getItem().getOpenWith() == cmd.getContainerItem()){
-                                cmd.getItem().setOpenable(true);
-                                System.out.println(cmd.getItem().getName(db) + " è stato aperto!");
-                            }else{
-                                System.out.println("Non si può aprire " + cmd.getItem().getName(db) + " con " + cmd.getContainerItem().getName(db));
-                            }
-                        }else{
-                            System.out.println(cmd.getContainerItem().getName(db) + " non è in inventario!");
-                        }
-                    }
-                    else{
-                        System.out.println("Non riesco ad aprire " + cmd.getItem().getName(db));
-                    }
-                    attack = true;
-                }else{
-                    System.out.println("L'oggetto che cerchi non c'è!");
-                }
-            }
-            else if(cmd.getCommand().getType() == CommandType.LOOK_AT){
+            }else if(cmd.getCommand().getType() == CommandType.LOOK_AT){
                 System.out.println(game.getCurrentRoom().getLook(db));
             }
             else if(cmd.getCommand().getType() == CommandType.TALK){
@@ -118,22 +87,19 @@ public class Utils {
             }
             else if(cmd.getCommand().getType() == CommandType.SEARCH){
                 System.out.print("Cerchiamo un po'...");
-                if(game.getCurrentRoom().getItems().size() != 0 || game.getCurrentRoom().getNpcs().size() != 0){
+                if(game.getCurrentRoom().getItems().size() != 0 && game.getCurrentRoom().getNpcs().size() != 0){
                     System.out.println("Trovato qualcosa!");
                     for(int i = 0; i<game.getCurrentRoom().getItems().size(); i++){
                         System.out.print(game.getCurrentRoom().getItems().get(i).getName(db) + ", ");
                     }
                     for(int i = 0; i<game.getCurrentRoom().getNpcs().size(); i++){
-                        if(i == 0){
-                            System.out.println("\nC'è qualcuno..");
-                        }
-                        System.out.print(game.getCurrentRoom().getNpcs().get(i).getName() + ", ");
+                        System.out.println("\nC'è qualcuno.." + game.getCurrentRoom().getNpcs().get(i).getName(db) + ",");
+                        System.out.println("tutto qui!");
                     }
-                    System.out.println("tutto qui!");
+                  
                 }else{
                     System.out.println("Non ho trovato nulla di interessante!");
                 }
-
             }
             else if(cmd.getCommand().getType() == CommandType.EQUIP){
                 if(cmd.getItem() != null && game.getPlayer().getInventory().getList().contains(cmd.getItem())){

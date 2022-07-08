@@ -4,6 +4,12 @@ import di.uniba.map.game.type.Item;
 import di.uniba.map.game.type.Command;
 import di.uniba.map.game.type.Npc;
 
+/**
+ * Classe per la gestione del parsing del comando.
+ * permette di assegnare ad un oggetto di questa classe un comando e un oggetto.
+ * 
+ * @author Piersilvio Spicoli
+ */
 public class ParserOutput {
 
     private Command command;
@@ -53,6 +59,5 @@ public class ParserOutput {
      */
     public Npc getNpc() { 
         return npc;
-    }
-    
+    }   
 }
