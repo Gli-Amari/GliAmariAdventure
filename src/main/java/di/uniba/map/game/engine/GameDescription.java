@@ -15,6 +15,17 @@ public abstract class GameDescription {
     private final List<Item> itemList = new ArrayList<>();
     private final List<Npc> npcList = new ArrayList<>();
 
+    
+    /** 
+     * @param NoSuchMethodException
+     * @param InvocationTargetException
+     * @param InvocationTargetException
+     * @param IllegalAccessException
+     * @param getItemList(
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     * @throws NoSuchMethodException;public List getItemList()
+     */
     /**
      * metodi astratti
      * @throws Exception
@@ -24,34 +35,56 @@ public abstract class GameDescription {
     public abstract boolean isLose() throws InvocationTargetException, IllegalAccessException, NoSuchMethodException;
 
     /**
-     * metodi concreti
+     * @return List<Item>
      */
-
-
     public List<Item> getItemList() {
         return itemList;
     }
 
+    
+    /** 
+     * @return List<Npc>
+     */
     public List<Npc> getNpcList() {
         return npcList;
     }
 
+    
+    /** 
+     * @return List<Command>
+     */
     public List<Command> getCommands() {
         return commands;
     }
 
+    
+    /** 
+     * @return List<Room>
+     */
     public List<Room> getRooms() {
         return rooms;
     }
 
+    
+    /** 
+     * @return Room
+     */
     public Room getCurrentRoom() {
         return currentRoom;
     }
 
+    
+    /** 
+     * @param currentRoom
+     */
     public void setCurrentRoom(Room currentRoom) {
         this.currentRoom = currentRoom;
     }
 
+    
+    /** 
+     * @return Inventory
+     */
     public Inventory getInventory(){
         return player.getInventory();
     }
