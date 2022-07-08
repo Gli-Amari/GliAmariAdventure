@@ -21,52 +21,27 @@ public class Npc extends Character{
      */
     public static final String SELECTNAME = "SELECT name FROM npc WHERE id = ?";
     public static final String SELECTDESCRIPTION = "SELECT desc FROM npc WHERE id = ?";
-    public static final String SELECTHP = "SELECT hp FROM npc WHERE id = ?";
 
-    private int id;
     private boolean isEnemy = false;
     private boolean isGod = false;
     private boolean isAttacking = false;
     private boolean isSpeakable = false;
-    private static final String pathStanza1 = ".\\resource\\dialog\\stanza1PierFankGiu.txt";
-    private static final String pathStanza2 = ".\\resource\\dialog\\stanza2Commandante.txt";
-    private static final String pathStanza5 = ".\\resource\\dialog\\stanza5Galatone.txt";
-    private static final String pathStanza7 = ".\\resource\\dialog\\stanza12Soldato.txt";
+    String pathStanza1 = "dialog//stanza3Pier.txt";
+    String pathStanza2 = "dialog//stanza2Commandante.txt";
+    String pathStanza5 = "dialog//stanza5Galatone.txt";
+    String pathStanza7 = "dialog//stanza12Soldato.txt";
 
 
-    public Npc(int id){
-        super(id);
-    }
-
-    public int getId(){
-        return this.id;
+    public Npc(int hp, String name, String description){
+        super(hp, name, description);
     }
 
     public String getName(Db db){ 
-        return getInformationRoom(db, SELECTNAME);
+       return this.name;
     }
 
     public String getDescription(Db db){
-       return getInformationRoom(db,SELECTDESCRIPTION);
-    }
-
-    public int getHp(Db db){
-       return Integer.parseInt(getInformationRoom(db,SELECTHP));
-    }
-
-    public String getInformationRoom(Db db, String select){
-        String resultSelect= "";
-        try{
-            ResultSet rs = db.readFromDb(select, getId());
-            while(rs.next()){
-                resultSelect = rs.getString(1);
-            }
-            rs.close();
-        }catch(SQLException ex){
-            System.err.println(ex.getSQLState() + ":" + ex.getMessage());
-        }
-        
-        return resultSelect;
+        return this.description;
     }
 
     public void talking(int idStanza){
@@ -95,14 +70,14 @@ public class Npc extends Character{
 
     private void readDialog(File file){
         try{
-            BufferedReader buffer= new BufferedReader(new FileReader(file));
+            BufferedReader buffer = new BufferedReader(new FileReader(file));
             String singleLine;
             do{
-                singleLine=buffer.readLine();
-                if (singleLine!=null){
+                singleLine = buffer.readLine();
+                if (singleLine != null){
                     System.out.println(singleLine);
                 }
-            }while (singleLine!= null);
+            }while (singleLine != null);
             buffer.close();
         }catch (FileNotFoundException e ){
             System.err.println("il file non esiste");

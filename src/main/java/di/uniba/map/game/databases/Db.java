@@ -15,21 +15,18 @@ public class Db {
      */
     public static final String CREATE_ROOM = "CREATE TABLE IF NOT EXISTS room (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(100), look VARCHAR(1000))";
     public static final String CREATE_ITEM = "CREATE TABLE IF NOT EXISTS item (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(100))";
-    public static final String CREATE_NPC = "CREATE TABLE IF NOT EXISTS npc (id int PRIMARY KEY, hp int, name VARCHAR(100), desc VARCHAR(100))";
 
     /**
      * query di ricerca basate sugli id delle tabelle
      */
     public static final String SELECT1 = "SELECT id FROM room WHERE id = ?";
     public static final String SELECT2 = "SELECT id FROM item WHERE id = ?";
-    public static final String SELECT3 = "SELECT id FROM npc WHERE id = ?";
 
     /**
      * query di popolazione delle tabelle
      */
     public static final String INSERT1 = "INSERT INTO room VALUES (?, ?, ?, ?)";
     public static final String INSERT2 = "INSERT INTO item VALUES (?, ?, ?)";
-    public static final String INSERT3 = "INSERT INTO npc VALUES (?, ?, ?, ?)";
 
     private static Connection c;
     private Properties p;
@@ -128,14 +125,7 @@ public class Db {
             ps.setString(2, array[0]);
             ps.setString(3, array[1]);
 
-            ps.executeUpdate();
-        } else if(array.length == 3){ //per gli npc
-            ps.setInt(1, id);
-            ps.setInt(2, Integer.parseInt(array[0]));
-            ps.setString(3, array[1]);
-            ps.setString(4, array[2]);
-            
-            ps.executeUpdate();
+            ps.executeUpdate(); 
         } else{
             System.out.println("Errore su insertStringIntoTheTable" + id);
         }
@@ -169,7 +159,6 @@ public class Db {
     public void createAllTable() throws SQLException{
         createTable(CREATE_ROOM);
         createTable(CREATE_ITEM);
-        createTable(CREATE_NPC);
         populationTable();
     }
      
@@ -227,25 +216,7 @@ public class Db {
 
         String[] item6 = {"cassa", "Potrà contenere sicuramente qualcosa..."};
         init(SELECT2, 6, INSERT2, item6);
-
-        //aggiunto gli npc
-        String[] npc1 = {"100", "Amari", "Ecco Pier,Frank e Giulio!"};
-        init(SELECT3, 1, INSERT3, npc1);
-
-        String[] npc2 = {"100", "ufficiale_in_servizio", "Ufficiale in comando....meglio seguire i suoi ordini."};
-        init(SELECT3, 2, INSERT3, npc2);
-
-        String[] npc3 = {"100", "prof_galatone", "Ecco l'ingegner Galatone, l'esperto di esplosivi."};
-        init(SELECT3, 3, INSERT3, npc3);
-
-        String[] npc4 = {"100", "soldato", "Bisogna aiutare questo soldato in difficoltà."};
-        init(SELECT3, 4, INSERT3, npc4);
-
-        String[] npc5 = {"200", "orda_di_zombie", "Un gruppo di zombi diretto verso di te!"};
-        init(SELECT3, 5, INSERT3, npc5);
-
-        String[] npc6 = {"150", "demogorgone", "un mostro orribile!"};
-        init(SELECT3, 6, INSERT3, npc6);
+   
     }
 
 

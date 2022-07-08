@@ -50,14 +50,6 @@ public class Story extends GameDescription{
         pickup.setAlias(new String[]{"prendi", "pick", "prendere"});
         getCommands().add(pickup);
 
-        Command open = new Command(CommandType.OPEN, "apri");
-        open.setAlias(new String[]{});
-        getCommands().add(open);
-
-        Command push = new Command(CommandType.PUSH, "premi");
-        push.setAlias(new String[]{"spingi","attiva"});
-        getCommands().add(push);
-
         Command talk = new Command(CommandType.TALK, "parla");
         talk.setAlias(new String[]{"Parla","PARLA"});
         getCommands().add(talk);
@@ -152,49 +144,42 @@ public class Story extends GameDescription{
         razioneK.setHeal(40);
         getItemList().add(razioneK);
 
-        Item cassa = new Item(6);
-        cassa.setPickupable(false);
-        cassa.setOpenable(true);
-        cassa.setIsContainer(true);
-        cassa.getItemList().add(piedePorco);
-        cassa.getItemList().add(pistola);
-        getItemList().add(cassa);
-
         //NPC
-        Npc amari = new Npc(1);
+        Npc amari = new Npc(100, "amari", "Ecco Pier,Frank e Giulio!");
         amari.setSpeakable(true);
         amari.setEnemy(false);
         getNpcList().add(amari);
         
-        Npc ufficiale = new Npc(2);
+        Npc ufficiale = new Npc(100, "ufficiale_in_servizio", "Ufficiale in comando... Meglio seguire i suoi ordini!");
         ufficiale.setSpeakable(true);
         ufficiale.setEnemy(false);
         getNpcList().add(ufficiale);
         
-        Npc galatone = new Npc(3);
+        Npc galatone = new Npc(100, "prof_galatone", "Ecco l'ingegner Galatone, esperto di esplosivi!");
         galatone.setSpeakable(true);
         galatone.setEnemy(false);
         getNpcList().add(galatone);
         
-        Npc soldato = new Npc(4);
+        Npc soldato = new Npc(50, "soldato", "Bisogna aiutare questo soldato in difficoltà");
         soldato.setSpeakable(true);
         soldato.setEnemy(false);
         getNpcList().add(soldato);
            
         //Npc nemici
-        Npc orda = new Npc(5);
+        Npc orda = new Npc(150, "orda_zombie", "Un gruppo di zombie è diretto verso di te!");
         orda.setEnemy(true);
         orda.setSpeakable(false);
         getNpcList().add(orda);
         
-        Npc demogorgone = new Npc(6);
+        Npc demogorgone = new Npc(150, "demogorgone", "Un demogorgone, un mostro orribile");
         demogorgone.setEnemy(true);
         demogorgone.setSpeakable(false);
         getNpcList().add(demogorgone);
 
         //item insert
         intro.getItems().add(caffe);
-        ufficio_comandante.getItems().add(cassa);
+        ufficio_comandante.getItems().add(pistola);
+        ufficio_comandante.getItems().add(piedePorco);
         campo_add.getItems().add(granata);
         campo_add.getItems().add(razioneK);
 

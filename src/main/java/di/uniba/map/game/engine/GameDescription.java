@@ -11,7 +11,7 @@ public abstract class GameDescription {
     private final List<Room> rooms = new ArrayList<>();
     private Room currentRoom;
     private final List<Command> commands = new ArrayList<>();
-    private final static Player player = new Player(100, "");
+    private final static Player player = new Player(100, "", "");
     private final List<Item> itemList = new ArrayList<>();
     private final List<Npc> npcList = new ArrayList<>();
 

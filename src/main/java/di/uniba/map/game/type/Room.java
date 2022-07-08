@@ -18,7 +18,6 @@ public class Room {
      */
     public static final String SELECTNAME = "SELECT name FROM room WHERE id = ?";
     public static final String SELECTDESCRIPTION = "SELECT desc FROM room WHERE id = ?";
-    public static final String SELECTDESCRIPTIONRETURN = "SELECT descReturn FROM room WHERE id = ?";
     public static final String SELECTLOOK = "SELECT look FROM room WHERE id = ?";
 
     private final int id;
@@ -51,7 +50,6 @@ public class Room {
     public String getName(Db db)
     { 
         String name = getInformationRoom(db, SELECTNAME);
-
         return name;
     }
 
@@ -61,13 +59,7 @@ public class Room {
      */
     public String getDescription(Db db) 
     { 
-        String description = " ";
-        if(getFirstTimeHere()){
-            description = getInformationRoom(db,SELECTDESCRIPTION);
-        }else{
-            description = getInformationRoom(db,SELECTDESCRIPTIONRETURN);
-        }
-
+        String description = getInformationRoom(db, SELECTDESCRIPTION);
         return description;
     }
 
@@ -167,13 +159,7 @@ public class Room {
      */
     public String getLook(Db db) 
     {
-        String look= "";
-        if (getFirstTimeHere()){
-            look = getInformationRoom(db,SELECTLOOK);
-        }else{
-            look = getInformationRoom(db,SELECTDESCRIPTIONRETURN);
-        }
-
+        String look = getInformationRoom(db, SELECTLOOK);
         return look;
     }
 
@@ -220,7 +206,7 @@ public class Room {
      * @return String
      */
     public String getInformationRoom(Db db, String select){
-        String resultSelect = " ";
+        String resultSelect = new String();
         try{
             ResultSet rs = db.readFromDb(select, getId());
             while(rs.next()){
