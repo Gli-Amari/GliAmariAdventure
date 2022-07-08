@@ -7,6 +7,10 @@ import di.uniba.map.game.type.CommandType;
 import di.uniba.map.game.type.Npc;
 import di.uniba.map.game.type.Room;
 
+//espressioni regolari per il combattimento
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
 public class Utils {
     
     public void move(Db db, ParserOutput cmd, GameDescription game) {
