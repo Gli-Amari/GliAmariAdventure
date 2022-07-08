@@ -182,7 +182,7 @@ public class Db {
         String[] room1 = {"Intro", "Benvenuto a casa amari", "Ti trovi nell'altrio di casa con Gli Amari, Frank, Giulio e Pier.\n" + "Sta per iniziare una solita giornata noiosa."};
         init(SELECT1,1,INSERT1,room1);
 
-        String[] room2 = {"Ufficio comandante", "Ti trovi all'interno dell'ufficio del tuo comandante, ti sta spiegando la tattica di guerra", "Ti trovi all'interno dell'ufficio del comandante.\n" + "Hai dinanzi a te una cassa.\n" + "Magari potrebbe esser utile scoprire cose vi è all'interno. Inoltre dietro di te è presente una porta."};
+        String[] room2 = {"Ufficio comandante", "Ti trovi all'interno dell'ufficio del tuo comandante, è passato un mese da quando hai lasciato casa, ascolti il tuo comandante spiegare la tattica di guerra. La paura di non farcela è molta", "Ti trovi all'interno dell'ufficio del comandante.\n" + "Davanti a te è presente una porta."};
         init(SELECT1,2,INSERT1,room2);
 
         String[] room3 = {"Ingresso Trincea", "Ti trovi all'interno della trincea", "Sei nel mezzo di un campo di battaglia, intorno a te solo morte e distruzione."};
