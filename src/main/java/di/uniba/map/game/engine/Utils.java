@@ -1,19 +1,18 @@
 package di.uniba.map.game.engine;
 
 import di.uniba.map.game.type.Item;
+import di.uniba.map.game.type.Npc;
 import di.uniba.map.game.databases.Db;
 import di.uniba.map.game.parser.ParserOutput;
 import di.uniba.map.game.type.CommandType;
-import di.uniba.map.game.type.Npc;
 import di.uniba.map.game.type.Room;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 
-
 public class Utils {
-    
+
     public void move(Db db, ParserOutput cmd, GameDescription game) {
 
         boolean attack = false;
@@ -158,23 +157,38 @@ public class Utils {
             }
             else if(cmd.getCommand().getType() == CommandType.ATTACK){
                 if(cmd.getNpc() != null && game.getCurrentRoom().getNpcs().contains(cmd.getNpc())){
-                    if(game.getPlayer().getWeaponEquip() != null && cmd.getNpc().getGod() == false){
-                        cmd.getNpc().setHp((int) Math.round(cmd.getNpc().getHp() - (game.getPlayer().getWeaponEquip().getPower() - (game.getPlayer().getWeaponEquip().getPower() * (cmd.getNpc().getArmor()/200.000)))));
-                        cmd.getNpc().setAttacking(true);
-                        cmd.getNpc().setSpeakable(false);
-                        System.out.println(cmd.getNpc().getName() + "hp: " + cmd.getNpc().getHp());
+                    if(game.getPlayer().getWeaponEquip() != null && game.getPlayer().getWeaponEquip().getPower() > 0){
+                            //attacco del player..
+                        
+                            if(game.getPlayer().getWeaponEquip().getName(db).equals("pistola") || game.getPlayer().getWeaponEquip().getName(db).equals("granata")){       //caso in cui attacco con un arma a distanza...
+
+                                //decremento i colpi...
+                                game.getPlayer().getWeaponEquip().setBullet(game.getPlayer().getWeaponEquip().getBullet() - 1);
+
+                                cmd.getNpc().setHp(cmd.getNpc().getHp() - game.getPlayer().getWeaponEquip().getPower());
+                                System.out.println("Hai attaccato " + cmd.getNpc().getName(db) + " con " + game.getPlayer().getWeaponEquip().getName(db));
+                                cmd.getNpc().setAttacking(true);
+                                cmd.getNpc().setSpeakable(false);                    
+                            }else{                                       //caso in cui attacco senza armi a distanza...
+                                cmd.getNpc().setHp(cmd.getNpc().getHp() - game.getPlayer().getWeaponEquip().getPower());
+                                System.out.println("Hai attaccato " + cmd.getNpc().getName(db) + " con " + game.getPlayer().getWeaponEquip().getName(db));
+                                cmd.getNpc().setAttacking(true);
+                                cmd.getNpc().setSpeakable(false);
+                            }
+
+                        System.out.println(cmd.getNpc().getName() + " hp: " + cmd.getNpc().getHp());
                     }else{
                         System.out.println("Non conviene attaccare qualcuno senza armi..");
                     }
                     attack = true;
                 }else{
-                    System.out.println("A chi attacchi?? vai a trovare qualcuno!");
+                    System.out.println("A chi attacchi?? vè acchiann nald trmun!");
                 }
             }
             if(attack){
                 for(int i = 0; i<game.getCurrentRoom().getNpcs().size(); i++){
                     if(game.getCurrentRoom().getNpcs().get(i).getAttacking()){
-                        npcResponseAttack(game.getCurrentRoom().getNpcs().get(i), game);
+                        monsterResponse(game.getCurrentRoom().getNpcs().get(i), game);
                         printPlayerStats(game, db);
                     }
                 }
@@ -184,17 +198,19 @@ public class Utils {
         }
     }
 
-    private void npcResponseAttack(Npc cmd, GameDescription game) {
+    private void monsterResponse(Npc cmd, GameDescription game) {
+        //attacco di risposta del mostro
         if(cmd.getHp() <= 0){
-            System.out.println(cmd.getName() + ": Ouch..");
+            System.out.println(cmd.getName() + ": ARRRRRRRRRGHHHH!!!"); // randomizzare le frasi in base al mostro
+            System.out.println("\nHai ucciso " + cmd.getName() + "!");
             if(cmd.getWeaponEquip() != null){
                 game.getCurrentRoom().getItems().add(cmd.getWeaponEquip());
             }
             game.getCurrentRoom().getNpcs().remove(cmd);
         }else{
             if(cmd.getEnemy()){
-                System.out.println(cmd.getName() + ": E no eh");
-                game.getPlayer().setHp((int) Math.round(game.getPlayer().getHp() - (cmd.getWeaponEquip().getPower() - (cmd.getWeaponEquip().getPower() * (game.getPlayer().getArmor()/200.000)))));
+                System.out.println(cmd.getName() + ": WROAAAAAARHHH!!!"); // randomizzare le frasi
+                game.getPlayer().setHp(game.getPlayer().getHp() - cmd.getWeaponEquip().getPower()*2);
             }
         }
     }
@@ -206,22 +222,28 @@ public class Utils {
     }
 
     public void printPlayerStats(GameDescription game, Db db){
-        if(game.getPlayer().getWeaponEquip() != null){
+        if(game.getPlayer().getWeaponEquip() != null && !game.getPlayer().getWeaponEquip().getName(db).equals("pistola") && !game.getPlayer().getWeaponEquip().getName(db).equals("granate")){
             System.out.println("\nHp_> " + game.getPlayer().getHp() + " armatura_> " + game.getPlayer().getArmor() + " Equip_> " + game.getPlayer().getWeaponEquip().getName(db));
+        }else if(game.getPlayer().getWeaponEquip() != null && game.getPlayer().getWeaponEquip().getName(db).equals("pistola")){
+            System.out.println("\nHp_> " + game.getPlayer().getHp() + " armatura_> " + game.getPlayer().getArmor() + " Equip_> " + game.getPlayer().getWeaponEquip().getName(db) + " #(colpi)_>" + game.getPlayer().getWeaponEquip().getBullet());
+        }else if(game.getPlayer().getWeaponEquip() != null && game.getPlayer().getWeaponEquip().getName(db).equals("granate")){
+            System.out.println("\nHp_> " + game.getPlayer().getHp() + " armatura_> " + game.getPlayer().getArmor() + " Equip_> " + game.getPlayer().getWeaponEquip().getName(db) + " #(granate)_>" + game.getPlayer().getWeaponEquip().getBullet());
         }else{
             System.out.println("\nHp_> " + game.getPlayer().getHp() + " armatura_> " + game.getPlayer().getArmor());
         }
     }
 
     private void checkRoom(GameDescription game, Room room, Db db){
-        if(room != null){
+        if(room != null && room.getId() != 1){
             game.setCurrentRoom(room);
             printRoom(game, db);
             if(room.getExplored() == false){
                 room.setExplored(true);
             }
+        }else if(room != null && room.getId() == 1){
+            System.out.println("E' passato così tanto tempo da quella maledetta cartolina... \nQuanto mi sarebbe piaciuto essere a casa mia a mangiare un po'\ndi maicol sushi con miei compagni!\nComunque non è possibile andare da quella parte!");
         }else{
-            System.out.println("Ehi non c'è niente qui."); 
+            System.out.println("Non si va da nessuna parte li u scè!");
         }
     }
 
