@@ -162,22 +162,19 @@ public class Utils {
                         cmd.getNpc().setHp((int) Math.round(cmd.getNpc().getHp() - (game.getPlayer().getWeaponEquip().getPower() - (game.getPlayer().getWeaponEquip().getPower() * (cmd.getNpc().getArmor()/200.000)))));
                         cmd.getNpc().setAttacking(true);
                         cmd.getNpc().setSpeakable(false);
-                        System.out.println(cmd.getNpc().getName() + " hp_> " + cmd.getNpc().getHp());
-                    }else if(cmd.getNpc().getGod() == true){
-                        System.out.println(cmd.getNpc().getName() + ": Non perdere tempo con me. Sono invincibile.");
-                    }
-                    else{
+                        System.out.println(cmd.getNpc().getName() + "hp: " + cmd.getNpc().getHp());
+                    }else{
                         System.out.println("Non conviene attaccare qualcuno senza armi..");
                     }
                     attack = true;
                 }else{
-                    System.out.println("Non si può attaccare qualcuno che non c'è..");
+                    System.out.println("A chi attacchi?? vai a trovare qualcuno!");
                 }
             }
             if(attack){
                 for(int i = 0; i<game.getCurrentRoom().getNpcs().size(); i++){
                     if(game.getCurrentRoom().getNpcs().get(i).getAttacking()){
-                        npcResponse(game.getCurrentRoom().getNpcs().get(i), game);
+                        npcResponseAttack(game.getCurrentRoom().getNpcs().get(i), game);
                         printPlayerStats(game, db);
                     }
                 }
@@ -187,7 +184,7 @@ public class Utils {
         }
     }
 
-    private void npcResponse(Npc cmd, GameDescription game) {
+    private void npcResponseAttack(Npc cmd, GameDescription game) {
         if(cmd.getHp() <= 0){
             System.out.println(cmd.getName() + ": Ouch..");
             if(cmd.getWeaponEquip() != null){
