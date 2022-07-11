@@ -13,7 +13,7 @@ public class Db {
     /**
      * query di creazione
      */
-    public static final String CREATE_ROOM = "CREATE TABLE IF NOT EXISTS room (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(100), look VARCHAR(1000))";
+    public static final String CREATE_ROOM = "CREATE TABLE IF NOT EXISTS room (id int PRIMARY KEY, name TEXT, desc TEXT, look TEXT)";
     public static final String CREATE_ITEM = "CREATE TABLE IF NOT EXISTS item (id int PRIMARY KEY, name VARCHAR(100), desc VARCHAR(100))";
 
     /**
@@ -171,7 +171,7 @@ public class Db {
         String[] room1 = {"Intro", "Benvenuto a casa amari", "Ti trovi nell'altrio di casa con Gli Amari, Frank, Giulio e Pier.\n" + "Sta per iniziare una solita giornata noiosa."};
         init(SELECT1,1,INSERT1,room1);
 
-        String[] room2 = {"Ufficio comandante", "Ti trovi all'interno dell'ufficio del tuo comandante, è passato un mese da quando hai lasciato casa, ascolti il tuo comandante spiegare la tattica di guerra. La paura di non farcela è molta", "Ti trovi all'interno dell'ufficio del comandante.\n" + "Davanti a te è presente una porta."};
+        String[] room2 = {"Ufficio comandante", "Ti trovi all'interno dell'ufficio del tuo comandante, è passato un mese da quando hai lasciato casa, ascolti il tuo comandante spiegare\nla tattica di guerra. La paura di non farcela è molta", "Ti trovi all'interno dell'ufficio del comandante.\n" + "Davanti a te è presente una porta."};
         init(SELECT1,2,INSERT1,room2);
 
         String[] room3 = {"Ingresso Trincea", "Ti trovi all'interno della trincea", "Sei nel mezzo di un campo di battaglia, intorno a te solo morte e distruzione."};
@@ -214,7 +214,7 @@ public class Db {
         String[] item5 = {"razioneK", "Utile nel recuperare hp."};
         init(SELECT2, 5, INSERT2, item5);
 
-        String[] item6 = {"cassa", "Potrà contenere sicuramente qualcosa..."};
+        String[] item6 = {"Morso del demogorgone", "Cosi potente... cosi spaventoso!"};
         init(SELECT2, 6, INSERT2, item6);
    
     }
