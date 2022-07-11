@@ -1,6 +1,6 @@
-SOLDATO: "Soldato, ti prego ferma la mia sofferenza. Aiutami!"
-LELLO: "Cosa ti è successo?"
-SOLDATO: "Ero impegnato in un fuoco di copertura e sono stato colpito da un proiettile."
-LELLO: "Ma come sei arrivato fin qua"
-SOLDATO: "Facevo parte di una squadra d'assalto alle navi aliene. Sono rimasto solo io, aiutami a sporavvivere."
-LELLO: "Vedrò cosa posso fare"
+SOLDATO: Soldato, ti prego ferma la mia sofferenza. Aiutami!
+LELLO: Cosa ti e' successo?
+SOLDATO: Ero impegnato in un fuoco di copertura e sono stato colpito da un proiettile.
+LELLO: Ma come sei arrivato fin qua
+SOLDATO: Facevo parte di una squadra d'assalto alla In Amber Clad. Sono rimasto solo io, aiutami a sporavvivere.
+LELLO: Vedro' cosa posso fare.

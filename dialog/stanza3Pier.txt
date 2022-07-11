@@ -1,7 +1,12 @@
-PIER: Ci siamo, stiamo per partire. Sicuramente sarà arrivata anche a te la cartolina per arruolarsi. La minaccia aliena è ormai imminente.
-LELLO: Si è arrivata anche a me, partirò anch'io. Sono molto preoccupato, non so come andrà a finire.
-PIER: Forza e coraggio che la guerra è solo di passaggio.
-LELLO: Lo so ma la paura di non tornare a casa è molta.
-PIER:  Abbi fede, ce la faremo. 
+LELLO: Ci siamo, stiamo per partire per combattere questa fottuta minaccia aliena. Come vi sentite?
+FRANK: Sinceramente, non me ne frega nulla. Ho passato analisi con la Germinario...posso mai aver paura di una stupida guerra?
+LELLO: Effettivamente....hai ragione Frank.
+PIER: Sono molto preoccupato da questa minaccia aliena, sinceramente non so se finira' bene. 
+LELLO: Forza e coraggio che la guerra e' solo di passaggio.
+FRANK: Abbi fede, ce la faremo. 
 LELLO: Porterai qualcosa con te?
 PIER: Si, un elmetto di guerra con il simbolo della pace.
+GIULIO: Non vedo l'ora di spaccare in due qualche alieno. Gli faro' esplodere il cervello in stile Mars Attacks.
+LELLO: Non penso ci sia bisogno di aggiungere altro... sai gia' come caricarti da solo.
+GIULIO: Va bene Lello....ma tu in realta' come ti senti?
+LELLO: Sincero?...Mi sto cagando sotto!
