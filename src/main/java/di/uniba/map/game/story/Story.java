@@ -13,6 +13,7 @@ public class Story extends GameDescription{
 
         //Commands
         getPlayer().setName("Lello");
+        getPlayer().setArmor(20);
 
         Command nord = new Command(CommandType.NORD, "nord");
         nord.setAlias(new String[]{"n", "N", "Nord", "NORD"});
@@ -104,6 +105,7 @@ public class Story extends GameDescription{
 
         //mappa
         intro.setNorth(ufficio_comandante);
+        ufficio_comandante.setSouth(intro);
         ufficio_comandante.setNorth(ingresso_trincea);
         ingresso_trincea.setSouth(ufficio_comandante);
         ingresso_trincea.setWest(campo_add);
@@ -126,6 +128,7 @@ public class Story extends GameDescription{
 
         Item pistola = new Item(2);
         pistola.setWeapon(true);
+        pistola.setBullet(20);
         pistola.setPower(40);
         getItemList().add(pistola);
 
@@ -137,11 +140,17 @@ public class Story extends GameDescription{
         Item granata = new Item(4);
         granata.setWeapon(true);
         granata.setPower(80);
+        granata.setBullet(5);
         getItemList().add(granata);
 
         Item razioneK = new Item(5);
         razioneK.setHealer(true);
         razioneK.setHeal(40);
+        getItemList().add(razioneK);
+
+        Item morsoDemo = new Item(6);
+        razioneK.setWeapon(true);
+        razioneK.setPower(50);
         getItemList().add(razioneK);
 
         //NPC
@@ -165,7 +174,7 @@ public class Story extends GameDescription{
         soldato.setEnemy(false);
         getNpcList().add(soldato);
            
-        //Npc nemici
+        //Npc nemici - aggiungere un nuovo nemico!
         Npc orda = new Npc(150, "orda_zombie", "Un gruppo di zombie è diretto verso di te!");
         orda.setEnemy(true);
         orda.setSpeakable(false);
@@ -173,6 +182,7 @@ public class Story extends GameDescription{
         
         Npc demogorgone = new Npc(150, "demogorgone", "Un demogorgone, un mostro orribile");
         demogorgone.setEnemy(true);
+        demogorgone.setWeaponEquip(morsoDemo);
         demogorgone.setSpeakable(false);
         getNpcList().add(demogorgone);
 
