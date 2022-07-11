@@ -21,7 +21,6 @@ public class Npc extends Character{
     public static final String SELECTDESCRIPTION = "SELECT desc FROM npc WHERE id = ?";
 
     private boolean isEnemy = false;
-    private boolean isGod = false;
     private boolean isAttacking = false;
     private boolean isSpeakable = false;
     String pathStanza1 = "dialog//stanza3Pier.txt";
@@ -134,22 +133,5 @@ public class Npc extends Character{
     public boolean getEnemy()
     {
         return this.isEnemy;
-    }
-    
-    /** 
-     * @return boolean
-     */
-    public boolean getGod()
-    { 
-        return isGod;
-    }
-
-    
-    /** 
-     * @param god
-     */
-    public void setGod(boolean god)
-    { 
-        isGod = god;
     }
 }
