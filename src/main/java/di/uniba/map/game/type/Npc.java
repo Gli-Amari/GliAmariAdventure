@@ -24,9 +24,9 @@ public class Npc extends Character{
     private boolean isAttacking = false;
     private boolean isSpeakable = false;
     String pathStanza1 = "dialog//stanza3Pier.txt";
-    String pathStanza2 = "dialog//stanza2Commandante.txt";
-    String pathStanza5 = "dialog//stanza5Galatone.txt";
-    String pathStanza7 = "dialog//stanza12Soldato.txt";
+    String pathStanza2 = "dialog//ufficiale.txt";
+    String pathStanza5 = "dialog//galatone.txt";
+    String pathStanza7 = "dialog//Soldato.txt";
 
 
     public Npc(int hp, String name, String description){
