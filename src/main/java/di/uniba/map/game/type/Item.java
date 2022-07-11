@@ -29,9 +29,24 @@ public class Item {
     private boolean armor = false;
     private int protection = 0;
     private boolean container = false;
+    private int bullet = 0;
 
     public Item(int id) {
         this.id = id;
+    }
+
+    /** 
+     * @return int
+     */
+    public int getBullet() {
+        return bullet;
+    }
+
+    /** 
+     * @param bullet
+     */
+    public void setBullet(int bullet) {
+        this.bullet = bullet;
     }
 
     /** 
