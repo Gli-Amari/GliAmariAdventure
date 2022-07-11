@@ -22,7 +22,6 @@ public class Room {
 
     private final int id;
     private boolean firstTimeHere = true;
-    private boolean locked = false;
     private boolean explored = false;
     private Room south = null;
     private Room north = null;
@@ -163,25 +162,7 @@ public class Room {
         return look;
     }
 
-    
-    /** 
-     * @return boolean
-     */
-    public boolean getLock()
-    {
-        return locked;
-    }
-
-    
-    /** 
-     * @param lock
-     */
-    public void setLock(boolean lock)
-    {
-        this.locked = lock;
-    }
-
-    
+  
     /** 
      * @return boolean
      */

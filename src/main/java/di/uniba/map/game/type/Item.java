@@ -20,7 +20,6 @@ public class Item {
 
     private final int id;
     private List<Item> list = new ArrayList<>();
-    private boolean openable = false;
     private boolean pickupable = true;
     private boolean weapon = false;
     private int power = 0;
@@ -28,7 +27,6 @@ public class Item {
     private int heal = 0;
     private boolean armor = false;
     private int protection = 0;
-    private boolean container = false;
     private int bullet = 0;
 
     public Item(int id) {
@@ -106,25 +104,6 @@ public class Item {
     public void setProtection(int protection){
         this.protection = protection;
     }
-
-    
-    /** 
-     * @param getName(
-     */
-    public void setIsContainer(boolean cont) 
-    { 
-        this.container = cont;
-    }
-
-    
-    /** 
-     * @return boolean
-     */
-    public boolean getIsContainer() 
-    { 
-        return this.container;
-    }
-
     
     /** 
      * @return List<Item>
@@ -174,23 +153,6 @@ public class Item {
 
         return resultSelect;
     }
-    
-    
-    /** 
-     * @return boolean
-     */
-    public boolean isOpenable() {
-        return openable;
-    }
-
-    
-    /** 
-     * @param openable
-     */
-    public void setOpenable(boolean openable) {
-        this.openable = openable;
-    }
-
     
     /** 
      * @return boolean

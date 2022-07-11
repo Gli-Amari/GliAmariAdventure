@@ -7,7 +7,6 @@ package di.uniba.map.game.type;
 public class Player extends Character{
 
     private Inventory inventory = new Inventory();
-    protected Item clothesEquip;
 
     public Player(int hp, String name, String description){
         super(hp, name, description);
@@ -21,23 +20,4 @@ public class Player extends Character{
     { 
         return inventory;
     }
-
-    
-    /** 
-     * @return Item
-     */
-    public Item getClothesEquip() 
-    {
-        return clothesEquip;
-    }
-
-    
-    /** 
-     * @param clothesEquip
-     */
-    public void setClothesEquip(Item clothesEquip)
-    {
-        this.clothesEquip = clothesEquip;
-    }
-
 }

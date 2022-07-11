@@ -139,9 +139,7 @@ public class Utils {
             else if(cmd.getCommand().getType() == CommandType.USE){
                 if(cmd.getItem() != null && game.getPlayer().getInventory().getList().contains(cmd.getItem())){
                     if(cmd.getItem().isArmor()){
-                        game.getPlayer().setClothesEquip(cmd.getItem());
                         game.getPlayer().setArmor(cmd.getItem().getProtection());
-
                         attack = true;
                     }else{
                         System.out.println("Non si può indossare questo!");
