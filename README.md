@@ -23,9 +23,12 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |    |      |-- ChiSiamo.txt
 |    |      |-- HelpC.txt
 |    |--diagrams
-|    |      |-- mConcettuale.png
-|    |      |-- mSoftware.png
-|    |      |-- mPackages.png
+|    |      |-- PackageDiagram
+|    |      |        |-- PackageDiagram.png
+|    |      |-- ConceptClassDiagram
+|    |      |        |-- ConceptClassDiagram.png
+|    |      |-- ClassDiagram
+|    |      |        |-- ClassDiagram.png
 |    |-- Report.md
 |    |-- GitHubFlow.md
 |–– img
