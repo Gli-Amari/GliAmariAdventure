@@ -4,6 +4,8 @@
 2. *Nome:* Scoglietti Pio Francesco (mat.735201)
 3. *Nome:* Spicoli Piersilvio (mat.736519)
 
+![copertina2](./copertina2.jpeg)
+
 **Indice sul caso d'uso:**   
 1. [Introduzione all'avventura testuale](#introduzione)
 2. [Trama dell'avventura e ambientazione](#tramaeambientazione)
