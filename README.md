@@ -28,7 +28,8 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |    |      |-- ConceptClassDiagram
 |    |      |        |-- ConceptClassDiagram.png
 |    |      |-- ClassDiagram
-|    |      |        |-- ClassDiagram.png
+|    |      |        |-- view1.png
+|    |      |        |-- view2.png
 |    |-- Report.md
 |    |-- GitHubFlow.md
 |–– img
