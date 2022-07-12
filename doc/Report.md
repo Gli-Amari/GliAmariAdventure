@@ -74,6 +74,8 @@ Abbiamo pensato di dover dividere il nostro modello in due parti:
 
 Tali viste sono collegate fra loro: infatti, basti notare che nelle due viste sono presenti delle classi "ripetitive" proprio per poter far capire il collegamento che intercorre fra i modelli.
 
+Utilizziamo la tassionomia ECB.
+
 *vista uno*:
 ![Class Diagram](diagrams/ClassDiagram/vista1.jpg)
 
@@ -92,6 +94,17 @@ Nella prima vista, è possibile osservare che sono presenti classi di tipo Bound
 
 *vista due*:
 ![Class Diagram](diagrams/ClassDiagram/vista2.jpg)
-Continuare...
+spiegate a che servo sto diagramma e elencate le classi con le relative funzioni.
+Capite bene
 
 ## [**3. Dettagli implementativi**](#dettagliimplementativi)
+**File**:
+All’interno del progetto sono stati utilizzati i file di testo per quanto riguarda la lettura dei dialoghi con i personaggi e per la lettura all’interno del menu principale delle sezioni “ChiSiamo” e “HelpComandi”. In quanto tali classi estendono JFrame, abbiamo implementato un classico algoritmo per la lettura dei file, con la sola eccezione che il contenuto letto viene inserito nel campo di testo della finestra JTextPane presente.
+
+**JSwing**: All’interno del progetto abbiamo implementato la java Swing per quanto riguarda il menù principale e le sue sezioni “helpComandi”, “ChiSiamo” e la finestra principale del gioco "Main". Per poter "abbellire" lo stile della grafica abbiamo utilizzato una libreria che imposta un *look and feel* per la grafica di ogni JFrame esteso: abbiamo scelto di utilizzare flatlaf-2.2.jar e aggiunto la dipendenza nel file pom.xml per poter utilizzare la libreria durante il programma.
+
+**Database**: fare...
+
+**Thread**:
+spiegare come facciamo sta cosa e come viene lanciata
+
