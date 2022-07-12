@@ -7,6 +7,7 @@ import di.uniba.map.game.parser.ParserOutput;
 import di.uniba.map.game.type.CommandType;
 import di.uniba.map.game.type.Room;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -75,7 +76,11 @@ public class Utils {
             else if(cmd.getCommand().getType() == CommandType.TALK){
                 if(cmd.getNpc() != null && game.getCurrentRoom().getNpcs().contains(cmd.getNpc())){
                     if(cmd.getNpc().getSpeakable()){
-                        cmd.getNpc().talking(game.getCurrentRoom().getId());
+                        try {
+                            cmd.getNpc().talking(game.getCurrentRoom().getId());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }else{
                         System.out.println(cmd.getNpc().getName() + ": Non mi disturbare.");
                     }
@@ -92,7 +97,7 @@ public class Utils {
                         System.out.print(game.getCurrentRoom().getItems().get(i).getName(db) + ", ");
                     }
                     for(int i = 0; i<game.getCurrentRoom().getNpcs().size(); i++){
-                        System.out.println("\nC'è qualcuno.." + game.getCurrentRoom().getNpcs().get(i).getName(db) + ",");
+                        System.out.println("\nC'è qualcuno.." + game.getCurrentRoom().getNpcs().get(i).getName() + ",");
                         System.out.println("tutto qui!");
                     }
                   
@@ -164,12 +169,12 @@ public class Utils {
                                 game.getPlayer().getWeaponEquip().setBullet(game.getPlayer().getWeaponEquip().getBullet() - 1);
 
                                 cmd.getNpc().setHp(cmd.getNpc().getHp() - game.getPlayer().getWeaponEquip().getPower());
-                                System.out.println("Hai attaccato " + cmd.getNpc().getName(db) + " con " + game.getPlayer().getWeaponEquip().getName(db));
+                                System.out.println("Hai attaccato " + cmd.getNpc().getName() + " con " + game.getPlayer().getWeaponEquip().getName(db));
                                 cmd.getNpc().setAttacking(true);
                                 cmd.getNpc().setSpeakable(false);                    
                             }else{                                       //caso in cui attacco senza armi a distanza...
                                 cmd.getNpc().setHp(cmd.getNpc().getHp() - game.getPlayer().getWeaponEquip().getPower());
-                                System.out.println("Hai attaccato " + cmd.getNpc().getName(db) + " con " + game.getPlayer().getWeaponEquip().getName(db));
+                                System.out.println("Hai attaccato " + cmd.getNpc().getName() + " con " + game.getPlayer().getWeaponEquip().getName(db));
                                 cmd.getNpc().setAttacking(true);
                                 cmd.getNpc().setSpeakable(false);
                             }

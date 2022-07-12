@@ -6,19 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import di.uniba.map.game.databases.Db;
 
 /**
  * @author Francesco Pio Scoglietti
  * All'interno di questa classe vengono definite le interazioni con gli altri NPC
  */
 public class Npc extends Character{
-
-    /**
-     * query
-     */
-    public static final String SELECTNAME = "SELECT name FROM npc WHERE id = ?";
-    public static final String SELECTDESCRIPTION = "SELECT desc FROM npc WHERE id = ?";
 
     private boolean isEnemy = false;
     private boolean isAttacking = false;
@@ -33,15 +26,15 @@ public class Npc extends Character{
         super(hp, name, description);
     }
 
-    public String getName(Db db){ 
+    public String getName(){ 
        return this.name;
     }
 
-    public String getDescription(Db db){
+    public String getDescription(){
         return this.description;
     }
 
-    public void talking(int idStanza){
+    public void talking(int idStanza) throws IOException{
 
         File fileStanza;
 
@@ -65,7 +58,7 @@ public class Npc extends Character{
         }
     }
 
-    private void readDialog(File file){
+    private void readDialog(File file) throws IOException{
         try{
             BufferedReader buffer = new BufferedReader(new FileReader(file));
             String singleLine;
@@ -76,10 +69,8 @@ public class Npc extends Character{
                 }
             }while (singleLine != null);
             buffer.close();
-        }catch (FileNotFoundException e ){
+        }catch (FileNotFoundException e){
             System.err.println("il file non esiste");
-        }catch (IOException e ){
-            System.err.println("ERRORE  DI I/0");
         }
     }
     

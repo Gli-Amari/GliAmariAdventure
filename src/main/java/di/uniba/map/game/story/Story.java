@@ -8,7 +8,7 @@ import di.uniba.map.game.engine.GameDescription;
 
 public class Story extends GameDescription{
 
-    @Override
+    @Override  
     public void init() throws SQLException{
 
         //Commands

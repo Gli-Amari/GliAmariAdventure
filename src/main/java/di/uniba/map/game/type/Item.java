@@ -118,7 +118,7 @@ public class Item {
      * @return String
      */
     public String getName(Db db) {
-        String name = getInformationAdvObject(db,SELECTNAME);
+        String name = getInformationItem(db,SELECTNAME);
 
         return name;
     }
@@ -128,7 +128,7 @@ public class Item {
      * @return String
      */
     public String getDescription(Db db) {
-        String description = getInformationAdvObject(db,SELECTDESCRIPTION);
+        String description = getInformationItem(db,SELECTDESCRIPTION);
 
         return description;
     }
@@ -139,7 +139,7 @@ public class Item {
      * @param select
      * @return String
      */
-    public String getInformationAdvObject(Db db, String select){
+    public String getInformationItem(Db db, String select){
         String resultSelect= new String();
         try{
             ResultSet rs = db.readFromDb(select,getId());

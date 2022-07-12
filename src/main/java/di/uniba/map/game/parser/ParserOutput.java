@@ -14,18 +14,11 @@ public class ParserOutput {
 
     private Command command;
     private Item item;
-    private Item containerItem;
     private Npc npc;
 
     public ParserOutput(Command command, Item item) {
         this.command = command;
         this.item = item;
-    }
-
-    public ParserOutput(Command command, Item container, Item item) {
-        this.command = command;
-        this.item = container;
-        this.containerItem = item;
     }
 
     public ParserOutput(Command command, Npc npc) {
@@ -45,13 +38,6 @@ public class ParserOutput {
      */
     public Item getItem() { 
         return item;
-    }
-    
-    /** 
-     * @return Item
-     */
-    public Item getContainerItem() { 
-        return containerItem;
     }
     
     /** 
