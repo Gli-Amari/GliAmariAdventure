@@ -215,9 +215,7 @@ public class Utils {
                 System.out.println(cmd.getName() + ": WROAAAAAARHHH!!!"); // randomizzare le frasi
                 int damage = game.getPlayer().getHp() - cmd.getWeaponEquip().getPower();
                 game.getPlayer().setHp(damage);
-                //debug
-                System.out.println(game.getPlayer().getHp());
-                System.out.println(damage);
+                
             }
         }
     }
