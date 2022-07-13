@@ -171,19 +171,19 @@ public class Db {
         String[] room1 = {"Intro", "Benvenuto a casa amari", "Ti trovi nell'altrio di casa con Gli Amari, Frank, Giulio e Pier.\n" + "Sta per iniziare una solita giornata noiosa."};
         init(SELECT1,1,INSERT1,room1);
 
-        String[] room2 = {"Ufficio comandante", "Ti trovi all'interno dell'ufficio del tuo comandante, e' passato un mese da quando hai lasciato casa, ascolti il tuo comandante spiegare\nla tattica di guerra. La paura di non farcela e' molta", "Ti trovi all'interno dell'ufficio del comandante.\n" + "Davanti a te e' presente una porta."};
+        String[] room2 = {"Ufficio comandante", "Ti trovi all'interno dell'ufficio del tuo comandante, \n" + "e' passato un mese da quando hai lasciato casa, \n" + " ascolti il tuo comandante spiegare\nla tattica di guerra. La paura di non farcela e' molta", "Ti trovi all'interno dell'ufficio del comandante.\n" + "Davanti a te e' presente una porta."};
         init(SELECT1,2,INSERT1,room2);
 
-        String[] room3 = {"Ingresso Trincea", "Ti trovi all'interno della trincea", "Sei nel mezzo di un campo di battaglia, intorno a te solo morte e distruzione."};
+        String[] room3 = {"Ingresso Trincea", "Ti trovi all'interno della trincea", "Sei nel mezzo di un campo di battaglia, \n" + "intorno a te solo morte e distruzione."};
         init(SELECT1,3,INSERT1,room3);
 
-        String[] room4 = {"Vicolo cieco", "Ti trovi nel mezzo di un vicolo cieco senza la possibilità di proseguire", "Sei in un vicolo, sembra non esserci niente di che...ma scorgi all'improvviso un Demogorgone."};
+        String[] room4 = {"Vicolo cieco", "Ti trovi nel mezzo di un vicolo cieco senza la possibilità di proseguire", "Sei in un vicolo, sembra non esserci niente di che... \n" + "ma scorgi all'improvviso un Demogorgone."};
         init(SELECT1,4,INSERT1,room4);
 
-        String[] room5 = {"Campo di addestramento", "Questo e' un campo di addestramento", "Ti trovi in un campo di addestramento, e dinanzi vedi il sergente mimmo Glatone insieme ad un gruppo di soldati.\nIl sergente ha il compito di far esercitare i soldati a lanciare le granate."};
+        String[] room5 = {"Campo di addestramento", "Questo e' un campo di addestramento", "Ti trovi in un campo di addestramento, \n" + "e dinanzi vedi il sergente mimmo Glatone insieme ad un gruppo di soldati.\nIl sergente ha il compito di far esercitare i soldati a lanciare le granate."};
         init(SELECT1,5,INSERT1,room5);
 
-        String[] room6 = {"Ingresso del campo di addestramento", "Ti trovi al di fuori del campo di addestramento", "Hai appena completato il tuo addestramento.\nEsci dal campo e ti rendi conto che questo e' sotto attacco da un'orda di alieni.\nDEVI DIFENDERLO A TUTTI I COSTI!!"};
+        String[] room6 = {"Ingresso del campo di addestramento", "Ti trovi al di fuori del campo di addestramento", "Hai appena completato il tuo addestramento.\nEsci dal campo e ti rendi conto che questo \n" + "e' sotto attacco da un'orda di alieni.\nDEVI DIFENDERLO A TUTTI I COSTI!!"};
         init(SELECT1,6,INSERT1,room6);
 
         String[] room7 = {"Intermezzo", "Zona morta", "Ti ritrovi in una zona di guerra appena bombardata.\nSono tutti morti, ma riesci a udire il lamento di un soldato alleato."};
@@ -192,10 +192,10 @@ public class Db {
         String[] room8 = {"Intermezzo", "Intermezzo a est", "Continuando la tua missione, arrivi in una zona molto tranquilla, sembra quasi intatta.\nMentre controlli in giro, noti delle persone che sembrano venirti incontro.\nMan mano che si avvicinano c'e' qualcosa che non va.\nNon sono delle persone, ma un orda di zombie alieni."};
         init(SELECT1,8,INSERT1,room8);
 
-        String[] room9 = {"Trincea", "Fine della trincea", "Dopo un'estenuante camminata, decidi di fermarti un attimo.\nTi guardi attorno e noti solo morte e distruzione.\nContinuando, ti salta addosso un alieno. Devi ucciderlo e portare a termine la tua missione."};
+        String[] room9 = {"Trincea", "Fine della trincea", "Dopo un'estenuante camminata, decidi di fermarti un attimo.\nTi guardi attorno e noti solo morte e distruzione.\nContinuando, ti salta addosso un alieno.\n" + "Devi ucciderlo e portare a termine la tua missione."};
         init(SELECT1,9,INSERT1,room9);
 
-        String[] room10 = {"In Amber Clad", "Riesci a salire all'interno dell'In Amber Clad, la nave principale responsabile della minaccia aliena.\n" + "Appena entrato noterai in lontananza il nucleo della nave.\n" + "Ti avvicini lentamente con la pistola in mano e piu' ti avvicini e piu' noti che il tuo corpo comincia a smaterializzarsi.\n" + "Sei ormai dinanzi al nucleo di te rimane poco e nulla cominci a sparare una raffica di colpi e il nucleo esplode.\n" + "Sai di aver sacrificato la tua vita ma tutto cio' per un bene superiore.\n" + "Nello stesso momento gli altri amari che stanno combattendo si fermano per guardare in lontananza la nave esplodere, sanno che il loro amico non c'e' piu' ma sono consapevoli del fatto che non e' stato un sacrificio vano.\n" + "Dopo aver eliminato gli ultimi soldati alieni rimasti a ritmo di Fortunate Son si incamminano sulla via del ritorno.", "S"};
+        String[] room10 = {"In Amber Clad", "Riesci a salire all'interno dell'In Amber Clad,\n" + "la nave principale responsabile della minaccia aliena.\n" + "Appena entrato noterai in lontananza il nucleo della nave.\n" + "Ti avvicini lentamente con la pistola in mano, \n" + "piu' ti avvicini e piu' noti che il tuo corpo comincia a smaterializzarsi.\n" + "Sei ormai dinanzi al nucleo di te rimane poco e nulla,\n" + "cominci a sparare una raffica di colpi e il nucleo esplode.\n" + "Sai di aver sacrificato la tua vita ma tutto cio' per un bene superiore.\n" + "Nello stesso momento gli altri amari che stanno combattendo si fermano \n" + "per guardare in lontananza la nave esplodere, \n" + "sanno che il loro amico non c'e' piu',\n" + "ma sono consapevoli del fatto che non e' stato un sacrificio vano.\n" + "Dopo aver eliminato gli ultimi soldati alieni rimasti, \n" + "a ritmo di Fortunate Son si incamminano sulla via del ritorno.", "S"};
         init(SELECT1,10,INSERT1,room10);
 
         //aggiunto gli oggetti

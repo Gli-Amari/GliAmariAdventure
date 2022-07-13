@@ -50,7 +50,7 @@ public class Engine {
                     u.move(db, command, game);
                 }
                 if(game.isWin(game) || game.isLose()){
-                    System.out.println("Game Over... ");
+                    System.out.println("\n\n\n\n\nGame Over... ");
                     db.closeConnection();
                     break;
                 }

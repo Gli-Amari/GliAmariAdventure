@@ -163,7 +163,7 @@ public class Utils {
                     if(game.getPlayer().getWeaponEquip() != null && game.getPlayer().getWeaponEquip().getPower() > 0){
                             //attacco del player..
                         
-                            if(game.getPlayer().getWeaponEquip().getName(db).equals("pistola") || game.getPlayer().getWeaponEquip().getName(db).equals("granata")){       //caso in cui attacco con un arma a distanza...
+                            if(game.getPlayer().getWeaponEquip().getName(db).equals("pistola") || game.getPlayer().getWeaponEquip().getName(db).equals("granate")){       //caso in cui attacco con un arma a distanza...
 
                                 //decremento i colpi...
                                 game.getPlayer().getWeaponEquip().setBullet(game.getPlayer().getWeaponEquip().getBullet() - 1);
@@ -218,10 +218,14 @@ public class Utils {
                 System.out.println(cmd.getName() + ": WROAAAAAARHHH!!!"); // randomizzare le frasi
                 int damage = game.getPlayer().getHp() - cmd.getWeaponEquip().getPower();
                 game.getPlayer().setHp(damage);
+<<<<<<< HEAD
                 //debug
                 System.out.println(game.getPlayer().getHp());
                 System.out.println(cmd.getWeaponEquip().getPower());
                 System.out.println(damage);
+=======
+                
+>>>>>>> 92a221db4a59e45ccf532391647a0ae46d9155e6
             }
         }
     }

@@ -122,5 +122,5 @@ E' stata creata una classe responsabile della creazione e del popolamento delle 
 In quanto per scelte progettuali memorizziamo i dati relativi alle stanze e agli oggetti presenti nell'avventura, nelle classi rispettive vengono definite delle operazioni che ci consentono di andare a richiamare il contenuto specificato nel Db. Per fare ciò abbiamo modificato il costruttore delle rispettive classi in modo da poter specificare durante l'inizializzazione di tali oggetti (tale inizializzazione avviene nel metodo init()) il valore Id della tupla a cui essa è associata. Inoltre, in queste classi è presente un'operazione, che presi in input la query di selezione e il database da cui vogliamo andare a prelevare i nostri dati, restituisce una stringa che corrisponde esattamente alla tupla specificata.
 
 **Thread**:
-spiegare come facciamo sta cosa e come viene lanciata
+Abbiamo implementato i thread in modo tale che fosse possibile l'ascolto di musica in sottofondo durante l'esecuzione del gioco. Per fare ciò abbiamo creato una classe che implementa l'interfaccia runnable per poter poi estendere il metodo run presente in runnable. All'interno di questo metodo creiamo un oggetto di tipo file che viene associato al file path musicale e se quest'ultimo dovesse risultare esistente allora verrà mandata in loop la canzone.
 
