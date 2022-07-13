@@ -1,7 +1,7 @@
 # Documentazione: caso d'uso
 **Gli ingegneri:** 
 1. *Nome:* Russo Giulio (mat.735338)
-2. *Nome:* Scoglietti Pio Francesco (mat.735201)
+2. *Nome:* Scoglietti Francesco Pio (mat.735201)
 3. *Nome:* Spicoli Piersilvio (mat.736519)
 
 ![copertina2](./copertina2.jpeg)
@@ -94,8 +94,14 @@ Nella prima vista, è possibile osservare che sono presenti classi di tipo Bound
 
 *vista due*:
 ![Class Diagram](diagrams/ClassDiagram/vista2.jpg)
-spiegate a che servo sto diagramma e elencate le classi con le relative funzioni.
-Capite bene
+Nella seconda vista sono presenti classi entity e control. Le classi entity sono le classi che descrivono le nostre entità. In generale:
+
+1. `di.uniba.map.game.type.Character` è la classe che definisce i personaggi e le loro caratteristiche come nome,descrizione e hp.
+2. `di.uniba.map.game.type.Player` è la classe che gestisce tutte le caratteristiche del protagonista.
+3. `di.uniba.map.game.type.Npc` è la classe che gestisce i personaggi con cui può interagire l'utente.
+4. `di.uniba.map.game.type.Inventory` è la classe che gestisce la composizione dell'inventario del giocatore.
+5. `di.uniba.map.game.type.Item` è la classe che gestisce le caratteristiche che un oggetto può avere.
+6. `di.uniba.map.game.type.Room` è la classe che gestisce tutte le caratteristiche delle stanze.
 
 ## [**3. Dettagli implementativi**](#dettagliimplementativi)
 **File**:
@@ -103,7 +109,17 @@ All’interno del progetto sono stati utilizzati i file di testo per quanto rigu
 
 **JSwing**: All’interno del progetto abbiamo implementato la java Swing per quanto riguarda il menù principale e le sue sezioni “helpComandi”, “ChiSiamo” e la finestra principale del gioco "Main". Per poter "abbellire" lo stile della grafica abbiamo utilizzato una libreria che imposta un *look and feel* per la grafica di ogni JFrame esteso: abbiamo scelto di utilizzare flatlaf-2.2.jar e aggiunto la dipendenza nel file pom.xml per poter utilizzare la libreria durante il programma.
 
-**Database**: fare...
+**Database**: Nella nostra avventura testuale, l'implementazione del database è avvenuta mediante "H2", ovvero un gestore di basi di dati relazionale scritto in Java.
+Sono state create due tabelle, una per quanto riguarda gli oggetti e una per quanto riguarda le stanze.
+
+Per ogni stanza sono stati aggiunti i seguenti dati:
+    - id, nome, descrizione e look;
+Per ogni oggetto sono stati aggiunti i seguenti dati:
+    -id,nome e descrizione;
+
+E' stata creata una classe responsabile della creazione e del popolamento delle tabelle. Quindi sono state scritte delle query. Una per quanto riguarda la creazione delle tabelle, una per quanto riguarda la ricerca di un dato all'interno della tabelle e una query per quanto riguarda la popolazione delle tabelle.
+
+In quanto per scelte progettuali memorizziamo i dati relativi alle stanze e agli oggetti presenti nell'avventura, nelle classi rispettive vengono definite delle operazioni che ci consentono di andare a richiamare il contenuto specificato nel Db. Per fare ciò abbiamo modificato il costruttore delle rispettive classi in modo da poter specificare durante l'inizializzazione di tali oggetti (tale inizializzazione avviene nel metodo init()) il valore Id della tupla a cui essa è associata. Inoltre, in queste classi è presente un'operazione, che presi in input la query di selezione e il database da cui vogliamo andare a prelevare i nostri dati, restituisce una stringa che corrisponde esattamente alla tupla specificata.
 
 **Thread**:
 spiegare come facciamo sta cosa e come viene lanciata
