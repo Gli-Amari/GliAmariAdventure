@@ -188,7 +188,7 @@ public class Utils {
                     System.out.println("A chi attacchi?? vè acchiann nald trmun!");
                 }
             }
-            if(attack){
+            if(attack == true){
                 for(int i = 0; i<game.getCurrentRoom().getNpcs().size(); i++){
                     if(game.getCurrentRoom().getNpcs().get(i).getAttacking()){
                         monsterResponse(game.getCurrentRoom().getNpcs().get(i), game);
@@ -213,7 +213,11 @@ public class Utils {
         }else{
             if(cmd.getEnemy()){
                 System.out.println(cmd.getName() + ": WROAAAAAARHHH!!!"); // randomizzare le frasi
-                game.getPlayer().setHp(game.getPlayer().getHp() - cmd.getWeaponEquip().getPower()*2);
+                int damage = game.getPlayer().getHp() - cmd.getWeaponEquip().getPower();
+                game.getPlayer().setHp(damage);
+                //debug
+                System.out.println(game.getPlayer().getHp());
+                System.out.println(damage);
             }
         }
     }

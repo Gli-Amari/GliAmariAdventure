@@ -178,6 +178,7 @@ public class Story extends GameDescription{
         Npc orda = new Npc(150, "orda_zombie", "Un gruppo di zombie è diretto verso di te!");
         orda.setEnemy(true);
         orda.setSpeakable(false);
+        //equipaggiare arma con quale far combattere gli zombi o il motro che volete
         getNpcList().add(orda);
         
         Npc demogorgone = new Npc(150, "demogorgone", "Un demogorgone, un mostro orribile");

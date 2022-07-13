@@ -195,8 +195,8 @@ public class Db {
         String[] room9 = {"Trincea", "Fine della trincea", "Dopo un'estenuante camminata, decidi di fermarti un attimo.\nTi guardi attorno e noti solo morte e distruzione.\nContinuando, ti salta addosso un alieno. Devi ucciderlo e portare a termine la tua missione."};
         init(SELECT1,9,INSERT1,room9);
 
-        //String[] room10 = {"In Amber Clad", "Riesci a salire all'interno dell'In Amber Clad, la nave principale responsabile della minaccia aliena.\n" + "Appena entrato noterai in lontananza il nucleo della nave.\n" + "Ti avvicini lentamente con la pistola in mano e piu' ti avvicini e piu' noti che il tuo corpo comincia a smaterializzarsi.\n" + "Sei ormai dinanzi al nucleo di te rimane poco e nulla cominci a sparare una raffica di colpi e il nucleo esplode.\n" + "Sai di aver sacrificato la tua vita ma tutto cio' per un bene superiore.\n" + "Nello stesso momento gli altri amari che stanno combattendo si fermano per guardare in lontananza la nave esplodere, sanno che il loro amico non c'e' piu' ma sono consapevoli del fatto che non e' stato un sacrificio vano.\n" + "Dopo aver eliminato gli ultimi soldati alieni rimasti a ritmo di Fortunate Son si incamminano sulla via del ritorno."};
-        //init(SELECT1,10,INSERT1,room10);
+        String[] room10 = {"In Amber Clad", "Riesci a salire all'interno dell'In Amber Clad, la nave principale responsabile della minaccia aliena.\n" + "Appena entrato noterai in lontananza il nucleo della nave.\n" + "Ti avvicini lentamente con la pistola in mano e piu' ti avvicini e piu' noti che il tuo corpo comincia a smaterializzarsi.\n" + "Sei ormai dinanzi al nucleo di te rimane poco e nulla cominci a sparare una raffica di colpi e il nucleo esplode.\n" + "Sai di aver sacrificato la tua vita ma tutto cio' per un bene superiore.\n" + "Nello stesso momento gli altri amari che stanno combattendo si fermano per guardare in lontananza la nave esplodere, sanno che il loro amico non c'e' piu' ma sono consapevoli del fatto che non e' stato un sacrificio vano.\n" + "Dopo aver eliminato gli ultimi soldati alieni rimasti a ritmo di Fortunate Son si incamminano sulla via del ritorno.", "S"};
+        init(SELECT1,10,INSERT1,room10);
 
         //aggiunto gli oggetti
         String[] item1 = {"caffe", "Combustibile per un programmatore"};
@@ -211,10 +211,10 @@ public class Db {
         String[] item4 = {"granate", "Utile per uccidere gruppi di nemici"};
         init(SELECT2, 4, INSERT2, item4);
 
-        String[] item5 = {"razioneK", "Utile nel recuperare hp."};
+        String[] item5 = {"razionek", "Utile nel recuperare hp."};
         init(SELECT2, 5, INSERT2, item5);
 
-        String[] item6 = {"Morso del demogorgone", "Cosi potente... cosi spaventoso!"};
+        String[] item6 = {"Morso_del_demogorgone", "Cosi potente... cosi spaventoso!"};
         init(SELECT2, 6, INSERT2, item6);
    
     }

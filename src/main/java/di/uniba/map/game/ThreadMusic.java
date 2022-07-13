@@ -1,10 +1,13 @@
 package di.uniba.map.game;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  * Classe per la gestione concorrente della musica in gioco.
@@ -21,6 +24,7 @@ public class ThreadMusic implements Runnable{
     /**
      * metodo per la gestione concorrente della musica in gioco.
      */
+    @Override
     public void run(){
         
         try{
@@ -36,7 +40,7 @@ public class ThreadMusic implements Runnable{
             {
                 System.out.print("Errore nella lettura del file");
             }
-        }catch(Exception e){
+        }catch(IOException | LineUnavailableException | UnsupportedAudioFileException e){
             System.out.println("Errore nell'avvio della musica");
         }
 
