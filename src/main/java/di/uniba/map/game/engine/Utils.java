@@ -171,7 +171,10 @@ public class Utils {
                                 cmd.getNpc().setHp(cmd.getNpc().getHp() - game.getPlayer().getWeaponEquip().getPower());
                                 System.out.println("Hai attaccato " + cmd.getNpc().getName() + " con " + game.getPlayer().getWeaponEquip().getName(db));
                                 cmd.getNpc().setAttacking(true);
-                                cmd.getNpc().setSpeakable(false);                    
+                                cmd.getNpc().setSpeakable(false);     
+                                
+                                //monsterResponse(cmd.getNpc(), game);
+                                //printPlayerStats(game, db);
                             }else{                                       //caso in cui attacco senza armi a distanza...
                                 cmd.getNpc().setHp(cmd.getNpc().getHp() - game.getPlayer().getWeaponEquip().getPower());
                                 System.out.println("Hai attaccato " + cmd.getNpc().getName() + " con " + game.getPlayer().getWeaponEquip().getName(db));
@@ -215,7 +218,6 @@ public class Utils {
                 System.out.println(cmd.getName() + ": WROAAAAAARHHH!!!"); // randomizzare le frasi
                 int damage = game.getPlayer().getHp() - cmd.getWeaponEquip().getPower();
                 game.getPlayer().setHp(damage);
-                
             }
         }
     }
