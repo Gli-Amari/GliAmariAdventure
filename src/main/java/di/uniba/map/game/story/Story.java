@@ -151,7 +151,7 @@ public class Story extends GameDescription{
         Item morsoDemo = new Item(6);
         razioneK.setWeapon(true);
         razioneK.setPower(50);
-        getItemList().add(razioneK);
+        getItemList().add(morsoDemo);
 
         //NPC
         Npc amari = new Npc(100, "amari", "Ecco Pier,Frank e Giulio!");
