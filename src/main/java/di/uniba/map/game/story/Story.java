@@ -13,7 +13,7 @@ public class Story extends GameDescription{
 
         //Commands
         getPlayer().setName("Lello");
-        getPlayer().setArmor(20);
+        
 
         Command nord = new Command(CommandType.NORD, "nord");
         nord.setAlias(new String[]{"n", "N", "Nord", "NORD"});
@@ -148,10 +148,18 @@ public class Story extends GameDescription{
         razioneK.setHeal(40);
         getItemList().add(razioneK);
 
-        Item morsoDemo = new Item(6);
-        razioneK.setWeapon(true);
-        razioneK.setPower(50);
-        getItemList().add(morsoDemo);
+        Item armatura = new Item(6);
+        armatura.setArmor(true);
+        armatura.setProtection(50);
+        getItemList().add(armatura);
+        
+        Item armatura_rotta = new Item(7);
+        armatura_rotta.setArmor(true);
+        armatura_rotta.setProtection(30);
+        getItemList().add(armatura_rotta);
+        
+        
+        
 
         //NPC
         Npc amari = new Npc(100, "amari", "Ecco Pier,Frank e Giulio!");
@@ -183,7 +191,6 @@ public class Story extends GameDescription{
         
         Npc demogorgone = new Npc(150, "demogorgone", "Un demogorgone, un mostro orribile");
         demogorgone.setEnemy(true);
-        demogorgone.setWeaponEquip(morsoDemo);
         demogorgone.setSpeakable(false);
         getNpcList().add(demogorgone);
 
@@ -193,16 +200,22 @@ public class Story extends GameDescription{
         ufficio_comandante.getItems().add(piedePorco);
         campo_add.getItems().add(granata);
         campo_add.getItems().add(razioneK);
+        ingresso_trincea.getItems().add(armatura);
+        intermezzo.getItems().add(razioneK);
+        intermezzo.getItems().add(armatura_rotta);
 
         //NPC insert
         intro.getNpcs().add(amari);
         ufficio_comandante.getNpcs().add(ufficiale);
-        campo_add.getNpcs().add(galatone);
-        intermezzo.getNpcs().add(soldato);
         vicolo_cieco.getNpcs().add(demogorgone);
+        campo_add.getNpcs().add(galatone);
         ingresso_campo_add.getNpcs().add(orda);
+        intermezzo.getNpcs().add(soldato);
         intermezzo_est.getNpcs().add(orda);
         fine_trincea.getNpcs().add(demogorgone);
+        
+        
+        
 
         //Starting room
         setCurrentRoom(intro);
