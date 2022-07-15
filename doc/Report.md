@@ -48,13 +48,6 @@ mangia | eat, bevi, assumi | Consente di mangiare o bere qualcosa
   
 # Documentazione tecnica
 La realizzazione del caso d'uso è stata effettuata utilizzando il linguaggio di programmazione java e come tool di automazione per il controllo di versione Maven. 
-Per una miglior esperienza del gameplay si consiglia di avviare il programma attraverso la console locale del vostro Pc. Quindi (per sistemi windows!):
-1. Posizionarsi sulla cartella del progetto attraverso il comando `cd ~/nomeDirectoryProgetto`.
-2. Listare i file e subdirectory presenti nlla cartella attraverso il comando `ls`.
-3. Posizionarsi sulla cartella target attraverso il comando `cd target/`.
-4. Digitare il comando `java -jar GliAmariAdventure-1.0-SNAPSHOT.jar`. 
-
-Si tenga presente che è necessario scaricare l'ultima versione del progetto dal sito di github.
 
 ## **1. System Design**
 Per lo sviluppo del codice sono stati utilizzati 6 package:
