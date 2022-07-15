@@ -174,7 +174,7 @@ public class Db {
         String[] room2 = {"Ufficio comandante", "Ti trovi all'interno dell'ufficio del tuo comandante, \n" + "e' passato un mese da quando hai lasciato casa, \n" + " ascolti il tuo comandante spiegare\nla tattica di guerra. La paura di non farcela e' molta", "Ti trovi all'interno dell'ufficio del comandante.\n" + "Davanti a te e' presente una porta."};
         init(SELECT1,2,INSERT1,room2);
 
-        String[] room3 = {"Ingresso Trincea", "Ti trovi all'interno della trincea", "Sei nel mezzo di un campo di battaglia, \n" + "intorno a te solo morte e distruzione."};
+        String[] room3 = {"Ingresso Trincea", "Ti trovi all'interno della trincea", "Sei nel mezzo di un campo di battaglia, \n" + "intorno a te solo morte e distruzione. \n" + "Ti accorgi che nascosta sotto la terra un'armatura. "};
         init(SELECT1,3,INSERT1,room3);
 
         String[] room4 = {"Vicolo cieco", "Ti trovi nel mezzo di un vicolo cieco senza la possibilità di proseguire", "Sei in un vicolo, sembra non esserci niente di che... \n" + "ma scorgi all'improvviso un Demogorgone."};
@@ -192,7 +192,7 @@ public class Db {
         String[] room8 = {"Intermezzo", "Intermezzo a est", "Continuando la tua missione, arrivi in una zona molto tranquilla, sembra quasi intatta.\nMentre controlli in giro, noti delle persone che sembrano venirti incontro.\nMan mano che si avvicinano c'e' qualcosa che non va.\nNon sono delle persone, ma un orda di zombie alieni."};
         init(SELECT1,8,INSERT1,room8);
 
-        String[] room9 = {"Trincea", "Fine della trincea", "Dopo un'estenuante camminata, decidi di fermarti un attimo.\nTi guardi attorno e noti solo morte e distruzione.\nContinuando, ti salta addosso un alieno.\n" + "Devi ucciderlo e portare a termine la tua missione."};
+        String[] room9 = {"Trincea", "Fine della trincea", "Dopo un'estenuante camminata, decidi di fermarti un attimo.\nTi guardi attorno e noti solo morte e distruzione.\nContinuando, ti salta addosso un demogorgone.\n" + "Devi ucciderlo e portare a termine la tua missione."};
         init(SELECT1,9,INSERT1,room9);
 
         String[] room10 = {"In Amber Clad", "Riesci a salire all'interno dell'In Amber Clad,\n" + "la nave principale responsabile della minaccia aliena.\n" + "Appena entrato noterai in lontananza il nucleo della nave.\n" + "Ti avvicini lentamente con la pistola in mano, \n" + "piu' ti avvicini e piu' noti che il tuo corpo comincia a smaterializzarsi.\n" + "Sei ormai dinanzi al nucleo di te rimane poco e nulla,\n" + "cominci a sparare una raffica di colpi e il nucleo esplode.\n" + "Sai di aver sacrificato la tua vita ma tutto cio' per un bene superiore.\n" + "Nello stesso momento gli altri amari che stanno combattendo si fermano \n" + "per guardare in lontananza la nave esplodere, \n" + "sanno che il loro amico non c'e' piu',\n" + "ma sono consapevoli del fatto che non e' stato un sacrificio vano.\n" + "Dopo aver eliminato gli ultimi soldati alieni rimasti, \n" + "a ritmo di Fortunate Son si incamminano sulla via del ritorno.", "S"};
@@ -214,8 +214,13 @@ public class Db {
         String[] item5 = {"razionek", "Utile nel recuperare hp."};
         init(SELECT2, 5, INSERT2, item5);
 
-        String[] item6 = {"Morso_del_demogorgone", "Cosi potente... cosi spaventoso!"};
+        String[] item6 = {"armatura", "Utile per proteggerti da eventuali attacchi nemici"};
         init(SELECT2, 6, INSERT2, item6);
+        
+        String[] item7 = {"armatura_rotta", "armatura con crepe sulla superficie"};
+        init(SELECT2, 7, INSERT2, item7);
+        
+        
    
     }
 
