@@ -7,23 +7,24 @@
 ![copertina2](./copertina2.jpeg)
 
 **Indice sul caso d'uso:**   
-1. [Introduzione all'avventura testuale](#introduzione)
-2. [Trama dell'avventura e ambientazione](#tramaeambientazione)
-3. [Obbiettivi del gioco, regole e movimenti](#obbiettivi)  
+1. Introduzione all'avventura testuale
+2. Trama dell'avventura e ambientazione
+3. Obbiettivi del gioco, regole e movimenti 
 
 **Indice sulla documentazione tecnica:**
-1. [System Design](#systemdesign)
-2. [OO Design](#oodesign)
-3. [Dettagli implementativi](#dettagliimplementativi)
+1. System Design
+2. OO Design
+3. Dettagli implementativi
+4. Specifica algebrica
 
 # Il Caso d'uso
-## [**1. Introduzione all'avventura testuale**](#introduzione)
+## **1. Introduzione all'avventura testuale**
 Gli Amari è un titolo che prende spunto da vari titoli videoludici e opere cinematografiche come: Mass Effect, Killzone e il film 1917. La storia è basata sul protagonista di nome Lello che insieme al suo gruppo noto come “Gli Amari” dovrà affrontare una minaccia aliena. Il gioco è ambientato ai giorni nostri e il giocatore avrà la possibilità di muoversi all’interno del gioco e interagire con vari personaggi.
 
-## [**2. Trama dell'avventura e ambientazione**](#tramaeambientazione)
+## **2. Trama dell'avventura e ambientazione**
 Bari, Lello è in procinto di partire per la guerra insieme al suo gruppo noto come “Gli Amari” formato da Lello, Frank, Giulio e Pier. Frank è un tipo molto riflessivo, responsabile ma con carisma e personalità. Pier è molto curioso tant’è che è in grado di porsi domande su qualsiasi cosa gli accada nella vita mentre Giulio, soprannominato spaccatutto, è dotato di forza e intelligenza. Il connubio perfetto. Tuttavia, ogni tanto è necessario che spacchi qualcosa. A Casa Amari è arrivata una “cartolina” che chiama alle armi chiunque sia in grado di combattere. Una minaccia aliena proveniente dallo spazio sta per attaccare. Navi nemiche chiamate razziatori hanno intenzione di fare piazza pulita del pianeta Terra. Queste navi seguono gli ordini di quella principale nota come “In Amber Clad”. Numerose intemperie aspettano i nostri amari...  
 Il protagonista partendo da Casa Amari, potrà poi spostarsi all’interno della trincea. Da quest’ultima potremo poi spostarci in varie aree al suo interno per poi arrivare alla fine della trincea e al confronto con l’In Amber Clad, nave principale dell’invasione aliena.
-## [**3. Obbiettivi del gioco, regole e movimenti**](#obbiettivi)
+## **3. Obbiettivi del gioco, regole e movimenti**
 L’obiettivo del gioco è quello di distruggere la nave aliena nota come “In Amber Clad”, principale responsabile dell’invasione e riportare la pace sulla Terra. Per quanto riguarda i movimenti il giocatore avrà la possibilità di spostarsi in base a come ritiene opportuno farlo, limitatamente però ai limiti della mappa. I comandi principali per spostarsi sono NORD, SUD, EST, OVEST con le relative varianti sotto riportate. In generale i comandi principali sono rispettivamente:
 
 Comando | Alias | Descrizione
@@ -55,7 +56,7 @@ Per una miglior esperienza del gameplay si consiglia di avviare il programma att
 
 Si tenga presente che è necessario scaricare l'ultima versione del progetto dal sito di github.
 
-## [**1. System Design**](#systemdesign)
+## **1. System Design**
 Per lo sviluppo del codice sono stati utilizzati 6 package:
 1. `di.uniba.map.game`: contiene il codice che implementa il caso d'uso, tra cui la classe principale che consente l'avvio del programma e una classe che implementa il thread per la musica di sottofondo.
 2. `di.uniba.map.game.engine`: contiene l'implementazione del motore di gioco, tra cui un modulo per la gestione dei comandi e un modulo per l'inizializzazione dell'avventura testuale.
@@ -67,7 +68,7 @@ Per lo sviluppo del codice sono stati utilizzati 6 package:
 
 Tali scelte progettuali sono state prese in carico di comune accordo e per poter avere il giusto livello di modularità e di scalabilità durante le fasi di implementazione del caso.
 
-## [**2. OO Design**](#oodesign)
+## **2. OO Design**
 Abbiamo pensato di dover dividere il nostro modello in due parti:
 1. una prima vista che ci consente di visualizzare le classi che contengono i dettagli implementativi descritti in seguito (con relative motivazioni!).
 2. una seconda vista che contiene il modello di dati utilizzati per poter rappresentare le entità scelte per l'avventura (descriveremo in questo paragrafo le scelte progettuali sulle classi).
@@ -103,7 +104,7 @@ Nella seconda vista sono presenti classi entity e control. Le classi entity sono
 5. `di.uniba.map.game.type.Item` è la classe che gestisce le caratteristiche che un oggetto può avere.
 6. `di.uniba.map.game.type.Room` è la classe che gestisce tutte le caratteristiche delle stanze.
 
-## [**3. Dettagli implementativi**](#dettagliimplementativi)
+## **3. Dettagli implementativi**
 **File**:
 All’interno del progetto sono stati utilizzati i file di testo per quanto riguarda la lettura dei dialoghi con i personaggi e per la lettura all’interno del menu principale delle sezioni “ChiSiamo” e “HelpComandi”. In quanto tali classi estendono JFrame, abbiamo implementato un classico algoritmo per la lettura dei file, con la sola eccezione che il contenuto letto viene inserito nel campo di testo della finestra JTextPane presente.
 
@@ -124,3 +125,27 @@ In quanto per scelte progettuali memorizziamo i dati relativi alle stanze e agli
 **Thread**:
 Abbiamo implementato i thread in modo tale che fosse possibile l'ascolto di musica in sottofondo durante l'esecuzione del gioco. Per fare ciò abbiamo creato una classe che implementa l'interfaccia runnable per poter poi estendere il metodo run presente in runnable. All'interno di questo metodo creiamo un oggetto di tipo file che viene associato al file path musicale e se quest'ultimo dovesse risultare esistente allora verrà mandata in loop la canzone.
 
+
+## **4. Specifiche algebriche**
+
+| Specifica sintattica |                                                    |
+| -------------------- | -------------------------------------------------- |
+| Tipi:                | Inventory, Item                                    |
+| Operatori:           | newInventory()-> Inventory                         |
+|                      | add(Inventory, Item) -> Inventory                  |
+|                      | remove(Inventory, Item) -> Inventory               |
+
+| Osservazioni             | Costruttori di Inventory | Costruttori di Inventory                                     |
+| ------------------------ | ------------------------ | ------------------------------------------------------------ |
+|                          | newInventory()           | add(i, item)                                                 |
+| remove(i', item')        | Error                    | if item == item' then i else   add(remove(i ,item))          |
+
+| Specifica semantica                                                       |                                                         
+| ------------------------------------------------------------------------- | 
+| declare i:Inventory, item:Item                                            |                                                           
+| remove(add(i, item)) = if item == item' then i else add(remove(i ,item))  |
+
+| Specifica di restrizioni         |
+| -------------------------------- |
+| Restriction                      |
+| remove(newInventory()) = Error   |
