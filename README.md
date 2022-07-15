@@ -72,8 +72,7 @@ di seguito spieghiamo le varie directory:
 3. `img` contiene l'immagine di copertina del videogioco
 4. `lib/flatlaf-2.2.jar` contiene l'impostazione del _look and feel_, caricata come dipendenza nel file `pom.xml` del progetto
 5. `src` è la cartella principale del progetto, in cui scrivere tutto il codice dell’applicazione. In `main/` ci saranno i file sorgente e `test/` conterrà gli eventuali test di unità previsti.
-6. `target` contiene il file `.jar` eseguibile da terminale
-7. `.gitignore` specifica tutti i file che devono essere esclusi dal sistema di controllo versione.
-8. `settings.xml` specifica la dipendenza per la creazione del package maven sul progetto
-9. `resource/database` contiene i file binari su cui il jdbc di H2 lavora 
-10. `resource/dialog` contiene tutti i dialoghi presenti in gioco
+6. `.gitignore` specifica tutti i file che devono essere esclusi dal sistema di controllo versione.
+7. `settings.xml` specifica la dipendenza per la creazione del package maven sul progetto
+8. `resource/database` contiene i file binari su cui il jdbc di H2 lavora 
+9. `resource/dialog` contiene tutti i dialoghi presenti in gioco
