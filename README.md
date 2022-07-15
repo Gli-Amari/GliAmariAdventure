@@ -23,8 +23,6 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |    |      |-- ChiSiamo.txt
 |    |      |-- HelpC.txt
 |    |--diagrams
-|    |      |-- PackageDiagram
-|    |      |        |-- PackageDiagram.png
 |    |      |-- ConceptClassDiagram
 |    |      |        |-- ConceptClassDiagram.png
 |    |      |-- ClassDiagram
