@@ -2,5 +2,7 @@ SOLDATO: Soldato, ti prego ferma la mia sofferenza. Aiutami!
 LELLO: Cosa ti e' successo?
 SOLDATO: Ero impegnato in un fuoco di copertura e sono stato colpito da un proiettile.
 LELLO: Ma come sei arrivato fin qua
-SOLDATO: Facevo parte di una squadra d'assalto alla In Amber Clad. Sono rimasto solo io, aiutami a sporavvivere.
+SOLDATO: Facevo parte di una squadra d'assalto alla In Amber Clad. 
+	       Sono rimasto solo io. Ormai non ho molte speranze, prendi la mia armatura
+         e le mie scorte mediche. Porta a termine la missione!
 LELLO: Vedro' cosa posso fare.
