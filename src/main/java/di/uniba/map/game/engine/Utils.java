@@ -169,6 +169,15 @@ public class Utils {
                                 game.getPlayer().getWeaponEquip().setBullet(game.getPlayer().getWeaponEquip().getBullet() - 1);
 
                                 cmd.getNpc().setHp(cmd.getNpc().getHp() - game.getPlayer().getWeaponEquip().getPower());
+                                if(game.getPlayer().getArmor() > 0){
+                                     game.getPlayer().setArmor(game.getPlayer().getArmor()-20);
+                                     if(game.getPlayer().getArmor()<0){
+                                         game.getPlayer().setArmor(0);
+                                     }
+                                }else{
+                                      game.getPlayer().setHp(game.getPlayer().getHp()-20);
+                                        }
+                                
                                 System.out.println("Hai attaccato " + cmd.getNpc().getName() + " con " + game.getPlayer().getWeaponEquip().getName(db));
                                 cmd.getNpc().setAttacking(true);
                                 cmd.getNpc().setSpeakable(false);     
@@ -177,6 +186,8 @@ public class Utils {
                                 //printPlayerStats(game, db);
                             }else{                                       //caso in cui attacco senza armi a distanza...
                                 cmd.getNpc().setHp(cmd.getNpc().getHp() - game.getPlayer().getWeaponEquip().getPower());
+                                
+                                game.getPlayer().setHp(game.getPlayer().getHp()- 30);
                                 System.out.println("Hai attaccato " + cmd.getNpc().getName() + " con " + game.getPlayer().getWeaponEquip().getName(db));
                                 cmd.getNpc().setAttacking(true);
                                 cmd.getNpc().setSpeakable(false);
@@ -207,17 +218,17 @@ public class Utils {
     private void monsterResponse(Npc cmd, GameDescription game) {
         //attacco di risposta del mostro
         if(cmd.getHp() <= 0){
-            System.out.println(cmd.getName() + ": ARRRRRRRRRGHHHH!!!"); // randomizzare le frasi in base al mostro
+            System.out.println(cmd.getName() + ": ARRRRRRRRRGHHHH!!!, PRENDI QUESTO!"); // randomizzare le frasi in base al mostro
             System.out.println("\nHai ucciso " + cmd.getName() + "!");
+            cmd.setHp(150);
             if(cmd.getWeaponEquip() != null){
                 game.getCurrentRoom().getItems().add(cmd.getWeaponEquip());
             }
             game.getCurrentRoom().getNpcs().remove(cmd);
         }else{
             if(cmd.getEnemy()){
-                System.out.println(cmd.getName() + ": WROAAAAAARHHH!!!"); // randomizzare le frasi
-                int damage = game.getPlayer().getHp() - cmd.getWeaponEquip().getPower();
-                game.getPlayer().setHp(damage);
+                System.out.println(cmd.getName() + ": WROAAAAAARHHH!!!, PRENDI QUESTO!"); // randomizzare le frasi             
+                
             }
         }
     }
