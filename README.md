@@ -24,7 +24,7 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |    |      |-- HelpC.txt
 |    |--diagrams
 |    |      |-- ConceptClassDiagram
-|    |      |        |-- ConceptClassDiagram.png
+|    |      |        |-- ConceptClassDiagram.mdj
 |    |      |-- ClassDiagram
 |    |      |        |-- view1.png
 |    |      |        |-- view2.png
