@@ -26,10 +26,18 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |    |      |-- ConceptClassDiagram
 |    |      |        |-- ConceptClassDiagram.mdj
 |    |      |-- ClassDiagram
-|    |      |        |-- view1.png
-|    |      |        |-- view2.png
+|    |      |        |-- vista1.png
+|    |      |        |-- vista2.png
 |    |-- Report.md
+|    |-- Copertina2.jpg
+|    |-- Report del progetto.docx
+|    |-- Report del progetto.pdf
 |    |-- GitHubFlow.md
+|-- dialog
+|    |-- amari.txt
+|    |-- galatone.txt
+|    |-- soldato.txt
+|    |-- ufficiale.txt
 |–– img
 |    |–– Copertina.jpg
 |    |-- Logo.png
@@ -39,15 +47,8 @@ Per la documentazione fare riferimento a [Report.md](./doc/Report.md). La strutt
 |    |-- databases
 |    |      |-- dbAmari.mv.db
 |    |      |-- dbAmari.trace.db
-|    |-- dialog
-|    |      |-- stanza15Galatone.txt
-|    |      |-- stanza12Ufficiale.txt
-|    |      |-- stanza11Pippo.txt
-|    |      |-- stanza10Lanubile.txt
-|    |      |-- stanza5Giulio.txt
-|    |      |-- stanza4Frank.txt
-|    |      |-- stanza3Pier.txt
 |    |-- StrangerThings_Season1_Opening-IntroHD.wav
+|    |-- Itwasagodday.wav
 |–– src
 |    |–– main
 |    |–– test
